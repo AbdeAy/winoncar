@@ -2534,18 +2534,255 @@ Je souhaite réserver le véhicule suivant :
       return encodeURIComponent(msg);
     }
 
-    function submitViaWhatsApp() {
+    // ─────────────────────────────────────────────────────────────────────────
+    // --- 10b. BOOKING FORM VALIDATION ENGINE ---
+    // Strict rule: phone must be exactly 10 digits, digits only, no letters.
+    // ─────────────────────────────────────────────────────────────────────────
+
+    /**
+     * Show an inline error below an input field.
+     * @param {string} fieldId  - id of the <div id="...Error"> container
+     * @param {string} message  - text to display
+     */
+    function showFieldError(fieldId, message) {
+      const container = document.getElementById(fieldId);
+      if (!container) return;
+      const span = container.querySelector('.error-msg');
+      if (span) span.textContent = message;
+      container.classList.remove('hidden');
+      // Highlight the sibling input/select with a red border
+      const input = container.previousElementSibling;
+      if (input && (input.tagName === 'INPUT' || input.tagName === 'SELECT')) {
+        input.classList.add('border-rose-500');
+        input.classList.remove('border-slate-700');
+      }
+    }
+
+    /**
+     * Clear an inline error container and reset the input border.
+     * @param {string} fieldId
+     */
+    function clearFieldError(fieldId) {
+      const container = document.getElementById(fieldId);
+      if (!container) return;
+      container.classList.add('hidden');
+      const input = container.previousElementSibling;
+      if (input && (input.tagName === 'INPUT' || input.tagName === 'SELECT')) {
+        input.classList.remove('border-rose-500');
+        input.classList.add('border-slate-700');
+      }
+    }
+
+    /**
+     * Get the current translation string for a validation key.
+     * Falls back to French when key is missing.
+     */
+    function t(key) {
+      if (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang]) {
+        return WINON_TRANSLATIONS[currentLang][key] || WINON_TRANSLATIONS['fr'][key] || key;
+      }
+      return key;
+    }
+
+    /**
+     * Validate the phone field (strict: exactly 10 digits, no letters).
+     * Returns true when valid, false + shows error when invalid.
+     */
+    function validatePhoneField() {
+      const phoneInput = document.getElementById('clientPhone');
+      const raw = phoneInput ? phoneInput.value : '';
+
+      // Rule 1 – must not contain any letters
+      if (/[a-zA-Z\u0600-\u06FF]/.test(raw)) {
+        showFieldError('clientPhoneError', t('error_phone_letters'));
+        return false;
+      }
+
+      // Rule 2 – strip everything that's not a digit, count exactly 10
+      const digits = raw.replace(/\D/g, '');
+      if (digits.length !== 10) {
+        showFieldError('clientPhoneError', t('error_phone_invalid'));
+        return false;
+      }
+
+      clearFieldError('clientPhoneError');
+      return true;
+    }
+
+    /**
+     * Validate the full name field (≥ 2 printable characters, no HTML tags).
+     */
+    function validateNameField() {
       const nameInput = document.getElementById('clientName');
+      const val = nameInput ? nameInput.value.replace(/<[^>]*>/g, '').trim() : '';
+      if (val.length < 2) {
+        showFieldError('clientNameError', t('error_name_required'));
+        return false;
+      }
+      clearFieldError('clientNameError');
+      return true;
+    }
+
+    /**
+     * Validate the optional email field (RFC-basic pattern when non-empty).
+     */
+    function validateEmailField() {
+      const emailInput = document.getElementById('clientEmail');
+      const val = emailInput ? emailInput.value.trim() : '';
+      if (val === '') { clearFieldError('clientEmailError'); return true; } // optional
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val) && val.length <= 120;
+      if (!ok) {
+        showFieldError('clientEmailError', t('error_email_invalid'));
+        return false;
+      }
+      clearFieldError('clientEmailError');
+      return true;
+    }
+
+    /**
+     * Validate date/time chronology: return must be strictly after pickup.
+     */
+    function validateDatesField() {
+      const pickupDate = document.getElementById('pickupDate')?.value;
+      const pickupTime = document.getElementById('pickupTime')?.value || '10:00';
+      const returnDate = document.getElementById('returnDate')?.value;
+      const returnTime = document.getElementById('returnTime')?.value || '10:00';
+
+      if (!pickupDate || !returnDate) return true; // handled by HTML required
+      const start = new Date(`${pickupDate}T${pickupTime}`);
+      const end   = new Date(`${returnDate}T${returnTime}`);
+      if (isNaN(start) || isNaN(end) || end <= start) {
+        showFieldError('datesError', t('error_dates_invalid'));
+        return false;
+      }
+      clearFieldError('datesError');
+      return true;
+    }
+
+    /**
+     * Run all booking form validations. Returns true only when all pass.
+     * Also shows / hides the top-level error banner.
+     */
+    function validateBookingForm() {
+      const phoneOk  = validatePhoneField();
+      const nameOk   = validateNameField();
+      const emailOk  = validateEmailField();
+      const datesOk  = validateDatesField();
+      const allOk    = phoneOk && nameOk && emailOk && datesOk;
+
+      const banner = document.getElementById('bookingFormErrorBanner');
+      if (banner) {
+        if (!allOk) {
+          const bannerText = banner.querySelector('.error-banner-text');
+          if (bannerText) bannerText.textContent = t('error_form_has_errors');
+          banner.classList.remove('hidden');
+          // Scroll banner into view smoothly
+          banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          banner.classList.add('hidden');
+        }
+      }
+      return allOk;
+    }
+
+    /**
+     * Called by setLanguage() to refresh any already-visible error messages
+     * in the current active language without re-running the full validation.
+     */
+    function refreshVisibleValidationErrors() {
+      const errorMap = {
+        clientPhoneError : 'error_phone_invalid',
+        clientNameError  : 'error_name_required',
+        clientEmailError : 'error_email_invalid',
+        datesError       : 'error_dates_invalid'
+      };
+      Object.entries(errorMap).forEach(([containerId, key]) => {
+        const container = document.getElementById(containerId);
+        if (container && !container.classList.contains('hidden')) {
+          const span = container.querySelector('.error-msg');
+          if (span) span.textContent = t(key);
+        }
+      });
+      const banner = document.getElementById('bookingFormErrorBanner');
+      if (banner && !banner.classList.contains('hidden')) {
+        const bt = banner.querySelector('.error-banner-text');
+        if (bt) bt.textContent = t('error_form_has_errors');
+      }
+    }
+
+    // ── Live feedback listeners (attached once DOM is ready) ──────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      const phoneInput = document.getElementById('clientPhone');
+      const nameInput  = document.getElementById('clientName');
+      const emailInput = document.getElementById('clientEmail');
+      const pickupDateInput  = document.getElementById('pickupDate');
+      const pickupTimeInput  = document.getElementById('pickupTime');
+      const returnDateInput  = document.getElementById('returnDate');
+      const returnTimeInput  = document.getElementById('returnTime');
+
+      // Phone: block any non-digit keystroke live + validate on input
+      if (phoneInput) {
+        // Prevent letters from being typed at all
+        phoneInput.addEventListener('keypress', (e) => {
+          if (!/[0-9]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight','Enter'].includes(e.key)) {
+            e.preventDefault();
+          }
+        });
+        // Also handle paste: strip non-digits immediately
+        phoneInput.addEventListener('paste', (e) => {
+          e.preventDefault();
+          const pasted = (e.clipboardData || window.clipboardData).getData('text');
+          const digitsOnly = pasted.replace(/\D/g, '');
+          const cur = phoneInput.value;
+          const start = phoneInput.selectionStart;
+          const end   = phoneInput.selectionEnd;
+          phoneInput.value = cur.slice(0, start) + digitsOnly + cur.slice(end);
+          validatePhoneField();
+        });
+        // Live validation as user types
+        phoneInput.addEventListener('input', () => {
+          // Strip any non-digit characters automatically
+          const cleaned = phoneInput.value.replace(/\D/g, '');
+          if (phoneInput.value !== cleaned) phoneInput.value = cleaned;
+          if (phoneInput.value.length > 0) validatePhoneField();
+          else clearFieldError('clientPhoneError');
+        });
+        phoneInput.addEventListener('blur', validatePhoneField);
+      }
+
+      if (nameInput) {
+        nameInput.addEventListener('input', () => {
+          if (nameInput.value.trim().length > 0) validateNameField();
+          else clearFieldError('clientNameError');
+        });
+        nameInput.addEventListener('blur', validateNameField);
+      }
+
+      if (emailInput) {
+        emailInput.addEventListener('input', () => {
+          if (emailInput.value.trim().length > 0) validateEmailField();
+          else clearFieldError('clientEmailError');
+        });
+        emailInput.addEventListener('blur', validateEmailField);
+      }
+
+      [pickupDateInput, pickupTimeInput, returnDateInput, returnTimeInput].forEach(el => {
+        if (el) el.addEventListener('change', validateDatesField);
+      });
+    });
+
+    function submitViaWhatsApp() {
+      const nameInput  = document.getElementById('clientName');
       const phoneInput = document.getElementById('clientPhone');
 
-      if (!nameInput.value.trim()) {
-        alert(currentLang === 'ar' ? "يرجى كتابة الاسم واللقب في الاستمارة." : (currentLang === 'en' ? "Please provide your Full Name in the form." : "Veuillez indiquer votre Nom et Prénom dans le formulaire."));
+      // Validate name
+      if (!validateNameField()) {
         nameInput.focus();
         return;
       }
 
-      if (!phoneInput.value.trim()) {
-        alert(currentLang === 'ar' ? "يرجى كتابة رقم الهاتف أو الواتساب في الاستمارة." : (currentLang === 'en' ? "Please provide your Phone / WhatsApp number in the form." : "Veuillez indiquer votre Numéro de Téléphone ou WhatsApp dans le formulaire."));
+      // Validate phone (exactly 10 digits, no letters)
+      if (!validatePhoneField()) {
         phoneInput.focus();
         return;
       }
@@ -2558,6 +2795,9 @@ Je souhaite réserver le véhicule suivant :
     // --- 11. FORM SUBMISSION HANDLER ---
     function handleFormSubmit(event) {
       event.preventDefault();
+
+      // Run all validations — stop here if any field is invalid
+      if (!validateBookingForm()) return;
       const car = CARS_DATABASE.find(c => c.id === currentSelectedCarId) || CARS_DATABASE[0];
       const days = calculateDays();
       const isDiscounted = days >= 7;

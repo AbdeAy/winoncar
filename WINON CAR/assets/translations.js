@@ -98,7 +98,8 @@ const WINON_TRANSLATIONS = {
     doc_compressing: "Compression...",
 
     // Validation des formulaires
-    error_phone_invalid: "Numéro de téléphone invalide : au moins 9 chiffres requis (ex: 06 12 34 56 78 ou +212 6...)",
+    error_phone_invalid: "Le numéro de téléphone doit contenir exactement 10 chiffres (ex: 0612345678)",
+    error_phone_letters: "Le numéro de téléphone ne doit contenir que des chiffres, sans lettres ni espaces",
     error_name_required: "Veuillez renseigner votre nom complet (au moins 2 caractères)",
     error_email_invalid: "Adresse email invalide (ex: contact@exemple.com)",
     error_dates_invalid: "La date et l'heure de restitution doivent être postérieures à la prise en charge",
@@ -231,7 +232,8 @@ const WINON_TRANSLATIONS = {
     doc_compressing: "Compressing...",
 
     // Form Validation Messages
-    error_phone_invalid: "Invalid phone number: at least 9 digits required (e.g. +212 6... or 06...)",
+    error_phone_invalid: "Phone number must contain exactly 10 digits (e.g. 0612345678)",
+    error_phone_letters: "Phone number must contain digits only — no letters or spaces",
     error_name_required: "Please enter your full name (at least 2 characters)",
     error_email_invalid: "Invalid email address (e.g. contact@example.com)",
     error_dates_invalid: "Return date and time must be after the pick-up date and time",
@@ -364,7 +366,8 @@ const WINON_TRANSLATIONS = {
     doc_compressing: "جارِ الضغط...",
 
     // رسائل التحقق من صحة الاستمارة
-    error_phone_invalid: "رقم هاتف غير صحيح: يجب إدخال 9 أرقام على الأقل (مثال: 0612345678 أو +212...)",
+    error_phone_invalid: "رقم الهاتف يجب أن يحتوي على 10 أرقام بالضبط (مثال: 0612345678)",
+    error_phone_letters: "رقم الهاتف يجب أن يحتوي على أرقام فقط، بدون حروف أو مسافات",
     error_name_required: "يرجى إدخال الاسم الكامل (حرفين على الأقل)",
     error_email_invalid: "عنوان بريد إلكتروني غير صحيح (مثال: contact@example.com)",
     error_dates_invalid: "تاريخ ووقت الإرجاع يجب أن يكون بعد تاريخ ووقت الاستلام",

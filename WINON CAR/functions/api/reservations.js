@@ -34,19 +34,31 @@ export async function onRequestPost(context) {
       }
     }
 
-    // 1b. Validation stricte du numéro de téléphone (au moins 9 chiffres, pas de caractères interdits)
+    // 1b. Validation stricte du numéro de téléphone : exactement 10 chiffres, aucune lettre autorisée
     const rawPhone = String(data.clientPhone).trim();
-    const phonePattern = /^\+?[0-9\s().-]{9,25}$/;
-    const phoneDigits = rawPhone.replace(/\D/g, '');
-    if (!phonePattern.test(rawPhone) || phoneDigits.length < 9 || phoneDigits.length > 15 || /^(\d)\1+$/.test(phoneDigits)) {
+    // Rejeter immédiatement si le champ contient des lettres
+    if (/[a-zA-Z]/.test(rawPhone)) {
       return new Response(JSON.stringify({
         success: false,
-        error: "Numéro de téléphone invalide : au moins 9 chiffres requis (ex: 06 12 34 56 78 ou +212 6...)."
+        error: "Le numéro de téléphone ne doit contenir que des chiffres, sans lettres ni espaces."
       }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
       });
     }
+    // Compter uniquement les chiffres présents dans la saisie
+    const phoneDigits = rawPhone.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: `Le numéro de téléphone doit contenir exactement 10 chiffres (reçu : ${phoneDigits.length}).`
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    // Le numéro normalisé stocké en base = les 10 chiffres bruts (sans formatage)
+    const cleanPhone = phoneDigits;
 
     // 1c. Assainissement et validation du nom complet
     const cleanClientName = String(data.clientName).replace(/<[^>]*>/g, '').trim();
@@ -171,7 +183,7 @@ export async function onRequestPost(context) {
       Number(data.days) || 1,
       flightNumber,
       cleanClientName,
-      rawPhone,
+      cleanPhone,
       cleanClientEmail,
       notes,
       data.optWifi ? 1 : 0,
