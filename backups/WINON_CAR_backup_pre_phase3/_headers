@@ -1,0 +1,14 @@
+# Cloudflare Pages Caching & Security Headers pour WINON CAR
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+
+/assets/cars/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/winon-logo.jpeg
+  Cache-Control: public, max-age=86400
+

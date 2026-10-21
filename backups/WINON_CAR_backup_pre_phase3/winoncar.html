@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WINON CAR | Location de Voitures à Agadir - Aéroport & Ville</title>
+  <meta name="description" content="Location de voitures premium à Agadir avec WINON CAR. Livraison gratuite à l'Aéroport Agadir Al-Massira et aux hôtels. Prix transparents en MAD, kilométrage illimité, réservation WhatsApp 24/7.">
+  
+  <!-- Favicon officiel WINON CAR -->
+  <link rel="icon" type="image/jpeg" href="winon-logo.jpeg">
+  <link rel="apple-touch-icon" href="winon-logo.jpeg">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldHover: '#C5A059',
+              goldLight: '#FDF8EC',
+              dark: '#0B132B',
+              navy: '#1C2541',
+              slate: '#3A506B',
+              whatsapp: '#25D366',
+              whatsappHover: '#1EBE5D'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #F8FAFC;
+      color: #1E293B;
+    }
+    
+    .gold-gradient {
+      background: linear-gradient(135deg, #DFB76C 0%, #C5A059 50%, #9E7D3B 100%);
+    }
+
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #F3D99A 0%, #D4AF37 50%, #B88E28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-pattern {
+      background: linear-gradient(180deg, rgba(11, 19, 43, 0.88) 0%, rgba(28, 37, 65, 0.95) 100%), 
+                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+
+    .pulse-whatsapp {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .modal-backdrop {
+      background-color: rgba(11, 19, 43, 0.8);
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-white pb-20 lg:pb-0">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-brand-dark text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+        <span class="flex items-center gap-1.5 text-brand-gold font-semibold">
+          <i class="fa-solid fa-map-pin"></i> Agadir, Maroc
+        </span>
+        <span class="hidden md:inline text-slate-600">•</span>
+        <span class="flex items-center gap-1.5 text-slate-300">
+          <i class="fa-solid fa-plane-arrival text-brand-gold"></i> Livraison gratuite Aéroport Al-Massira (AGA) & Hôtels
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+212604707847" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 font-medium">
+          <i class="fa-solid fa-phone text-brand-gold"></i> +212 604-707847
+        </a>
+        <span class="text-slate-600">|</span>
+        <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20des%20informations%20pour%20une%20location%20à%20Agadir." target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-bold">
+          <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp 24/7
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo with Official winon-logo.jpeg -->
+        <a href="#accueil" class="flex items-center gap-3 group">
+          <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-sm border border-slate-200 overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center p-0.5">
+            <img src="winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='../winon-logo.jpeg';">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-brand-dark flex items-center gap-1">
+              WINON <span class="gold-text-gradient font-black">CAR</span>
+            </span>
+            <span class="text-[10px] tracking-widest text-slate-500 font-bold uppercase -mt-1">
+              Agadir • Location de Voitures
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-bold text-slate-700">
+          <a href="#accueil" class="hover:text-brand-gold transition-colors">Accueil</a>
+          <a href="#flotte" class="hover:text-brand-gold transition-colors">Nos Voitures</a>
+          <a href="#reservation" class="hover:text-brand-gold transition-colors">Réservation</a>
+          <a href="#avantages" class="hover:text-brand-gold transition-colors">Pourquoi Nous ?</a>
+          <a href="#agadir" class="hover:text-brand-gold transition-colors">Guide Agadir</a>
+          <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
+          <a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Action Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir." 
+             target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all hover:scale-105">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>WhatsApp Express</span>
+          </a>
+          <a href="#reservation" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all shadow-md">
+            <span>Devis & Réservation</span>
+            <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobileMenuBtn" aria-label="Ouvrir le menu" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+          <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 shadow-xl transition-all">
+      <nav class="flex flex-col gap-2 text-base font-semibold text-slate-800">
+        <a href="#accueil" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span>Accueil</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="#flotte" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span>Notre Flotte & Tarifs en MAD</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="#reservation" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span>Formulaire de Réservation</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="#avantages" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span>Nos Avantages</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="#agadir" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span>Guide Tourisme Agadir</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="#faq" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span>Foire Aux Questions (FAQ)</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="#contact" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span>Contact Direct</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        
+        <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5 mt-2">
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
+             target="_blank" rel="noopener noreferrer" 
+             class="flex items-center justify-center gap-2 bg-brand-whatsapp text-white py-3 rounded-xl font-bold text-center shadow">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Réserver sur WhatsApp (+212 604-707847)
+          </a>
+          <a href="tel:+212604707847" class="flex items-center justify-center gap-2 bg-brand-dark text-white py-3 rounded-xl font-bold text-center">
+            <i class="fa-solid fa-phone"></i> Appeler l'Agence Directement
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="accueil" class="relative hero-pattern text-white py-20 lg:py-28 overflow-hidden">
+    <!-- Subtle glow element -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <!-- Top Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-brand-gold text-xs sm:text-sm font-bold mb-6">
+          <i class="fa-solid fa-award"></i>
+          <span>Agence de Référence à Agadir • Service VIP 24/7</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] mb-6">
+          Location de Voitures d'Exception à <span class="gold-text-gradient">Agadir</span>
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-8">
+          Profitez d'un séjour inoubliable au Maroc avec WINON CAR. Véhicules récents et climatisés, 
+          <strong class="text-white font-semibold">livraison gratuite à l'Aéroport Agadir Al-Massira (AGA)</strong> et dans tous les hôtels de la région.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
+          <a href="#reservation" class="gold-gradient hover:opacity-95 text-brand-dark px-7 py-4 rounded-xl font-extrabold text-center shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-calendar-check text-lg"></i>
+            <span>Réserver Maintenant</span>
+          </a>
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir." 
+             target="_blank" rel="noopener noreferrer"
+             class="bg-brand-whatsapp hover:bg-brand-whatsappHover text-white px-7 py-4 rounded-xl font-bold text-center shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <span>Contact WhatsApp Direct</span>
+          </a>
+        </div>
+
+        <!-- Trust Features Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-700/60 text-xs sm:text-sm text-slate-300">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
+              <i class="fa-solid fa-infinity"></i>
+            </div>
+            <span>Kilométrage illimité</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <span>Assurance tous risques</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+            <span>Livraison Aéroport 24/7</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <span>Zéro frais cachés</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK SEARCH STRIP / FAST FINDER WIDGET -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 sm:p-7">
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+        
+        <!-- Fast Location -->
+        <div class="flex-1">
+          <label for="quickLocation" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+            <i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> Prise en charge
+          </label>
+          <select id="quickLocation" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold focus:ring-2 focus:ring-brand-gold outline-none">
+            <option value="Aéroport Agadir Al-Massira (AGA)">Aéroport Agadir Al-Massira (Gratuit)</option>
+            <option value="Centre-ville Agadir">Centre-ville Agadir</option>
+            <option value="Marina d'Agadir">Marina d'Agadir</option>
+            <option value="Taghazout / Taghazout Bay">Taghazout / Taghazout Bay</option>
+            <option value="Hôtel / Villa à Agadir (Préciser en note)">Hôtel / Villa à Agadir</option>
+          </select>
+        </div>
+
+        <!-- Fast Pickup Date -->
+        <div class="flex-1">
+          <label for="quickPickupDate" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+            <i class="fa-regular fa-calendar text-brand-gold mr-1"></i> Date de début
+          </label>
+          <input type="date" id="quickPickupDate" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold focus:ring-2 focus:ring-brand-gold outline-none">
+        </div>
+
+        <!-- Fast Return Date -->
+        <div class="flex-1">
+          <label for="quickReturnDate" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+            <i class="fa-regular fa-calendar-check text-brand-gold mr-1"></i> Date de retour
+          </label>
+          <input type="date" id="quickReturnDate" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold focus:ring-2 focus:ring-brand-gold outline-none">
+        </div>
+
+        <!-- Action Button -->
+        <div class="lg:w-auto flex items-end">
+          <button type="button" onclick="applyQuickSearchAndScroll()" class="w-full lg:w-auto bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-6 py-3 rounded-xl font-extrabold text-sm transition-all shadow-md flex items-center justify-center gap-2">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Voir les Véhicules Disponibles</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CAR CATALOG SECTION -->
+  <section id="flotte" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
+        Flotte Récente & Entretenue
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4">
+        Nos Véhicules Disponibles à la Location
+      </h2>
+      <p class="text-slate-600 text-base sm:text-lg">
+        Tous nos tarifs sont affichés en <strong class="text-slate-900">Dirhams Marocains (MAD) par jour</strong>, assurance tous risques et kilométrage illimité inclus.
+      </p>
+
+      <!-- Category Filter Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-8" id="categoryFilterContainer">
+        <button class="filter-btn active px-4 py-2 rounded-xl text-sm font-bold transition-all bg-brand-dark text-white shadow-sm" data-category="all">
+          Tous les véhicules (10)
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="eco">
+          Économiques
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="berline">
+          Berlines
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="suv">
+          SUV & 4x4
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="luxe">
+          Prestige & Luxe
+        </button>
+      </div>
+    </div>
+
+    <!-- CAR GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="carCatalogGrid">
+      <!-- Car cards will be rendered dynamically by JavaScript -->
+    </div>
+  </section>
+
+  <!-- RESERVATION SECTION WITH COMPLETE BOOKING FORM -->
+  <section id="reservation" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <!-- Background Decor -->
+    <div class="absolute top-0 right-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
+          Réservation en Ligne & Devis Immédiat
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
+          Réservez Votre Voiture en Quelques Clics
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Sélectionnez vos dates pour calculer le montant exact en MAD. Confirmez directement via WhatsApp ou soumettez votre demande.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Booking Form Column -->
+        <div class="lg:col-span-8 bg-slate-800/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-2xl">
+          <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+            
+            <!-- Locations Row -->
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-300">
+                  <i class="fa-solid fa-map-location-dot text-brand-gold mr-1.5"></i> Lieux de prise en charge & restitution
+                </span>
+                <label class="flex items-center gap-1.5 text-xs text-brand-gold cursor-pointer select-none">
+                  <input type="checkbox" id="sameLocationCheck" checked onchange="toggleReturnLocation()" class="rounded text-brand-gold focus:ring-brand-gold bg-slate-900 border-slate-700">
+                  <span>Restituer au même endroit</span>
+                </label>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="pickupLocation" class="block text-xs font-semibold text-slate-400 mb-1.5">Lieu de Départ</label>
+                  <select id="pickupLocation" required onchange="handlePickupLocationChange()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all">
+                    <option value="Aéroport Agadir Al-Massira (AGA)">Aéroport Agadir Al-Massira (AGA) — Gratuit</option>
+                    <option value="Centre-ville Agadir">Centre-ville Agadir</option>
+                    <option value="Marina d'Agadir">Marina d'Agadir</option>
+                    <option value="Hôtel / Villa à Agadir (Préciser en note)">Hôtel / Villa à Agadir</option>
+                    <option value="Taghazout / Taghazout Bay">Taghazout / Taghazout Bay</option>
+                    <option value="Imi Ouaddar / Paradis Plage">Imi Ouaddar / Paradis Plage</option>
+                  </select>
+                </div>
+
+                <div id="returnLocationContainer" class="hidden">
+                  <label for="returnLocation" class="block text-xs font-semibold text-slate-400 mb-1.5">Lieu de Retour</label>
+                  <select id="returnLocation" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all">
+                    <option value="Aéroport Agadir Al-Massira (AGA)">Aéroport Agadir Al-Massira (AGA) — Gratuit</option>
+                    <option value="Centre-ville Agadir">Centre-ville Agadir</option>
+                    <option value="Marina d'Agadir">Marina d'Agadir</option>
+                    <option value="Hôtel / Villa à Agadir">Hôtel / Villa à Agadir</option>
+                    <option value="Taghazout / Taghazout Bay">Taghazout / Taghazout Bay</option>
+                    <option value="Imi Ouaddar / Paradis Plage">Imi Ouaddar / Paradis Plage</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Flight Number Field (Dynamic for Airport) -->
+              <div id="flightNumberRow" class="bg-slate-900/50 p-3.5 rounded-xl border border-slate-700/60">
+                <label for="flightNumber" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <i class="fa-solid fa-plane-arrival text-brand-gold mr-1.5"></i> N° de Vol d'Arrivée (Recommandé pour l'Aéroport Al-Massira)
+                </label>
+                <input type="text" id="flightNumber" placeholder="Ex: AT452, TO3124, FR6712 (Nous suivons votre vol en direct)" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-2.5 text-xs sm:text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+              </div>
+            </div>
+
+            <!-- Dates & Times Row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="pickupDate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <i class="fa-regular fa-calendar-days text-brand-gold mr-1.5"></i> Date & Heure de Départ
+                </label>
+                <div class="grid grid-cols-3 gap-2">
+                  <input type="date" id="pickupDate" required class="col-span-2 bg-slate-900 border border-slate-700 text-white rounded-xl px-3 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+                  <input type="time" id="pickupTime" value="10:00" required class="col-span-1 bg-slate-900 border border-slate-700 text-white rounded-xl px-2 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none text-center">
+                </div>
+              </div>
+
+              <div>
+                <label for="returnDate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <i class="fa-regular fa-calendar-check text-brand-gold mr-1.5"></i> Date & Heure de Retour
+                </label>
+                <div class="grid grid-cols-3 gap-2">
+                  <input type="date" id="returnDate" required class="col-span-2 bg-slate-900 border border-slate-700 text-white rounded-xl px-3 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+                  <input type="time" id="returnTime" value="10:00" required class="col-span-1 bg-slate-900 border border-slate-700 text-white rounded-xl px-2 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none text-center">
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle Selection Row -->
+            <div>
+              <label for="carSelect" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                <i class="fa-solid fa-car text-brand-gold mr-1.5"></i> Véhicule Souhaité
+              </label>
+              <select id="carSelect" required onchange="updateBookingCalculation()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm font-semibold focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all">
+                <!-- Populated dynamically via JS -->
+              </select>
+            </div>
+
+            <!-- Client Contact Details -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="clientName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <i class="fa-regular fa-user text-brand-gold mr-1.5"></i> Nom & Prénom <span class="text-rose-400">*</span>
+                </label>
+                <input type="text" id="clientName" required placeholder="Ex: Karim Alami" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+              </div>
+
+              <div>
+                <label for="clientPhone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <i class="fa-brands fa-whatsapp text-brand-whatsapp mr-1.5"></i> Numéro Téléphone / WhatsApp <span class="text-rose-400">*</span>
+                </label>
+                <input type="tel" id="clientPhone" required placeholder="Ex: +212 6XX-XXXXXX ou +33 6XX..." class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="clientEmail" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <i class="fa-regular fa-envelope text-brand-gold mr-1.5"></i> Email (Optionnel)
+                </label>
+                <input type="email" id="clientEmail" placeholder="votre.email@exemple.com" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+              </div>
+
+              <div>
+                <label for="bookingNotes" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  <i class="fa-regular fa-comment-dots text-brand-gold mr-1.5"></i> Demandes Particulières ou Hôtel
+                </label>
+                <input type="text" id="bookingNotes" placeholder="Ex: Nom de l'hôtel, heure spécifique..." class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+              </div>
+            </div>
+
+            <!-- Options Checkboxes -->
+            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/60">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Options & Équipements</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-slate-300">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="optBabySeat" class="rounded text-brand-gold focus:ring-brand-gold bg-slate-800 border-slate-700">
+                  <span>Siège Bébé (Offert)</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="optDriver" checked class="rounded text-brand-gold focus:ring-brand-gold bg-slate-800 border-slate-700">
+                  <span>2ème Conducteur (Inclus)</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="optAirport" checked class="rounded text-brand-gold focus:ring-brand-gold bg-slate-800 border-slate-700">
+                  <span>Livraison Aéroport (Gratuite)</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="optWifi" onchange="updateBookingCalculation()" class="rounded text-brand-gold focus:ring-brand-gold bg-slate-800 border-slate-700">
+                  <span>Boîtier Wi-Fi 4G (+30 MAD/j)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+              <button type="button" onclick="submitViaWhatsApp()" class="flex-1 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-4 px-6 rounded-xl font-bold text-center shadow-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 text-base">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <span>Réserver directement via WhatsApp</span>
+              </button>
+              <button type="submit" class="bg-brand-gold hover:bg-brand-goldHover text-brand-dark py-4 px-6 rounded-xl font-extrabold text-center shadow-lg transition-all hover:scale-[1.02] text-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Confirmer la demande</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Price Summary & Agadir Service Box -->
+        <div class="lg:col-span-4 space-y-6">
+          
+          <!-- Summary Card -->
+          <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 shadow-xl">
+            <h3 class="text-lg font-bold text-white mb-4 pb-3 border-b border-slate-700 flex items-center justify-between">
+              <span>Récapitulatif Estimé</span>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded bg-brand-gold/20 text-brand-gold">0 Frais Cachés</span>
+            </h3>
+
+            <div class="space-y-3 text-sm text-slate-300">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Véhicule choisi :</span>
+                <span id="summaryCarName" class="font-bold text-white text-right">Dacia Sandero Stepway</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Tarif par jour :</span>
+                <span id="summaryCarDaily" class="font-semibold text-brand-gold">280 MAD (~26 €)</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Durée estimée :</span>
+                <span id="summaryDays" class="font-semibold text-white">3 jours</span>
+              </div>
+              <div id="longTermDiscountRow" class="hidden flex justify-between items-center text-emerald-400 font-semibold text-xs bg-emerald-950/60 p-2 rounded-lg border border-emerald-800/40">
+                <span>Remise longue durée (7j+) :</span>
+                <span id="summaryDiscountText">-10% appliquée</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Livraison & Restitution :</span>
+                <span class="text-emerald-400 font-semibold">Gratuit (Aéroport & Hôtels)</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Kilométrage :</span>
+                <span class="text-white font-medium">100% Illimité</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Assurance :</span>
+                <span class="text-white font-medium">Tous Risques Incluse</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-700 flex justify-between items-baseline">
+              <span class="text-base font-bold text-white">Total Estimé :</span>
+              <div class="text-right">
+                <span id="summaryTotal" class="text-2xl sm:text-3xl font-extrabold gold-text-gradient">840 MAD</span>
+                <span id="summaryTotalEur" class="block text-xs font-medium text-slate-400">(~78 €)</span>
+                <span class="block text-[11px] text-slate-400 mt-1">Paiement sur place à la livraison</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Phone / Support Card -->
+          <div class="bg-gradient-to-br from-brand-navy to-slate-800 rounded-2xl p-6 border border-slate-700/80 shadow-xl text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center mx-auto mb-3 text-xl">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h4 class="font-bold text-white text-base mb-1">Assistance & Réservation Immédiate</h4>
+            <p class="text-xs text-slate-300 mb-4">Notre équipe à Agadir vous répond 24h/24 en français, arabe ou anglais.</p>
+            <div class="flex flex-col gap-2">
+              <a href="tel:+212604707847" class="inline-flex items-center justify-center gap-2 bg-slate-700/60 hover:bg-slate-700 text-white font-bold text-sm py-2 px-4 rounded-xl transition-colors">
+                <i class="fa-solid fa-phone text-brand-gold"></i> +212 604-707847
+              </a>
+              <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20un%20véhicule%20à%20Agadir." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white font-bold text-sm py-2 px-4 rounded-xl transition-colors">
+                <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Direct
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE WINON CAR SECTION -->
+  <section id="avantages" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
+        Votre Sérénité avant tout
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4">
+        Pourquoi Choisir WINON CAR à Agadir ?
+      </h2>
+      <p class="text-slate-600 text-base sm:text-lg">
+        Nous nous engageons à offrir une expérience de location transparente, fluide et sans contrainte.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Feature 1 -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-plane-circle-check"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-lg mb-2">Livraison Aéroport Gratuite</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Un agent vous attend à la sortie du terminal d'Agadir Al-Massira avec votre véhicule prêt, sans file d'attente ni navette.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-gas-pump"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-lg mb-2">Kilométrage Illimité</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Roulez en toute liberté dans toute la région d'Agadir, Taghazout, Essaouira, Taroudant et le désert de Souss.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-credit-card"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-lg mb-2">Caution & Paiement Souple</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Règlement sur place en espèces (MAD/Euros) ou par carte. Caution par pré-autorisation ou espèces restituée au retour.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-wrench"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-lg mb-2">Assistance 24h/24 7j/7</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Une équipe dédiée disponible à tout instant. Véhicule de remplacement assuré en cas de besoin dans la région.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AGADIR DESTINATION & EXCURSIONS -->
+  <section id="agadir" class="py-16 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
+            Évadez-vous en Toute Liberté
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-6">
+            Découvrez Agadir et la Région Souss-Massa
+          </h2>
+          <p class="text-slate-600 text-base leading-relaxed mb-6">
+            Avoir votre propre voiture à Agadir est la meilleure façon de découvrir les merveilles de la côte atlantique marocaine à votre propre rythme :
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-gold/15 text-brand-gold flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">1</div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">Taghazout Bay & Vallée du Paradis (25 min)</h4>
+                <p class="text-xs text-slate-500">Idéal pour le surf, les piscines naturelles rocheuses et les couchers de soleil atlantiques.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-gold/15 text-brand-gold flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">2</div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">Kasbah d'Agadir Oufella & Marina (10 min)</h4>
+                <p class="text-xs text-slate-500">Vue panoramique spectaculaire sur la baie et promenade animée de restaurants.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-gold/15 text-brand-gold flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">3</div>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">Essaouira Mogador (2h30 de belle route côtière)</h4>
+                <p class="text-xs text-slate-500">La mythique cité fortifiée des alizés et ses célèbres remparts historiques.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a href="#reservation" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow transition-colors">
+              <span>Choisir un véhicule pour mon séjour</span>
+              <i class="fa-solid fa-arrow-right text-brand-gold"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1000&q=80" alt="Conduite à Agadir WINON CAR" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80';">
+          </div>
+          <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 max-w-xs hidden sm:block">
+            <div class="flex items-center gap-3">
+              <div class="text-brand-gold text-2xl">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div>
+                <span class="block font-bold text-slate-900 text-sm">4.9 / 5 sur Google</span>
+                <span class="text-xs text-slate-500">+450 voyageurs satisfaits</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
+        Avis de nos Conducteurs
+      </span>
+      <h2 class="text-3xl font-extrabold text-brand-dark tracking-tight mb-2">
+        Ce que disent nos clients
+      </h2>
+      <p class="text-slate-500 text-sm">Des centaines de touristes et résidents nous font confiance à Agadir.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div>
+          <div class="text-amber-400 text-sm mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-600 text-sm italic mb-4">
+            « Superbe expérience avec WINON CAR ! La Duster 4x4 nous attendait à l'aéroport d'Agadir sans retard. Voiture très propre et parfaite pour aller jusqu'à Taghazout. Je recommande les yeux fermés. »
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
+            TL
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm">Thomas L.</h4>
+            <span class="text-xs text-slate-400">Paris, France • Visite en Octobre</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div>
+          <div class="text-amber-400 text-sm mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-600 text-sm italic mb-4">
+            « Réservation ultra-simple par WhatsApp avec le numéro direct. L'équipe a été très professionnelle, contrat transparent, prix en dirhams respecté à la lettre sans supplément. »
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
+            SB
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm">Samira B.</h4>
+            <span class="text-xs text-slate-400">Bruxelles, Belgique • Location Clio 5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div>
+          <div class="text-amber-400 text-sm mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-600 text-sm italic mb-4">
+            « La Golf 8 était dans un état impeccable. Livraison directe à notre hôtel de la baie d'Agadir et restitution rapide à l'aéroport Al-Massira. Merci WINON CAR ! »
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
+            MA
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm">Mehdi A.</h4>
+            <span class="text-xs text-slate-400">Casablanca, Maroc • Déplacement Pro</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (FREQUENTLY ASKED QUESTIONS) -->
+  <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
+          Tout ce qu'il faut savoir
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4">
+          Foire Aux Questions (FAQ)
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Vous avez des questions sur la location de voiture à Agadir ? Voici toutes les réponses transparentes de WINON CAR.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faqAccordion">
+        <!-- Item 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-id-card text-brand-gold text-lg"></i>
+              Quels sont les documents obligatoires pour louer un véhicule ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            Pour louer un véhicule chez WINON CAR à Agadir, vous avez simplement besoin d'un <strong>permis de conduire original en cours de validité</strong> (minimum 2 ans) et d'un <strong>passeport</strong> (pour les touristes étrangers et MRE) ou d'une <strong>Carte d'Identité Nationale (CIN)</strong> pour les résidents marocains. Aucun permis international n'est exigé pour les permis européens.
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-plane text-brand-gold text-lg"></i>
+              Comment se déroule la livraison à l'Aéroport Agadir Al-Massira (AGA) ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            La livraison à l'Aéroport Al-Massira est <strong>100% gratuite et assurée 24h/24 et 7j/7</strong>. Notre agent vous attend avec une pancarte personnalisée à la sortie du terminal. L'état des lieux et la signature du contrat se font sur place en moins de 5 minutes pour que vous puissiez commencer votre voyage immédiatement sans attente en navette ou guichet.
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-hand-holding-dollar text-brand-gold text-lg"></i>
+              Comment s'effectue le paiement et comment fonctionne la caution ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            Le règlement de la location se fait <strong>uniquement à la livraison de la voiture</strong>. Nous acceptons les espèces en Dirhams marocains (MAD) ou en Euros (€), ainsi que les cartes bancaires (Visa, Mastercard). La caution peut être déposée soit par pré-autorisation bancaire (montant bloqué non débité), soit en espèces, et vous est <strong>intégralement restituée</strong> dès la remise du véhicule.
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-infinity text-brand-gold text-lg"></i>
+              Le kilométrage est-il réellement illimité ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            <strong>Oui, absolument !</strong> Toutes nos formules de location bénéficient du kilométrage 100% illimité. Vous êtes libre de parcourir Agadir, Taghazout, Paradise Valley, Essaouira, Marrakech ou Taroudant sans aucun surcoût kilométrique.
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-clock text-brand-gold text-lg"></i>
+              Que se passe-t-il si mon vol a du retard ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            Si vous indiquez votre numéro de vol dans le formulaire de réservation, notre équipe suit en temps réel l'avancée de votre vol. Même en cas de retard de plusieurs heures ou d'arrivée nocturne, votre véhicule et votre agent WINON CAR seront au rendez-vous, <strong>sans aucun frais de retard ni pénalité</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & FOOTER -->
+  <footer id="contact" class="bg-brand-dark text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Col with Logo -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-white p-0.5 shadow-md overflow-hidden shrink-0 flex items-center justify-center">
+              <img src="winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='../winon-logo.jpeg';">
+            </div>
+            <div>
+              <span class="text-2xl font-black text-white">
+                WINON <span class="gold-text-gradient font-black">CAR</span>
+              </span>
+              <span class="block text-[10px] tracking-widest text-slate-400 font-bold uppercase">
+                Agadir • Location de Voitures
+              </span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            Votre partenaire privilégié pour la location de voitures à Agadir. Service haut de gamme, tarifs compétitifs en MAD et prise en charge rapide à l'aéroport.
+          </p>
+          <!-- Social Media & Contact Links -->
+          <div>
+            <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Rejoignez-nous</span>
+            <div class="flex items-center gap-2.5 text-slate-300">
+              <a href="https://www.instagram.com/winoncar.agadir?srtk=MTU0a2gweHk4emRyYQ%3D%3D&utm_source=qr" 
+                 target="_blank" rel="noopener noreferrer" 
+                 aria-label="Instagram WINON CAR" title="Instagram WINON CAR"
+                 class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-brand-gold hover:text-brand-dark text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/80 shadow-sm hover:scale-105">
+                <i class="fa-brands fa-instagram text-lg"></i>
+              </a>
+              <a href="https://www.facebook.com/share/19S9bgrkuj/?mibextid=wwXIfr" 
+                 target="_blank" rel="noopener noreferrer" 
+                 aria-label="Facebook WINON CAR" title="Facebook WINON CAR"
+                 class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-brand-gold hover:text-brand-dark text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/80 shadow-sm hover:scale-105">
+                <i class="fa-brands fa-facebook-f text-base"></i>
+              </a>
+              <a href="https://wa.me/212604707847" 
+                 target="_blank" rel="noopener noreferrer" 
+                 aria-label="WhatsApp WINON CAR" title="WhatsApp WINON CAR"
+                 class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-brand-whatsapp hover:text-white text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/80 shadow-sm hover:scale-105">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+              </a>
+              <a href="tel:+212604707847" 
+                 aria-label="Téléphone WINON CAR" title="Téléphone WINON CAR"
+                 class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-brand-gold hover:text-brand-dark text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/80 shadow-sm hover:scale-105">
+                <i class="fa-solid fa-phone text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-400">
+            <li><a href="#accueil" class="hover:text-brand-gold transition-colors">Accueil</a></li>
+            <li><a href="#flotte" class="hover:text-brand-gold transition-colors">Nos Voitures & Tarifs</a></li>
+            <li><a href="#reservation" class="hover:text-brand-gold transition-colors">Réservation en Ligne</a></li>
+            <li><a href="#avantages" class="hover:text-brand-gold transition-colors">Nos Avantages</a></li>
+            <li><a href="#agadir" class="hover:text-brand-gold transition-colors">Guide Tourisme Agadir</a></li>
+            <li><a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Véhicules Disponibles</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-400">
+            <li>Citadines Économiques (dès 280 MAD)</li>
+            <li>Berlines Confort & Automatiques (dès 400 MAD)</li>
+            <li>SUV & 4x4 (Duster, Tucson, etc. dès 420 MAD)</li>
+            <li>Voitures Prestige & VIP (Range Rover, Mercedes)</li>
+          </ul>
+        </div>
+
+        <!-- Direct Contact Card -->
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Contact Direct</h4>
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="flex items-start gap-2.5">
+              <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+              <span>Agadir 80000, Maroc • Aéroport Al-Massira</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-phone text-brand-gold"></i>
+              <a href="tel:+212604707847" class="hover:text-white font-semibold">+212 604-707847</a>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-brands fa-whatsapp text-brand-whatsapp text-base"></i>
+              <a href="https://wa.me/212604707847" target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">WhatsApp : +212 604-707847</a>
+            </div>
+            <div class="pt-2 text-[11px] text-slate-400 border-t border-slate-700">
+              <i class="fa-regular fa-clock text-brand-gold mr-1"></i> Ouvert 24h/24 & 7j/7
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© <span id="currentYear"></span> WINON CAR Agadir. Tous droits réservés.</p>
+        <p>Location de voitures professionnelle & touristique à Agadir, Maroc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BOTTOM ACTION BAR -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 flex items-center justify-between gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+    <a href="tel:+212604707847" class="flex-1 flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
+      <i class="fa-solid fa-phone text-brand-gold"></i>
+      <span>Appeler</span>
+    </a>
+    <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20un%20véhicule%20à%20Agadir." 
+       target="_blank" rel="noopener noreferrer" 
+       class="flex-1 flex items-center justify-center gap-1.5 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-2.5 px-2 rounded-xl font-bold text-xs shadow transition-colors">
+      <i class="fa-brands fa-whatsapp text-base"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="#reservation" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-dark hover:bg-brand-navy text-white py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
+      <i class="fa-solid fa-calendar-check text-brand-gold"></i>
+      <span>Réserver</span>
+    </a>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON (DESKTOP & TABLET) -->
+  <div class="fixed bottom-16 sm:bottom-6 right-6 z-40 flex items-center gap-3">
+    <div class="hidden sm:block bg-white text-slate-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-lg border border-slate-200">
+      Discutez avec nous en direct !
+    </div>
+    <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20une%20voiture%20à%20Agadir." 
+       target="_blank" rel="noopener noreferrer" 
+       aria-label="Contacter WINON CAR sur WhatsApp"
+       class="w-14 h-14 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white rounded-full flex items-center justify-center text-3xl shadow-2xl transition-transform hover:scale-110 pulse-whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- VEHICLE DETAIL MODAL -->
+  <div id="carModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Close button -->
+      <button onclick="closeCarModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-slate-900/60 hover:bg-slate-900 text-white rounded-full flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <!-- Modal Image -->
+      <div class="relative h-64 sm:h-72 w-full bg-slate-900 overflow-hidden">
+        <img id="modalCarImg" src="" alt="Véhicule" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='assets/cars/dacia-sandero-stepway.jpg';">
+        <div class="absolute bottom-3 left-4">
+          <span id="modalCarBadge" class="bg-brand-gold text-brand-dark text-xs font-extrabold px-3 py-1 rounded-full uppercase">
+            Catégorie
+          </span>
+        </div>
+      </div>
+
+      <!-- Modal Content -->
+      <div class="p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 pb-4 border-b border-slate-100">
+          <div>
+            <h3 id="modalCarTitle" class="text-2xl font-black text-slate-900">Modèle du Véhicule</h3>
+            <p id="modalCarSub" class="text-xs text-slate-500">Idéal pour vos déplacements à Agadir & environs</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span id="modalCarPrice" class="text-3xl font-extrabold text-brand-gold">0 MAD</span>
+            <span id="modalCarPriceEur" class="text-xs text-slate-500 block">/ jour (TTC)</span>
+          </div>
+        </div>
+
+        <!-- Specifications Grid -->
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Caractéristiques Techniques</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6" id="modalCarSpecs">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Included services -->
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Ce qui est inclus dans le prix</h4>
+        <ul class="space-y-2 text-xs sm:text-sm text-slate-700 mb-8">
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+            <span>Kilométrage 100% illimité dans tout le Maroc</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+            <span>Livraison & restitution gratuite à l'Aéroport Al-Massira et hôtels d'Agadir</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+            <span>Assurance collision et vol avec franchise réduite</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+            <span>Deuxième conducteur gratuit sur simple demande</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+            <span>Assistance dépannage 24h/24 7j/7 dans toute la région Souss-Massa</span>
+          </li>
+        </ul>
+
+        <!-- Modal Actions -->
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button id="modalBookNowBtn" onclick="selectCarAndScrollToBooking()" class="flex-1 bg-brand-dark hover:bg-brand-navy text-white py-3.5 px-6 rounded-xl font-bold text-center transition-colors flex items-center justify-center gap-2">
+            <i class="fa-solid fa-check"></i>
+            <span>Choisir pour ma réservation</span>
+          </button>
+          <a id="modalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-3.5 px-6 rounded-xl font-bold text-center flex items-center justify-center gap-2 transition-colors">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Demander sur WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING CONFIRMATION MODAL -->
+  <div id="confirmModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 text-center shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <span class="inline-block px-3 py-1 bg-amber-50 text-brand-gold text-xs font-bold rounded-full uppercase mb-2">
+        Référence : <span id="confirmBookingRef">WN-0000</span>
+      </span>
+      <h3 class="text-2xl font-black text-slate-900 mb-2">Demande de Réservation Enregistrée !</h3>
+      <p class="text-sm text-slate-600 mb-6" id="confirmModalMessage">
+        Merci pour votre confiance. Notre équipe WINON CAR à Agadir a bien reçu votre demande et prépare votre contrat.
+      </p>
+
+      <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-left text-xs space-y-2 mb-6" id="confirmModalDetails">
+        <!-- Details injected via JS -->
+      </div>
+
+      <div class="space-y-3">
+        <a id="confirmModalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-3.5 px-4 rounded-xl font-bold block text-sm transition-colors flex items-center justify-center gap-2 shadow-lg">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>Finaliser sur WhatsApp (+212 604-707847)</span>
+        </a>
+        <button onclick="closeConfirmModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 py-2.5 px-4 rounded-xl font-semibold text-sm transition-colors">
+          Fermer la fenêtre
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // --- 1. DATA: CAR CATALOG (10 Vehicles with Prices in MAD) ---
+    const CARS_DATABASE = [
+      {
+        id: 'sandero',
+        name: 'Dacia Sandero Stepway',
+        category: 'eco',
+        categoryLabel: 'Citadine Économique',
+        priceMAD: 280,
+        badge: 'Le Plus Demandé',
+        image: 'assets/cars/dacia-sandero-stepway.jpg',
+        specs: {
+          gearbox: 'Manuelle',
+          fuel: 'Essence',
+          seats: '5 Places',
+          ac: 'Climatisation A/C',
+          bags: '2 Valises',
+          doors: '5 Portes'
+        },
+        description: 'Idéale pour circuler dans Agadir et visiter Taghazout en réalisant des économies sur le carburant.'
+      },
+      {
+        id: 'clio5',
+        name: 'Renault Clio 5',
+        category: 'eco',
+        categoryLabel: 'Citadine Moderne',
+        priceMAD: 320,
+        badge: 'Très Sobre',
+        image: 'assets/cars/renault-clio-5.jpg',
+        specs: {
+          gearbox: 'Manuelle',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Climatisation A/C',
+          bags: '2 Valises',
+          doors: '5 Portes'
+        },
+        description: 'La citadine préférée des voyageurs : très sobre en carburant avec écran tactile et Bluetooth.'
+      },
+      {
+        id: 'peugeot208',
+        name: 'Peugeot 208 GT',
+        category: 'eco',
+        categoryLabel: 'Citadine Premium',
+        priceMAD: 360,
+        badge: 'Design Sport',
+        image: 'assets/cars/peugeot-208.jpg',
+        specs: {
+          gearbox: 'Automatique',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Climatisation A/C',
+          bags: '2 Valises',
+          doors: '5 Portes'
+        },
+        description: 'Look moderne et cockpit digital. Idéale pour sillonner la corniche et la marina d\'Agadir avec style.'
+      },
+      {
+        id: 'accent',
+        name: 'Hyundai Accent',
+        category: 'berline',
+        categoryLabel: 'Berline Confort',
+        priceMAD: 400,
+        badge: 'Grand Coffre',
+        image: 'assets/cars/hyundai-accent.jpg',
+        specs: {
+          gearbox: 'Automatique',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Climatisation A/C',
+          bags: '3 Valises',
+          doors: '4 Portes'
+        },
+        description: 'Spacieuse, silencieuse et dotée d\'un grand coffre pour accueillir tous vos bagages à l\'aéroport.'
+      },
+      {
+        id: 'golf8',
+        name: 'Volkswagen Golf 8 DSG',
+        category: 'berline',
+        categoryLabel: 'Berline Compacte Luxe',
+        priceMAD: 550,
+        badge: 'Performance Allemande',
+        image: 'assets/cars/vw-golf-8.jpg',
+        specs: {
+          gearbox: 'Automatique DSG',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Clim Bizone',
+          bags: '3 Valises',
+          doors: '5 Portes'
+        },
+        description: 'La référence allemande pour un plaisir de conduite absolu sur les autoroutes et routes du Maroc.'
+      },
+      {
+        id: 'duster',
+        name: 'Dacia Duster 4x4',
+        category: 'suv',
+        categoryLabel: 'SUV Tout-Chemin',
+        priceMAD: 420,
+        badge: 'Idéal Taghazout & Dunes',
+        image: 'assets/cars/dacia-duster.jpg',
+        specs: {
+          gearbox: 'Manuelle 6 vit.',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Climatisation A/C',
+          bags: '3 Valises',
+          doors: '5 Portes'
+        },
+        description: 'Le SUV le plus demandé à Agadir : robuste, surélevé et parfaitement adapté aux plages et sentiers.'
+      },
+      {
+        id: 'tucson',
+        name: 'Hyundai Tucson',
+        category: 'suv',
+        categoryLabel: 'SUV Familial Élégant',
+        priceMAD: 650,
+        badge: 'Toit Panoramique',
+        image: 'assets/cars/hyundai-tucson.jpg',
+        specs: {
+          gearbox: 'Automatique',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Clim Tri-Zone',
+          bags: '4 Valises',
+          doors: '5 Portes'
+        },
+        description: 'Confort de première classe pour les familles ou groupes d\'amis désirant voyager dans un grand luxe.'
+      },
+      {
+        id: 'sportage',
+        name: 'Kia Sportage GT-Line',
+        category: 'suv',
+        categoryLabel: 'SUV Sportif',
+        priceMAD: 580,
+        badge: 'Technologie & Caméra',
+        image: 'assets/cars/kia-sportage.jpg',
+        specs: {
+          gearbox: 'Automatique',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Climatisation A/C',
+          bags: '3 Valises',
+          doors: '5 Portes'
+        },
+        description: 'Lignes dynamiques, caméra de recul et sécurité maximale pour explorer toute la région Souss-Massa.'
+      },
+      {
+        id: 'mercedes',
+        name: 'Mercedes-Benz Classe C',
+        category: 'luxe',
+        categoryLabel: 'Prestige & Berline VIP',
+        priceMAD: 1100,
+        badge: 'Luxe Exceptionnel',
+        image: 'assets/cars/mercedes-c-class.jpg',
+        specs: {
+          gearbox: 'Automatique 9G',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Clim Thermotronic',
+          bags: '3 Valises',
+          doors: '4 Portes'
+        },
+        description: 'L\'élégance incarnée pour vos rendez-vous d\'affaires ou séjours luxueux dans les palaces d\'Agadir.'
+      },
+      {
+        id: 'evoque',
+        name: 'Range Rover Evoque',
+        category: 'luxe',
+        categoryLabel: 'Prestige SUV VIP',
+        priceMAD: 1200,
+        badge: 'Prestige VIP',
+        image: 'assets/cars/range-rover-evoque.jpg',
+        specs: {
+          gearbox: 'Automatique',
+          fuel: 'Diesel',
+          seats: '5 Places',
+          ac: 'Climatisation A/C',
+          bags: '4 Valises',
+          doors: '5 Portes'
+        },
+        description: 'Intérieur cuir raffiné et stature prestigieuse pour une expérience de conduite inoubliable.'
+      }
+    ];
+
+    let currentSelectedCarId = 'sandero';
+    const MAD_TO_EUR_RATE = 10.8;
+
+    // --- 2. INITIALIZATION ON DOM LOAD ---
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // Set default dates (Tomorrow to 4 days later)
+      const today = new Date();
+      const pickupDateObj = new Date(today);
+      pickupDateObj.setDate(today.getDate() + 1);
+
+      const returnDateObj = new Date(today);
+      returnDateObj.setDate(today.getDate() + 4);
+
+      const pickupDateInput = document.getElementById('pickupDate');
+      const returnDateInput = document.getElementById('returnDate');
+      const quickPickupDate = document.getElementById('quickPickupDate');
+      const quickReturnDate = document.getElementById('quickReturnDate');
+
+      const pickupStr = pickupDateObj.toISOString().split('T')[0];
+      const returnStr = returnDateObj.toISOString().split('T')[0];
+      const todayStr = today.toISOString().split('T')[0];
+
+      pickupDateInput.value = pickupStr;
+      returnDateInput.value = returnStr;
+      pickupDateInput.min = todayStr;
+      returnDateInput.min = pickupStr;
+
+      if (quickPickupDate && quickReturnDate) {
+        quickPickupDate.value = pickupStr;
+        quickReturnDate.value = returnStr;
+        quickPickupDate.min = todayStr;
+        quickReturnDate.min = pickupStr;
+      }
+
+      // Event listeners for dates
+      pickupDateInput.addEventListener('change', () => {
+        if (returnDateInput.value <= pickupDateInput.value) {
+          const nextDay = new Date(pickupDateInput.value);
+          nextDay.setDate(nextDay.getDate() + 1);
+          returnDateInput.value = nextDay.toISOString().split('T')[0];
+        }
+        returnDateInput.min = pickupDateInput.value;
+        if (quickPickupDate) quickPickupDate.value = pickupDateInput.value;
+        if (quickReturnDate) quickReturnDate.value = returnDateInput.value;
+        updateBookingCalculation();
+      });
+
+      returnDateInput.addEventListener('change', () => {
+        if (quickReturnDate) quickReturnDate.value = returnDateInput.value;
+        updateBookingCalculation();
+      });
+
+      // Populate Car Select dropdown in form
+      populateCarSelectDropdown();
+
+      // Render Car Catalog Cards
+      renderCarCatalog('all');
+
+      // Initialize filter buttons
+      setupCategoryFilters();
+
+      // Setup mobile menu
+      setupMobileMenu();
+
+      // Perform initial calculation
+      updateBookingCalculation();
+    });
+
+    // --- 3. POPULATE SELECT DROPDOWN ---
+    function populateCarSelectDropdown() {
+      const select = document.getElementById('carSelect');
+      select.innerHTML = '';
+      CARS_DATABASE.forEach(car => {
+        const option = document.createElement('option');
+        option.value = car.id;
+        const eur = Math.round(car.priceMAD / MAD_TO_EUR_RATE);
+        option.textContent = `${car.name} — ${car.priceMAD} MAD / jour (~${eur} €) • ${car.categoryLabel}`;
+        select.appendChild(option);
+      });
+    }
+
+    // --- 4. RENDER CATALOG GRID ---
+    function renderCarCatalog(categoryFilter = 'all') {
+      const grid = document.getElementById('carCatalogGrid');
+      grid.innerHTML = '';
+
+      const filteredCars = categoryFilter === 'all' 
+        ? CARS_DATABASE 
+        : CARS_DATABASE.filter(c => c.category === categoryFilter);
+
+      filteredCars.forEach(car => {
+        const eur = Math.round(car.priceMAD / MAD_TO_EUR_RATE);
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group";
+        
+        card.innerHTML = `
+          <!-- Image & Badge Container -->
+          <div class="relative h-52 overflow-hidden bg-slate-100">
+            <img src="${car.image}" alt="${car.name}" 
+                 loading="lazy"
+                 onerror="this.onerror=null; this.src='assets/cars/dacia-sandero-stepway.jpg';"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3">
+              <span class="bg-brand-dark/95 backdrop-blur-md text-brand-gold text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                ${car.badge}
+              </span>
+            </div>
+            <div class="absolute bottom-3 right-3">
+              <span class="bg-white/95 backdrop-blur-md text-slate-800 text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
+                ${car.categoryLabel}
+              </span>
+            </div>
+          </div>
+
+          <!-- Body Container -->
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-baseline mb-2">
+                <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-gold transition-colors">
+                  ${car.name}
+                </h3>
+              </div>
+              <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">
+                ${car.description}
+              </p>
+
+              <!-- Specs Pills -->
+              <div class="grid grid-cols-3 gap-2 py-3 border-y border-slate-100 text-[11px] text-slate-600 mb-4">
+                <div class="flex items-center gap-1.5" title="Boîte de vitesse">
+                  <i class="fa-solid fa-gear text-brand-gold"></i>
+                  <span>${car.specs.gearbox}</span>
+                </div>
+                <div class="flex items-center gap-1.5" title="Carburant">
+                  <i class="fa-solid fa-gas-pump text-brand-gold"></i>
+                  <span>${car.specs.fuel}</span>
+                </div>
+                <div class="flex items-center gap-1.5" title="Nombre de places">
+                  <i class="fa-solid fa-users text-brand-gold"></i>
+                  <span>${car.specs.seats}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price & Actions Footer -->
+            <div>
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs text-slate-400 font-medium">Tarif journalier TTC</span>
+                <div class="text-right">
+                  <span class="text-2xl font-black text-slate-900">${car.priceMAD} MAD</span>
+                  <span class="text-xs text-slate-500 font-semibold"> / jour</span>
+                  <span class="block text-[11px] text-slate-400 font-medium">(~${eur} €)</span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2">
+                <button onclick="openCarModal('${car.id}')" class="py-2.5 px-2 rounded-xl border border-slate-200 hover:border-slate-800 text-slate-700 hover:text-slate-900 font-bold text-xs transition-colors flex items-center justify-center gap-1" title="Voir les détails complets">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span>Détails</span>
+                </button>
+                <button onclick="selectCarAndScrollToBooking('${car.id}')" class="py-2.5 px-2 rounded-xl bg-brand-dark hover:bg-brand-navy text-white font-bold text-xs transition-colors flex items-center justify-center gap-1" title="Sélectionner pour réserver">
+                  <i class="fa-solid fa-check"></i>
+                  <span>Réserver</span>
+                </button>
+                <a href="https://wa.me/212604707847?text=${encodeURIComponent('Bonjour WINON CAR Agadir, je souhaite réserver ou vérifier la disponibilité de la ' + car.name + ' (' + car.priceMAD + ' MAD / jour).')}" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="py-2.5 px-2 rounded-xl bg-brand-whatsapp hover:bg-brand-whatsappHover text-white font-bold text-xs transition-colors flex items-center justify-center gap-1" title="Discuter directement sur WhatsApp">
+                  <i class="fa-brands fa-whatsapp text-sm"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // --- 5. CATEGORY FILTER LOGIC ---
+    function setupCategoryFilters() {
+      const buttons = document.querySelectorAll('#categoryFilterContainer .filter-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => {
+            b.classList.remove('active', 'bg-brand-dark', 'text-white');
+            b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+          });
+          btn.classList.add('active', 'bg-brand-dark', 'text-white');
+          btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+
+          const category = btn.getAttribute('data-category');
+          renderCarCatalog(category);
+        });
+      });
+    }
+
+    // --- 6. PRICE & DURATION CALCULATION ---
+    function calculateDays() {
+      const pickupDateVal = document.getElementById('pickupDate').value;
+      const returnDateVal = document.getElementById('returnDate').value;
+      if (!pickupDateVal || !returnDateVal) return 1;
+
+      const d1 = new Date(pickupDateVal);
+      const d2 = new Date(returnDateVal);
+      const diffTime = d2.getTime() - d1.getTime();
+      let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays > 0 ? diffDays : 1;
+    }
+
+    function updateBookingCalculation() {
+      const carSelect = document.getElementById('carSelect');
+      const selectedId = carSelect.value;
+      const car = CARS_DATABASE.find(c => c.id === selectedId) || CARS_DATABASE[0];
+      
+      currentSelectedCarId = car.id;
+      const days = calculateDays();
+      let baseDaily = car.priceMAD;
+      
+      // Wi-Fi option
+      const wifiChecked = document.getElementById('optWifi')?.checked;
+      const wifiDaily = wifiChecked ? 30 : 0;
+      
+      // Discount for 7+ days (10%)
+      const isDiscounted = days >= 7;
+      const discountRate = isDiscounted ? 0.10 : 0.0;
+      
+      const subtotalCars = days * baseDaily;
+      const discountMAD = Math.round(subtotalCars * discountRate);
+      const extrasTotal = days * wifiDaily;
+      const totalMAD = (subtotalCars - discountMAD) + extrasTotal;
+      const totalEUR = Math.round(totalMAD / MAD_TO_EUR_RATE);
+      const dailyEUR = Math.round(baseDaily / MAD_TO_EUR_RATE);
+
+      document.getElementById('summaryCarName').textContent = car.name;
+      document.getElementById('summaryCarDaily').textContent = `${car.priceMAD} MAD (~${dailyEUR} €)`;
+      document.getElementById('summaryDays').textContent = `${days} jour${days > 1 ? 's' : ''}`;
+      
+      const discountRow = document.getElementById('longTermDiscountRow');
+      if (isDiscounted && discountRow) {
+        discountRow.classList.remove('hidden');
+        document.getElementById('summaryDiscountText').textContent = `-10% (-${discountMAD} MAD)`;
+      } else if (discountRow) {
+        discountRow.classList.add('hidden');
+      }
+
+      document.getElementById('summaryTotal').textContent = `${totalMAD.toLocaleString()} MAD`;
+      document.getElementById('summaryTotalEur').textContent = `(~${totalEUR} €)`;
+    }
+
+    // --- 7. SELECT CAR FROM CATALOG & SCROLL ---
+    function selectCarAndScrollToBooking(carId = null) {
+      if (carId) {
+        currentSelectedCarId = carId;
+        const carSelect = document.getElementById('carSelect');
+        carSelect.value = carId;
+      }
+      closeCarModal();
+      updateBookingCalculation();
+
+      const bookingSection = document.getElementById('reservation');
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+
+      // Highlight select box temporarily
+      const carSelectElem = document.getElementById('carSelect');
+      carSelectElem.classList.add('ring-2', 'ring-brand-gold');
+      setTimeout(() => carSelectElem.classList.remove('ring-2', 'ring-brand-gold'), 1500);
+    }
+
+    // --- 8. CAR DETAIL MODAL ---
+    function openCarModal(carId) {
+      const car = CARS_DATABASE.find(c => c.id === carId);
+      if (!car) return;
+
+      currentSelectedCarId = car.id;
+      document.getElementById('modalCarImg').src = car.image;
+      document.getElementById('modalCarBadge').textContent = car.categoryLabel;
+      document.getElementById('modalCarTitle').textContent = car.name;
+      document.getElementById('modalCarSub').textContent = car.description;
+      
+      const eur = Math.round(car.priceMAD / MAD_TO_EUR_RATE);
+      document.getElementById('modalCarPrice').textContent = `${car.priceMAD} MAD`;
+      document.getElementById('modalCarPriceEur').textContent = `/ jour (~${eur} € TTC)`;
+
+      // Render specs in modal
+      const specsContainer = document.getElementById('modalCarSpecs');
+      specsContainer.innerHTML = `
+        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
+          <i class="fa-solid fa-gear text-brand-gold text-base mb-1 block"></i>
+          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.gearbox}</span>
+          <span class="text-[10px] text-slate-400">Boîte</span>
+        </div>
+        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
+          <i class="fa-solid fa-gas-pump text-brand-gold text-base mb-1 block"></i>
+          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.fuel}</span>
+          <span class="text-[10px] text-slate-400">Carburant</span>
+        </div>
+        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
+          <i class="fa-solid fa-users text-brand-gold text-base mb-1 block"></i>
+          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.seats}</span>
+          <span class="text-[10px] text-slate-400">Capacité</span>
+        </div>
+        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
+          <i class="fa-solid fa-snowflake text-brand-gold text-base mb-1 block"></i>
+          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.ac}</span>
+          <span class="text-[10px] text-slate-400">Climatisation</span>
+        </div>
+      `;
+
+      // Update direct WhatsApp link in modal
+      const whatsappMsg = encodeURIComponent(
+        `Bonjour WINON CAR Agadir,\n\nJe suis intéressé(e) par la location du véhicule : ${car.name} (${car.priceMAD} MAD / jour, ~${eur} €).\nPouvez-vous me donner plus d'informations sur sa disponibilité ?`
+      );
+      document.getElementById('modalWhatsAppBtn').href = `https://wa.me/212604707847?text=${whatsappMsg}`;
+
+      document.getElementById('carModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCarModal() {
+      document.getElementById('carModal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('carModal').addEventListener('click', (e) => {
+      if (e.target.id === 'carModal') closeCarModal();
+    });
+
+    // --- 9. LOCATION & FAST SEARCH SYNC ---
+    function toggleReturnLocation() {
+      const isChecked = document.getElementById('sameLocationCheck').checked;
+      const returnContainer = document.getElementById('returnLocationContainer');
+      const returnLocationSelect = document.getElementById('returnLocation');
+      const pickupLocationSelect = document.getElementById('pickupLocation');
+
+      if (isChecked) {
+        returnContainer.classList.add('hidden');
+        returnLocationSelect.value = pickupLocationSelect.value;
+      } else {
+        returnContainer.classList.remove('hidden');
+      }
+    }
+
+    function handlePickupLocationChange() {
+      const isChecked = document.getElementById('sameLocationCheck').checked;
+      const pickupLocationVal = document.getElementById('pickupLocation').value;
+      if (isChecked) {
+        document.getElementById('returnLocation').value = pickupLocationVal;
+      }
+    }
+
+    function applyQuickSearchAndScroll() {
+      const qLoc = document.getElementById('quickLocation').value;
+      const qPick = document.getElementById('quickPickupDate').value;
+      const qRet = document.getElementById('quickReturnDate').value;
+
+      if (qLoc) {
+        document.getElementById('pickupLocation').value = qLoc;
+        handlePickupLocationChange();
+      }
+      if (qPick) document.getElementById('pickupDate').value = qPick;
+      if (qRet) document.getElementById('returnDate').value = qRet;
+
+      updateBookingCalculation();
+      document.getElementById('flotte').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- 10. WHATSAPP BOOKING GENERATOR ---
+    function buildWhatsAppBookingMessage() {
+      const car = CARS_DATABASE.find(c => c.id === currentSelectedCarId) || CARS_DATABASE[0];
+      const pickupLoc = document.getElementById('pickupLocation').value;
+      const returnLoc = document.getElementById('sameLocationCheck').checked 
+        ? pickupLoc 
+        : document.getElementById('returnLocation').value;
+      
+      const pickupDate = document.getElementById('pickupDate').value;
+      const pickupTime = document.getElementById('pickupTime').value;
+      const returnDate = document.getElementById('returnDate').value;
+      const returnTime = document.getElementById('returnTime').value;
+      const clientName = document.getElementById('clientName').value.trim() || 'Client';
+      const clientPhone = document.getElementById('clientPhone').value.trim() || 'Non renseigné';
+      const clientEmail = document.getElementById('clientEmail').value.trim();
+      const flightNumber = document.getElementById('flightNumber').value.trim();
+      const notes = document.getElementById('bookingNotes').value.trim();
+
+      const days = calculateDays();
+      const isDiscounted = days >= 7;
+      const discountRate = isDiscounted ? 0.10 : 0.0;
+      const subtotalCars = days * car.priceMAD;
+      const discountMAD = Math.round(subtotalCars * discountRate);
+      
+      const wifiChecked = document.getElementById('optWifi')?.checked;
+      const wifiDaily = wifiChecked ? 30 : 0;
+      const totalMAD = (subtotalCars - discountMAD) + (days * wifiDaily);
+      const totalEUR = Math.round(totalMAD / MAD_TO_EUR_RATE);
+
+      const babySeat = document.getElementById('optBabySeat').checked ? 'Oui (Offert)' : 'Non';
+      const wifiStr = wifiChecked ? 'Oui (Boîtier 4G)' : 'Non';
+
+      let msg = 
+`Bonjour WINON CAR Agadir,
+
+Je souhaite réserver le véhicule suivant :
+🚗 Véhicule : ${car.name}
+💰 Tarif jour : ${car.priceMAD} MAD / jour
+⏱ Durée : ${days} jour(s)
+💵 Total estimé : ${totalMAD} MAD (~${totalEUR} €) ${isDiscounted ? '(Remise -10% incluse)' : ''}
+
+📍 Prise en charge : ${pickupLoc} (${pickupDate} à ${pickupTime})
+📍 Restitution : ${returnLoc} (${returnDate} à ${returnTime})
+
+👤 Nom : ${clientName}
+📞 Téléphone : ${clientPhone}`;
+
+      if (clientEmail) msg += `\n📧 Email : ${clientEmail}`;
+      if (flightNumber) msg += `\n✈️ N° Vol : ${flightNumber}`;
+      if (babySeat === 'Oui (Offert)') msg += `\n👶 Siège bébé : Oui (Offert)`;
+      if (wifiChecked) msg += `\n📶 Option Wi-Fi 4G : Oui`;
+      if (notes) msg += `\n📝 Note particulière : ${notes}`;
+
+      msg += `\n\nMerci de me confirmer la réservation et la disponibilité !`;
+
+      return encodeURIComponent(msg);
+    }
+
+    function submitViaWhatsApp() {
+      const nameInput = document.getElementById('clientName');
+      const phoneInput = document.getElementById('clientPhone');
+
+      if (!nameInput.value.trim()) {
+        alert("Veuillez indiquer votre Nom et Prénom dans le formulaire.");
+        nameInput.focus();
+        return;
+      }
+
+      if (!phoneInput.value.trim()) {
+        alert("Veuillez indiquer votre Numéro de Téléphone ou WhatsApp dans le formulaire.");
+        phoneInput.focus();
+        return;
+      }
+
+      const encodedMsg = buildWhatsAppBookingMessage();
+      const whatsappUrl = `https://wa.me/212604707847?text=${encodedMsg}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // --- 11. FORM SUBMISSION HANDLER ---
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const car = CARS_DATABASE.find(c => c.id === currentSelectedCarId) || CARS_DATABASE[0];
+      const days = calculateDays();
+      const isDiscounted = days >= 7;
+      const discountRate = isDiscounted ? 0.10 : 0.0;
+      const subtotalCars = days * car.priceMAD;
+      const discountMAD = Math.round(subtotalCars * discountRate);
+      
+      const wifiChecked = document.getElementById('optWifi')?.checked;
+      const wifiDaily = wifiChecked ? 30 : 0;
+      const totalMAD = (subtotalCars - discountMAD) + (days * wifiDaily);
+      const totalEUR = Math.round(totalMAD / MAD_TO_EUR_RATE);
+
+      const pickupLoc = document.getElementById('pickupLocation').value;
+      const returnLoc = document.getElementById('sameLocationCheck').checked 
+        ? pickupLoc 
+        : document.getElementById('returnLocation').value;
+      const pickupDate = document.getElementById('pickupDate').value;
+      const returnDate = document.getElementById('returnDate').value;
+      const clientName = document.getElementById('clientName').value.trim();
+      const clientPhone = document.getElementById('clientPhone').value.trim();
+
+      const bookingRef = 'WN-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('confirmBookingRef').textContent = bookingRef;
+
+      const detailsHtml = `
+        <div class="flex justify-between border-b border-slate-200 pb-1">
+          <span class="text-slate-500">Véhicule :</span>
+          <strong class="text-slate-900">${car.name}</strong>
+        </div>
+        <div class="flex justify-between border-b border-slate-200 pb-1">
+          <span class="text-slate-500">Dates :</span>
+          <span class="text-slate-800">${pickupDate} au ${returnDate} (${days} j)</span>
+        </div>
+        <div class="flex justify-between border-b border-slate-200 pb-1">
+          <span class="text-slate-500">Prise en charge :</span>
+          <span class="text-slate-800">${pickupLoc}</span>
+        </div>
+        <div class="flex justify-between border-b border-slate-200 pb-1">
+          <span class="text-slate-500">Client :</span>
+          <span class="text-slate-800">${clientName} (${clientPhone})</span>
+        </div>
+        <div class="flex justify-between pt-1">
+          <span class="font-bold text-slate-700">Total à régler sur place :</span>
+          <strong class="text-brand-gold text-sm">${totalMAD} MAD (~${totalEUR} €)</strong>
+        </div>
+      `;
+      document.getElementById('confirmModalDetails').innerHTML = detailsHtml;
+
+      const encodedMsg = buildWhatsAppBookingMessage();
+      const whatsappUrl = `https://wa.me/212604707847?text=${encodedMsg}`;
+      document.getElementById('confirmModalWhatsAppBtn').href = whatsappUrl;
+      document.getElementById('confirmModal').classList.remove('hidden');
+
+      // Enregistrement asynchrone dans Cloudflare D1 via l'API
+      const bookingPayload = {
+        bookingRef,
+        carId: car.id,
+        carName: car.name,
+        pickupLocation: pickupLoc,
+        returnLocation: returnLoc,
+        pickupDate,
+        pickupTime: document.getElementById('pickupTime')?.value || '10:00',
+        returnDate,
+        returnTime: document.getElementById('returnTime')?.value || '10:00',
+        days,
+        flightNumber: document.getElementById('flightNumber')?.value.trim() || null,
+        clientName,
+        clientPhone,
+        clientEmail: document.getElementById('clientEmail')?.value.trim() || null,
+        notes: document.getElementById('bookingNotes')?.value.trim() || null,
+        optWifi: !!wifiChecked,
+        totalMAD,
+        totalEUR
+      };
+
+      fetch('/api/reservations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingPayload)
+      }).then(res => res.json())
+        .then(result => {
+          console.log('[WINON CAR] Réservation sauvegardée dans D1 :', result);
+        })
+        .catch(err => {
+          console.warn('[WINON CAR] Mode hors-ligne ou API non connectée :', err);
+        });
+    }
+
+    function closeConfirmModal() {
+      document.getElementById('confirmModal').classList.add('hidden');
+    }
+
+    // --- 12. FAQ ACCORDION TOGGLE ---
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.fa-chevron-down');
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all other FAQs
+      document.querySelectorAll('#faqAccordion .faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('#faqAccordion .fa-chevron-down').forEach(i => i.style.transform = '');
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // --- 13. MOBILE MENU TOGGLE ---
+    function setupMobileMenu() {
+      const btn = document.getElementById('mobileMenuBtn');
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('menuIcon');
+      const links = document.querySelectorAll('.mobile-link');
+
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        } else {
+          menu.classList.add('hidden');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

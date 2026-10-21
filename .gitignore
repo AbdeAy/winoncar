@@ -1,0 +1,15 @@
+# Local Cloudflare Wrangler state & runtime files
+.wrangler/
+**/.wrangler/
+*.log
+
+# Node dependencies
+node_modules/
+npm-debug.log*
+
+# OS metadata
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.DS_Store

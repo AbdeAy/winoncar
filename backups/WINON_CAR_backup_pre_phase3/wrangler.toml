@@ -1,0 +1,9 @@
+name = "winon-car"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "winon-car-db"
+database_id = "373d4018-65b1-41d2-86e0-f8502525eb08"
+
