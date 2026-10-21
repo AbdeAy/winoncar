@@ -97,6 +97,16 @@ const WINON_TRANSLATIONS = {
     doc_remove: "Retirer",
     doc_compressing: "Compression...",
 
+    // Validation des formulaires
+    error_phone_invalid: "Numéro de téléphone invalide : au moins 9 chiffres requis (ex: 06 12 34 56 78 ou +212 6...)",
+    error_name_required: "Veuillez renseigner votre nom complet (au moins 2 caractères)",
+    error_email_invalid: "Adresse email invalide (ex: contact@exemple.com)",
+    error_dates_invalid: "La date et l'heure de restitution doivent être postérieures à la prise en charge",
+    error_car_required: "Veuillez sélectionner un véhicule dans la liste",
+    error_pickup_location_required: "Veuillez préciser l'adresse exacte de prise en charge",
+    error_return_location_required: "Veuillez préciser l'adresse exacte de restitution",
+    error_form_has_errors: "Veuillez corriger les champs indiqués en rouge avant de continuer.",
+
     // Summary & Actions
     summary_title: "Récapitulatif Estimé",
     summary_badge: "0 Frais Cachés",
@@ -220,6 +230,16 @@ const WINON_TRANSLATIONS = {
     doc_remove: "Remove",
     doc_compressing: "Compressing...",
 
+    // Form Validation Messages
+    error_phone_invalid: "Invalid phone number: at least 9 digits required (e.g. +212 6... or 06...)",
+    error_name_required: "Please enter your full name (at least 2 characters)",
+    error_email_invalid: "Invalid email address (e.g. contact@example.com)",
+    error_dates_invalid: "Return date and time must be after the pick-up date and time",
+    error_car_required: "Please select a vehicle from the list",
+    error_pickup_location_required: "Please specify the exact pick-up address",
+    error_return_location_required: "Please specify the exact drop-off address",
+    error_form_has_errors: "Please fix the highlighted fields in red before proceeding.",
+
     // Summary & Actions
     summary_title: "Estimated Summary",
     summary_badge: "Zero Hidden Fees",
@@ -342,6 +362,16 @@ const WINON_TRANSLATIONS = {
     doc_license_back: "الرخصة (الظهر)",
     doc_remove: "حذف",
     doc_compressing: "جارِ الضغط...",
+
+    // رسائل التحقق من صحة الاستمارة
+    error_phone_invalid: "رقم هاتف غير صحيح: يجب إدخال 9 أرقام على الأقل (مثال: 0612345678 أو +212...)",
+    error_name_required: "يرجى إدخال الاسم الكامل (حرفين على الأقل)",
+    error_email_invalid: "عنوان بريد إلكتروني غير صحيح (مثال: contact@example.com)",
+    error_dates_invalid: "تاريخ ووقت الإرجاع يجب أن يكون بعد تاريخ ووقت الاستلام",
+    error_car_required: "يرجى اختيار سيارة من القائمة",
+    error_pickup_location_required: "يرجى تحديد عنوان الاستلام بالتفصيل",
+    error_return_location_required: "يرجى تحديد عنوان التسليم بالتفصيل",
+    error_form_has_errors: "يرجى تصحيح الحقول المحددة باللون الأحمر قبل المتابعة.",
 
     // Summary & Actions
     summary_title: "ملخص الحجز",

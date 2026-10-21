@@ -23,7 +23,7 @@ export async function onRequestPost(context) {
     ];
 
     for (const field of required) {
-      if (data[field] === undefined || data[field] === null || data[field] === '') {
+      if (data[field] === undefined || data[field] === null || String(data[field]).trim() === '') {
         return new Response(JSON.stringify({ 
           success: false, 
           error: `Le champ obligatoire suivant est manquant : ${field}` 
@@ -32,6 +32,78 @@ export async function onRequestPost(context) {
           headers: { 'Content-Type': 'application/json' }
         });
       }
+    }
+
+    // 1b. Validation stricte du numéro de téléphone (au moins 9 chiffres, pas de caractères interdits)
+    const rawPhone = String(data.clientPhone).trim();
+    const phonePattern = /^\+?[0-9\s().-]{9,25}$/;
+    const phoneDigits = rawPhone.replace(/\D/g, '');
+    if (!phonePattern.test(rawPhone) || phoneDigits.length < 9 || phoneDigits.length > 15 || /^(\d)\1+$/.test(phoneDigits)) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: "Numéro de téléphone invalide : au moins 9 chiffres requis (ex: 06 12 34 56 78 ou +212 6...)."
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    // 1c. Assainissement et validation du nom complet
+    const cleanClientName = String(data.clientName).replace(/<[^>]*>/g, '').trim();
+    if (cleanClientName.length < 2 || cleanClientName.length > 100) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: "Nom du client invalide (au moins 2 caractères requis)."
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    // 1d. Validation et assainissement de l'email (si fourni)
+    let cleanClientEmail = null;
+    if (data.clientEmail && String(data.clientEmail).trim() !== '') {
+      const emailTrim = String(data.clientEmail).trim().toLowerCase();
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(emailTrim) || emailTrim.length > 120) {
+        return new Response(JSON.stringify({
+          success: false,
+          error: "Format d'adresse email invalide."
+        }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      cleanClientEmail = emailTrim;
+    }
+
+    // 1e. Validation chronologique des dates et heures
+    const pickupDateStr = String(data.pickupDate).trim();
+    const returnDateStr = String(data.returnDate).trim();
+    const pickupTimeStr = data.pickupTime ? String(data.pickupTime).trim() : '10:00';
+    const returnTimeStr = data.returnTime ? String(data.returnTime).trim() : '10:00';
+
+    const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+    if (!datePattern.test(pickupDateStr) || !datePattern.test(returnDateStr)) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: "Format de date invalide (AAAA-MM-JJ attendu)."
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    const startDate = new Date(`${pickupDateStr}T${pickupTimeStr}`);
+    const endDate = new Date(`${returnDateStr}T${returnTimeStr}`);
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime()) || endDate <= startDate) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: "La date et heure de restitution doivent être postérieures à la prise en charge."
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     // 2. Vérification de la liaison D1 (Binding)
@@ -45,11 +117,13 @@ export async function onRequestPost(context) {
       });
     }
 
-    // 3. Détermination des villes et valeurs par défaut Stage 2 & Phase 3
-    const pickupCity = data.pickupCity ? String(data.pickupCity).trim() : 'Agadir';
-    const returnCity = data.returnCity ? String(data.returnCity).trim() : pickupCity;
-    const pickupLocation = String(data.pickupLocation);
-    const returnLocation = String(data.returnLocation || data.pickupLocation);
+    // 3. Détermination des villes et valeurs par défaut Stage 2 & Phase 3 assainies
+    const pickupCity = data.pickupCity ? String(data.pickupCity).replace(/<[^>]*>/g, '').trim().slice(0, 100) : 'Agadir';
+    const returnCity = data.returnCity ? String(data.returnCity).replace(/<[^>]*>/g, '').trim().slice(0, 100) : pickupCity;
+    const pickupLocation = String(data.pickupLocation).replace(/<[^>]*>/g, '').trim().slice(0, 150);
+    const returnLocation = String(data.returnLocation || data.pickupLocation).replace(/<[^>]*>/g, '').trim().slice(0, 150);
+    const flightNumber = data.flightNumber ? String(data.flightNumber).replace(/<[^>]*>/g, '').trim().slice(0, 30) : null;
+    const notes = data.notes ? String(data.notes).replace(/<[^>]*>/g, '').trim().slice(0, 500) : null;
 
     // Langue choisie par le client ('fr', 'en', 'ar')
     const validLanguages = ['fr', 'en', 'ar'];
@@ -90,16 +164,16 @@ export async function onRequestPost(context) {
       String(data.carName),
       pickupLocation,
       returnLocation,
-      String(data.pickupDate),
-      String(data.pickupTime),
-      String(data.returnDate),
-      String(data.returnTime),
+      pickupDateStr,
+      pickupTimeStr,
+      returnDateStr,
+      returnTimeStr,
       Number(data.days) || 1,
-      data.flightNumber ? String(data.flightNumber) : null,
-      String(data.clientName),
-      String(data.clientPhone),
-      data.clientEmail ? String(data.clientEmail) : null,
-      data.notes ? String(data.notes) : null,
+      flightNumber,
+      cleanClientName,
+      rawPhone,
+      cleanClientEmail,
+      notes,
       data.optWifi ? 1 : 0,
       Number(data.totalMAD),
       Number(data.totalEUR) || Math.round(Number(data.totalMAD) / 10.8),
