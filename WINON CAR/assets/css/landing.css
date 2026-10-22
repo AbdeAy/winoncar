@@ -1,0 +1,100 @@
+/* WINON CAR — Landing page custom styles (extracted from index.html).
+   Loaded in <head> after the Tailwind CDN so these rules keep their cascade. */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    html[dir="rtl"], html[dir="rtl"] body {
+      font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+    }
+    html[dir="rtl"] .fa-arrow-right,
+    html[dir="rtl"] .fa-chevron-right,
+    html[dir="rtl"] .fa-arrow-right-from-bracket,
+    html[dir="rtl"] .fa-arrow-right-to-bracket {
+      transform: scaleX(-1);
+    }  background-color: #F8FAFC;
+      color: #1E293B;
+    }
+    
+    .gold-gradient {
+      background: linear-gradient(135deg, #DFB76C 0%, #C5A059 50%, #9E7D3B 100%);
+    }
+
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #F3D99A 0%, #D4AF37 50%, #B88E28 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-pattern {
+      background: linear-gradient(180deg, rgba(11, 19, 43, 0.88) 0%, rgba(28, 37, 65, 0.95) 100%), 
+                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+
+    .pulse-whatsapp {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .modal-backdrop {
+      background-color: rgba(11, 19, 43, 0.8);
+      backdrop-filter: blur(6px);
+    }
+
+    /* --- Landing-page reservation stepper (dark section) --- */
+    .lstep-dot {
+      width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center;
+      border-radius: 9999px; font-weight: 800; font-size: .85rem;
+      background: #334155; color: #94a3b8; border: 2px solid transparent;
+      transition: background-color .25s ease, color .25s ease;
+    }
+    .lstep-dot[data-state="current"] { background: #D4AF37; color: #0B132B; box-shadow: 0 0 0 4px rgba(212,175,55,0.18); }
+    .lstep-dot[data-state="done"] { background: #16A34A; color: #fff; }
+    .lstep-line { flex: 1; height: 3px; background: #334155; border-radius: 9999px; transition: background-color .3s ease; }
+    .lstep-line[data-state="done"] { background: #16A34A; }
+    .lstep-label { font-size: .72rem; font-weight: 700; color: #94a3b8; white-space: nowrap; }
+    .lstep-label[data-state="current"] { color: #fff; }
+    .lstep-label[data-state="done"] { color: #86efac; }
+    .rstep[hidden] { display: none; }
+    .rstep:not([hidden]) { min-height: 0; }
+
+    /* Equal-height step panels with an internally scrollable content region.
+       Applied on desktop/tablet (>=1024px) where the two-column layout exists;
+       on mobile the form flows naturally to avoid nested scrolling. */
+    @media (min-width: 1024px) {
+      #bookingForm { display: flex; flex-direction: column; height: clamp(30rem, 72vh, 42rem); }
+      .rsteps-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; padding-right: .4rem; }
+      .rsteps-scroll::-webkit-scrollbar { width: 8px; }
+      .rsteps-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 8px; }
+    }
+
+    /* --- Vehicle selection cards (reservation step 2) --- */
+    .vsel-card {
+      display: flex; align-items: center; gap: .75rem; width: 100%; text-align: left;
+      padding: .55rem; border-radius: .8rem; background: #1e293b; border: 1.5px solid #334155;
+      cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+    .vsel-card:hover { border-color: #475569; background: #243044; }
+    .vsel-card[aria-checked="true"] { border-color: #D4AF37; background: #26324a; box-shadow: 0 0 0 3px rgba(212,175,55,0.18); }
+    .vsel-card:focus-visible { outline: 3px solid rgba(212,175,55,0.45); outline-offset: 2px; }
+    .vsel-card img { width: 4.25rem; height: 3.1rem; object-fit: cover; border-radius: .55rem; background: #0f172a; flex: 0 0 auto; }
+    .vsel-radio { width: 1.25rem; height: 1.25rem; border-radius: 9999px; border: 2px solid #64748b; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+    .vsel-card[aria-checked="true"] .vsel-radio { border-color: #D4AF37; }
+    .vsel-card[aria-checked="true"] .vsel-radio::after { content: ''; width: .62rem; height: .62rem; border-radius: 9999px; background: #D4AF37; }
+    @media (prefers-reduced-motion: reduce) { .vsel-card { transition: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .lstep-dot, .lstep-line { transition: none; }
+    }
+  

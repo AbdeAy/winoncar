@@ -1,0 +1,54 @@
+/* WINON CAR — Vehicle slider (homepage) + fleet page styles.
+   Shared by index.html (#flotte slider) and vehicles/index.html (fleet grid). */
+
+/* --- Slider track & slides --- */
+.v-track { display: flex; transition: transform .4s ease; will-change: transform; }
+.v-slide { flex: 0 0 100%; padding: 0 .6rem; box-sizing: border-box; }
+@media (min-width: 768px) { .v-slide { flex-basis: 50%; } }
+@media (min-width: 1024px) { .v-slide { flex-basis: 33.3333%; } }
+.v-slide > div { height: 100%; }
+
+/* --- Slider arrows --- */
+.v-arrow {
+  position: absolute; top: 40%; transform: translateY(-50%); z-index: 20;
+  width: 2.75rem; height: 2.75rem; border-radius: 9999px;
+  background: #fff; color: #0B132B; border: 1px solid #E2E8F0;
+  box-shadow: 0 6px 18px rgba(11,19,43,0.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: background-color .2s ease, transform .15s ease, opacity .2s ease;
+}
+.v-arrow:hover { background: #0B132B; color: #fff; }
+.v-arrow:disabled { opacity: .35; cursor: not-allowed; }
+.v-arrow-left { left: -0.5rem; }
+.v-arrow-right { right: -0.5rem; }
+@media (min-width: 1280px) { .v-arrow-left { left: -1.25rem; } .v-arrow-right { right: -1.25rem; } }
+
+/* --- Slider dots --- */
+.v-dot { width: .6rem; height: .6rem; border-radius: 9999px; background: #CBD5E1; transition: width .2s ease, background-color .2s ease; }
+.v-dot.active { width: 1.5rem; background: #D4AF37; }
+
+/* --- Inline slider nav buttons (in section header) --- */
+.v-navbtn {
+  width: 2.5rem; height: 2.5rem; border-radius: 9999px;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff; color: #0B132B; border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 8px rgba(11,19,43,0.08);
+  transition: background-color .2s ease, color .2s ease;
+}
+.v-navbtn:hover { background: #0B132B; color: #fff; }
+.v-navbtn:disabled { opacity: .4; cursor: not-allowed; }
+.v-navbtn:focus-visible { outline: 3px solid rgba(212,175,55,0.45); outline-offset: 2px; }
+
+/* --- Filter chips (shared) --- */
+.filter-btn.active { background: #0B132B; color: #fff; }
+
+/* --- Fleet page form controls --- */
+.fleet-field {
+  height: 2.9rem; padding: 0 .9rem; border: 1.5px solid #E2E8F0; border-radius: .75rem;
+  background: #fff; font-size: .9rem; color: #1E293B; transition: border-color .2s ease, box-shadow .2s ease;
+}
+.fleet-field:focus { outline: none; border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,0.15); }
+
+@media (prefers-reduced-motion: reduce) {
+  .v-track, .v-arrow, .v-dot { transition: none; }
+}

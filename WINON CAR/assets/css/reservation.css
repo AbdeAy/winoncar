@@ -1,0 +1,73 @@
+/* WINON CAR — Reservation page styles (4-step booking funnel).
+   Reuses the brand palette defined via the Tailwind config + landing.css.
+   Kept intentionally small; most layout is Tailwind utility classes. */
+
+body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; }
+html[dir="rtl"], html[dir="rtl"] body { font-family: 'Tajawal', system-ui, sans-serif; }
+
+/* --- Decorative hero backdrop for the reservation header --- */
+.res-hero {
+  background:
+    radial-gradient(120% 120% at 50% -10%, rgba(212,175,55,0.10) 0%, rgba(248,250,252,0) 55%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+/* --- Step indicator --- */
+.step-dot {
+  width: 2.5rem; height: 2.5rem;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 9999px; font-weight: 800;
+  background: #E2E8F0; color: #64748B;
+  border: 2px solid transparent;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.step-dot[data-state="current"] { background: #D4AF37; color: #fff; box-shadow: 0 0 0 4px rgba(212,175,55,0.18); }
+.step-dot[data-state="done"]    { background: #16A34A; color: #fff; }
+.step-line { height: 3px; background: #E2E8F0; border-radius: 9999px; transition: background-color .3s ease; flex: 1; }
+.step-line[data-state="done"]   { background: #16A34A; }
+.step-label { font-size: .78rem; font-weight: 700; color: #64748B; }
+.step-label[data-state="current"] { color: #0B132B; }
+.step-label[data-state="done"]    { color: #16A34A; }
+
+/* --- Form controls --- */
+.res-field {
+  width: 100%; height: 3.25rem; padding: 0 1rem;
+  border: 1.5px solid #E2E8F0; border-radius: 0.85rem; background: #fff;
+  font-size: 0.95rem; color: #1E293B; transition: border-color .2s ease, box-shadow .2s ease;
+}
+.res-field:focus { outline: none; border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,0.15); }
+.res-field.is-invalid { border-color: #DC2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.12); }
+textarea.res-field { height: auto; min-height: 5.5rem; padding: 0.75rem 1rem; resize: vertical; }
+.res-label { display: flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 700; color: #334155; margin-bottom: .4rem; }
+.res-help  { font-size: .78rem; color: #64748B; margin-top: .3rem; }
+.res-error { font-size: .78rem; color: #DC2626; font-weight: 600; margin-top: .35rem; min-height: 1rem; display: none; }
+.res-error.show { display: block; }
+
+/* --- Vehicle cards --- */
+.veh-card {
+  border: 1.5px solid #E2E8F0; border-radius: 1rem; background: #fff; overflow: hidden;
+  cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease;
+  position: relative;
+}
+.veh-card:hover { box-shadow: 0 10px 24px rgba(11,19,43,0.08); }
+.veh-card[aria-pressed="true"] { border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,0.18); }
+.veh-card.is-unavailable { opacity: .6; cursor: not-allowed; }
+.veh-check { position: absolute; top: .6rem; right: .6rem; width: 1.75rem; height: 1.75rem; border-radius: 9999px;
+  background: #D4AF37; color: #fff; display: none; align-items: center; justify-content: center; font-size: .8rem; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+.veh-card[aria-pressed="true"] .veh-check { display: flex; }
+
+/* --- Step panels --- */
+.res-step { display: none; }
+.res-step.active { display: block; animation: res-fade .3s ease; }
+@keyframes res-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* --- Accessibility: respect reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .res-step.active { animation: none; }
+  .step-dot, .step-line, .veh-card { transition: none; }
+}
+
+/* --- Focus visibility --- */
+.res-field:focus-visible, button:focus-visible, a:focus-visible, .veh-card:focus-visible {
+  outline: 3px solid rgba(212,175,55,0.45); outline-offset: 2px;
+}

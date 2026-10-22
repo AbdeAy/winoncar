@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation | WINON CAR — Location de Voitures à Agadir</title>
+  <meta name="description" content="Réservez votre voiture de location à Agadir en 4 étapes simples avec WINON CAR : trajet, véhicule, vos informations et confirmation. Livraison aéroport, prix transparents en MAD.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/jpeg" href="../winon-logo.jpeg">
+  <link rel="apple-touch-icon" href="../winon-logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN (same brand config as the landing page) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: {
+        gold: '#D4AF37', goldHover: '#C5A059', goldLight: '#FDF8EC',
+        dark: '#0B132B', navy: '#1C2541', slate: '#3A506B',
+        whatsapp: '#25D366', whatsappHover: '#1EBE5D'
+      } }, fontFamily: { sans: ['"Plus Jakarta Sans"','sans-serif'], arabic: ['"Tajawal"','sans-serif'] } } }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/landing.css">
+  <link rel="stylesheet" href="../assets/css/reservation.css">
+</head>
+<body class="text-slate-800">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between min-h-[4.5rem] py-3">
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="relative w-11 h-11 rounded-full bg-white shadow-sm border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center p-0.5">
+            <img src="../winon-logo.jpeg" alt="WINON CAR Agadir" class="w-full h-full object-contain rounded-full">
+          </div>
+          <span class="text-xl font-black tracking-tight text-brand-dark">WINON <span class="gold-text-gradient">CAR</span></span>
+        </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="tel:+212604707847" class="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-brand-gold whitespace-nowrap">
+            <i class="fa-solid fa-phone text-brand-gold"></i> +212 604-707847
+          </a>
+          <a href="../" class="inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-brand-dark px-3 py-2 rounded-xl hover:bg-slate-100 whitespace-nowrap">
+            <i class="fa-solid fa-arrow-left text-xs"></i> Retour au site
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="res-hero border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 text-center">
+      <h1 class="text-3xl sm:text-4xl font-black text-brand-dark">Réservez votre véhicule</h1>
+      <p class="mt-2 text-slate-500 font-medium">Quelques étapes simples pour préparer votre location à Agadir.</p>
+
+      <!-- Stepper -->
+      <div class="mt-8 max-w-3xl mx-auto" aria-label="Progression de la réservation">
+        <div class="flex items-center">
+          <div class="flex flex-col items-center gap-2 shrink-0">
+            <div id="dot-1" class="step-dot" data-state="current" aria-current="step">1</div>
+            <span id="label-1" class="step-label" data-state="current">Trajet</span>
+          </div>
+          <div id="line-1" class="step-line mx-2 sm:mx-3" data-state="todo"></div>
+          <div class="flex flex-col items-center gap-2 shrink-0">
+            <div id="dot-2" class="step-dot" data-state="todo">2</div>
+            <span id="label-2" class="step-label" data-state="todo">Véhicule</span>
+          </div>
+          <div id="line-2" class="step-line mx-2 sm:mx-3" data-state="todo"></div>
+          <div class="flex flex-col items-center gap-2 shrink-0">
+            <div id="dot-3" class="step-dot" data-state="todo">3</div>
+            <span id="label-3" class="step-label" data-state="todo">Vos informations</span>
+          </div>
+          <div id="line-3" class="step-line mx-2 sm:mx-3" data-state="todo"></div>
+          <div class="flex flex-col items-center gap-2 shrink-0">
+            <div id="dot-4" class="step-dot" data-state="todo">4</div>
+            <span id="label-4" class="step-label" data-state="todo">Confirmation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid lg:grid-cols-3 gap-6">
+
+      <!-- ======== FORM COLUMN ======== -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-7">
+
+          <!-- STEP 1 — Trajet -->
+          <div class="res-step active" data-step="1">
+            <div class="flex items-center gap-3 mb-1">
+              <span class="step-dot !w-8 !h-8 text-sm" data-state="current">1</span>
+              <h2 class="text-xl font-black text-brand-dark" data-step-heading>Trajet</h2>
+            </div>
+            <p class="text-sm text-slate-500 mb-5">Choisissez votre ville, le lieu de prise en charge et vos dates de location.</p>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="res-label" for="r-city"><i class="fa-solid fa-location-dot text-brand-gold"></i> Ville de départ</label>
+                <select id="r-city" class="res-field"></select>
+              </div>
+              <div>
+                <label class="res-label" for="r-location"><i class="fa-solid fa-plane text-brand-gold"></i> Lieu de prise en charge</label>
+                <select id="r-location" class="res-field"></select>
+                <p id="r-location-error" class="res-error" role="alert"></p>
+              </div>
+            </div>
+
+            <div id="r-custom-wrap" class="hidden mt-4">
+              <label class="res-label" for="r-custom"><i class="fa-solid fa-map-pin text-brand-gold"></i> Adresse complète de livraison</label>
+              <input id="r-custom" type="text" class="res-field" placeholder="Ex. Hôtel Atlas, Avenue Mohammed V, Agadir" maxlength="150">
+            </div>
+
+            <div id="r-flight-wrap" class="hidden mt-4">
+              <label class="res-label" for="r-flight"><i class="fa-solid fa-plane-arrival text-brand-gold"></i> N° de vol <span class="text-slate-400 font-normal">(optionnel)</span></label>
+              <input id="r-flight" type="text" class="res-field" placeholder="Ex. AT452, TO3124, FR6712" maxlength="8">
+              <p id="r-flight-error" class="res-error" role="alert"></p>
+              <p class="res-help">Indiquez votre vol pour faciliter la prise en charge à l'aéroport.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-4">
+              <div>
+                <label class="res-label" for="r-pickup-date"><i class="fa-regular fa-calendar text-brand-gold"></i> Date et heure de départ</label>
+                <div class="flex gap-2">
+                  <input id="r-pickup-date" type="date" class="res-field">
+                  <input id="r-pickup-time" type="time" class="res-field !w-32" value="10:00">
+                </div>
+              </div>
+              <div>
+                <label class="res-label" for="r-return-date"><i class="fa-regular fa-calendar text-brand-gold"></i> Date et heure de retour</label>
+                <div class="flex gap-2">
+                  <input id="r-return-date" type="date" class="res-field">
+                  <input id="r-return-time" type="time" class="res-field !w-32" value="10:00">
+                </div>
+                <p id="r-return-date-error" class="res-error" role="alert"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2 — Véhicule -->
+          <div class="res-step" data-step="2">
+            <div class="flex items-center gap-3 mb-1">
+              <span class="step-dot !w-8 !h-8 text-sm" data-state="current">2</span>
+              <h2 class="text-xl font-black text-brand-dark" data-step-heading>Sélectionnez votre véhicule</h2>
+            </div>
+            <p class="text-sm text-slate-500 mb-5">Choisissez le véhicule qui correspond à vos besoins. Prix réels en direct du catalogue.</p>
+
+            <div id="r-vehicles">
+              <div id="r-vehicles-loading" class="py-12 text-center text-slate-500">
+                <i class="fa-solid fa-spinner fa-spin text-2xl text-brand-gold"></i>
+                <p class="mt-3 font-semibold">Chargement des véhicules…</p>
+              </div>
+              <div id="r-vehicles-empty" class="hidden py-12 text-center text-slate-500">
+                <i class="fa-solid fa-car-side text-2xl"></i>
+                <p class="mt-3 font-semibold">Aucun véhicule disponible pour le moment.</p>
+                <a href="https://wa.me/212604707847" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 text-emerald-700 font-bold"><i class="fa-brands fa-whatsapp"></i> Nous contacter sur WhatsApp</a>
+              </div>
+              <div id="r-vehicles-error" class="hidden py-12 text-center text-slate-500">
+                <i class="fa-solid fa-triangle-exclamation text-2xl text-amber-500"></i>
+                <p class="mt-3 font-semibold">Impossible de charger les véhicules.</p>
+                <button id="r-retry-vehicles" type="button" class="inline-flex items-center gap-2 mt-3 bg-brand-dark text-white px-4 py-2 rounded-xl font-bold"><i class="fa-solid fa-rotate-right"></i> Réessayer</button>
+              </div>
+              <div id="r-vehicles-grid" class="hidden grid sm:grid-cols-2 gap-4"></div>
+            </div>
+            <p id="r-vehicle-error" class="res-error" role="alert"></p>
+          </div>
+
+          <!-- STEP 3 — Vos informations -->
+          <div class="res-step" data-step="3">
+            <div class="flex items-center gap-3 mb-1">
+              <span class="step-dot !w-8 !h-8 text-sm" data-state="current">3</span>
+              <h2 class="text-xl font-black text-brand-dark" data-step-heading>Vos informations</h2>
+            </div>
+            <p class="text-sm text-slate-500 mb-5">Renseignez vos coordonnées pour finaliser la demande.</p>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="res-label" for="r-name"><i class="fa-solid fa-user text-brand-gold"></i> Nom &amp; prénom</label>
+                <input id="r-name" type="text" class="res-field" placeholder="Ex. Karim Alami" maxlength="100" autocomplete="name">
+                <p id="r-name-error" class="res-error" role="alert"></p>
+              </div>
+              <div>
+                <label class="res-label" for="r-phone"><i class="fa-brands fa-whatsapp text-brand-whatsapp"></i> Téléphone / WhatsApp</label>
+                <div class="flex">
+                  <span class="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-slate-200 bg-slate-50 text-sm font-bold text-slate-600 whitespace-nowrap">🇲🇦 +212</span>
+                  <input id="r-phone" type="tel" inputmode="numeric" class="res-field !rounded-l-none" placeholder="0612345678" maxlength="15" autocomplete="tel">
+                </div>
+                <p id="r-phone-error" class="res-error" role="alert"></p>
+                <p class="res-help">Saisissez votre numéro à 10 chiffres (ex. 0612345678).</p>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <label class="res-label" for="r-email"><i class="fa-regular fa-envelope text-brand-gold"></i> Email <span class="text-slate-400 font-normal">(optionnel)</span></label>
+              <input id="r-email" type="email" class="res-field" placeholder="votre.email@exemple.com" maxlength="120" autocomplete="email">
+              <p id="r-email-error" class="res-error" role="alert"></p>
+            </div>
+
+            <div class="mt-4">
+              <label class="res-label" for="r-notes"><i class="fa-regular fa-comment-dots text-brand-gold"></i> Demandes particulières <span class="text-slate-400 font-normal">(optionnel)</span></label>
+              <textarea id="r-notes" class="res-field" maxlength="500" placeholder="Ex. siège bébé, 2ème conducteur, heure d'arrivée spécifique…"></textarea>
+              <p class="res-help"><span id="r-notes-count">0</span>/500</p>
+            </div>
+
+            <div class="mt-5">
+              <p class="res-label">Options &amp; équipements</p>
+              <label class="flex items-center gap-3 border border-slate-200 rounded-xl p-3 cursor-pointer hover:border-brand-gold transition-colors">
+                <input id="r-wifi" type="checkbox" class="w-5 h-5 accent-brand-gold">
+                <span class="flex items-center gap-2 font-semibold text-slate-700"><i class="fa-solid fa-wifi text-brand-gold"></i> Boîtier Wi-Fi 4G</span>
+                <span class="ml-auto text-sm font-bold text-brand-dark">+30 MAD / jour</span>
+              </label>
+              <p class="res-help">Les frais de livraison éventuels sont confirmés avec vous via WhatsApp.</p>
+            </div>
+          </div>
+
+          <!-- STEP 4 — Confirmation -->
+          <div class="res-step" data-step="4">
+            <div class="flex items-center gap-3 mb-1">
+              <span class="step-dot !w-8 !h-8 text-sm" data-state="current">4</span>
+              <h2 class="text-xl font-black text-brand-dark" data-step-heading>Confirmation</h2>
+            </div>
+            <p class="text-sm text-slate-500 mb-5">Vérifiez les détails et envoyez votre demande. Vous pouvez revenir en arrière pour corriger.</p>
+            <div id="r-review" class="bg-slate-50 rounded-xl border border-slate-200 p-4"></div>
+
+            <div class="mt-4 flex items-start gap-2 text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-xl p-3">
+              <i class="fa-brands fa-whatsapp text-lg mt-0.5"></i>
+              <p>Votre demande sera <strong>enregistrée (statut : en attente)</strong> puis <strong>confirmée via WhatsApp</strong> par notre équipe. Aucun paiement en ligne n'est requis.</p>
+            </div>
+            <div id="r-result" class="hidden"></div>
+          </div>
+
+          <!-- Footer navigation -->
+          <div class="mt-7 pt-5 border-t border-slate-100 flex items-center justify-between gap-3">
+            <button id="r-back" type="button" class="invisible inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 whitespace-nowrap">
+              <i class="fa-solid fa-arrow-left text-xs"></i> Retour
+            </button>
+            <span id="r-step-count" class="text-xs font-bold text-slate-400 hidden sm:block">Étape 1 sur 4</span>
+            <button id="r-next" type="button" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white bg-brand-dark hover:bg-brand-navy shadow whitespace-nowrap">
+              <span id="r-next-label">Continuer vers le véhicule</span> <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+            </button>
+            <button id="r-submit" type="button" class="hidden inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white bg-brand-whatsapp hover:bg-brand-whatsappHover shadow whitespace-nowrap">
+              <i class="fa-brands fa-whatsapp"></i> Envoyer ma demande
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======== SUMMARY COLUMN ======== -->
+      <aside class="lg:col-span-1">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 lg:sticky lg:top-24">
+          <h3 class="text-lg font-black text-brand-dark">Votre réservation</h3>
+
+          <div id="s-car-wrap" class="hidden mt-4">
+            <div class="h-28 rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center">
+              <img id="s-car-img" src="" alt="Véhicule sélectionné" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <p id="s-car-name" class="font-extrabold text-brand-dark"></p>
+              <p id="s-car-price" class="text-sm text-slate-500"></p>
+            </div>
+          </div>
+
+          <dl class="mt-4 space-y-3 text-sm">
+            <div class="flex items-start gap-2">
+              <i class="fa-solid fa-location-dot text-brand-gold mt-0.5"></i>
+              <div><dt class="text-slate-400 text-xs font-bold uppercase">Ville</dt><dd id="s-city" class="font-semibold text-slate-800">—</dd>
+              <dd id="s-location" class="text-slate-500 text-xs"></dd></div>
+            </div>
+            <div class="flex items-start gap-2">
+              <i class="fa-regular fa-calendar text-brand-gold mt-0.5"></i>
+              <div><dt class="text-slate-400 text-xs font-bold uppercase">Dates</dt><dd id="s-dates" class="font-semibold text-slate-800">—</dd>
+              <dd id="s-duration" class="text-slate-500 text-xs"></dd></div>
+            </div>
+          </dl>
+
+          <div id="s-price-box" class="mt-5 pt-4 border-t border-slate-100 bg-emerald-50/60 -mx-5 px-5 pb-1 pt-4"></div>
+
+          <div class="mt-4 flex items-center gap-2 text-xs text-slate-400">
+            <i class="fa-solid fa-shield-halved"></i> Vos informations sont sécurisées.
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-100 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+      <p>© <span id="r-year"></span> WINON CAR Agadir — Location de voitures.</p>
+      <div class="flex items-center gap-4">
+        <a href="../" class="hover:text-brand-gold font-semibold">Accueil</a>
+        <a href="tel:+212604707847" class="hover:text-brand-gold font-semibold"><i class="fa-solid fa-phone"></i> +212 604-707847</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('r-year').textContent = new Date().getFullYear();</script>
+  <script src="../assets/js/reservation.js"></script>
+</body>
+</html>

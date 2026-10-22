@@ -51,60 +51,8 @@
   <!-- Privacy-Preserving Analytics Beacon -->
   <script src="assets/analytics.js" defer></script>
 
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    html[dir="rtl"], html[dir="rtl"] body {
-      font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
-    }
-    html[dir="rtl"] .fa-arrow-right,
-    html[dir="rtl"] .fa-chevron-right,
-    html[dir="rtl"] .fa-arrow-right-from-bracket,
-    html[dir="rtl"] .fa-arrow-right-to-bracket {
-      transform: scaleX(-1);
-    }  background-color: #F8FAFC;
-      color: #1E293B;
-    }
-    
-    .gold-gradient {
-      background: linear-gradient(135deg, #DFB76C 0%, #C5A059 50%, #9E7D3B 100%);
-    }
-
-    .gold-text-gradient {
-      background: linear-gradient(135deg, #F3D99A 0%, #D4AF37 50%, #B88E28 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-pattern {
-      background: linear-gradient(180deg, rgba(11, 19, 43, 0.88) 0%, rgba(28, 37, 65, 0.95) 100%), 
-                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    }
-
-    .pulse-whatsapp {
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      animation: pulse-green 2s infinite;
-    }
-
-    @keyframes pulse-green {
-      0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-      }
-    }
-
-    .modal-backdrop {
-      background-color: rgba(11, 19, 43, 0.8);
-      backdrop-filter: blur(6px);
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/landing.css">
+  <link rel="stylesheet" href="assets/css/vehicles.css">
 </head>
 <body class="antialiased selection:bg-brand-gold selection:text-white pb-20 lg:pb-0">
 
@@ -152,19 +100,15 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-bold text-slate-700">
-          <a href="#accueil" class="hover:text-brand-gold transition-colors" data-i18n="nav_home">Accueil</a>
-          <a href="#flotte" class="hover:text-brand-gold transition-colors" data-i18n="nav_cars">Nos Voitures</a>
-          <a href="#reservation" class="hover:text-brand-gold transition-colors" data-i18n="nav_booking">Réservation</a>
-          <a href="#avantages" class="hover:text-brand-gold transition-colors" data-i18n="nav_why">Pourquoi Nous ?</a>
-          <a href="#agadir" class="hover:text-brand-gold transition-colors" data-i18n="nav_guide">Guide Agadir</a>
-          <a href="#faq" class="hover:text-brand-gold transition-colors" data-i18n="nav_faq">FAQ</a>
+        <!-- Desktop Navigation (essential links only) -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-700 whitespace-nowrap">
+          <a href="#accueil" class="text-brand-gold" aria-current="page" data-i18n="nav_home">Accueil</a>
+          <a href="#flotte" class="hover:text-brand-gold transition-colors" data-i18n="nav_cars">Nos véhicules</a>
           <a href="#contact" class="hover:text-brand-gold transition-colors" data-i18n="nav_contact">Contact</a>
         </nav>
 
         <!-- Right Action Buttons & Language Selector -->
-        <div class="hidden sm:flex items-center gap-3">
+        <div class="hidden lg:flex items-center gap-3">
           <!-- Sélecteur de Langue (FR | EN | AR) -->
           <div class="inline-flex items-center bg-slate-100 rounded-xl p-1 border border-slate-200 text-xs font-black shadow-inner">
             <button type="button" onclick="setLanguage('fr')" data-lang-btn="fr" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold">FR</button>
@@ -174,18 +118,18 @@
 
           <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir." 
              target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-md transition-all hover:scale-105">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span data-i18n="nav_whatsapp_express">WhatsApp Express</span>
+             aria-label="Contacter WINON CAR sur WhatsApp" title="WhatsApp"
+             class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all hover:scale-105 shrink-0">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
           </a>
-          <a href="#reservation" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all shadow-md">
-            <span data-i18n="nav_quote_btn">Devis & Réservation</span>
-            <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+          <a href="reservation/" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-5 h-11 rounded-xl font-bold text-sm transition-all shadow-md whitespace-nowrap">
+            <i class="fa-solid fa-calendar-check text-brand-gold"></i>
+            <span data-i18n="nav_reserve">Réserver</span>
           </a>
         </div>
 
         <!-- Mobile Controls (Lang + Hamburger) -->
-        <div class="flex sm:hidden items-center gap-2">
+        <div class="flex lg:hidden items-center gap-2">
           <div class="inline-flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200 text-[11px] font-bold">
             <button type="button" onclick="setLanguage('fr')" data-lang-btn="fr" class="lang-switch-btn px-2 py-0.5 rounded transition-all">FR</button>
             <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-switch-btn px-2 py-0.5 rounded transition-all">EN</button>
@@ -206,23 +150,7 @@
           <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
         </a>
         <a href="#flotte" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
-          <span data-i18n="nav_cars">Nos Voitures</span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-        </a>
-        <a href="#reservation" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
-          <span data-i18n="nav_booking">Réservation</span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-        </a>
-        <a href="#avantages" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
-          <span data-i18n="nav_why">Pourquoi Nous ?</span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-        </a>
-        <a href="#agadir" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
-          <span data-i18n="nav_guide">Guide Agadir</span>
-          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
-        </a>
-        <a href="#faq" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
-          <span data-i18n="nav_faq">FAQ</span>
+          <span data-i18n="nav_cars">Nos véhicules</span>
           <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
         </a>
         <a href="#contact" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
@@ -231,6 +159,10 @@
         </a>
         
         <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5 mt-2">
+          <a href="reservation/" class="flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-white py-3 rounded-xl font-bold text-center shadow">
+            <span data-i18n="nav_reserve">Réserver</span>
+            <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+          </a>
           <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
              target="_blank" rel="noopener noreferrer" 
              class="flex items-center justify-center gap-2 bg-brand-whatsapp text-white py-3 rounded-xl font-bold text-center shadow">
@@ -359,21 +291,42 @@
 
   <!-- CAR CATALOG SECTION -->
   <section id="flotte" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block" data-i18n="fleet_badge">
-        NOTRE PARC AUTOMOBILE
-      </span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4" data-i18n="fleet_title">
-        Véhicules Récents, Propres & Contrôlés
-      </h2>
-      <p class="text-slate-600 text-base sm:text-lg" data-i18n="fleet_desc">
-        Du modèle économique pour la ville au SUV tout-confort pour explorer Taghazout et le Sud marocain.
-      </p>
+    <!-- Section header -->
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+      <div class="max-w-2xl">
+        <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block" data-i18n="fleet_badge">
+          NOTRE PARC AUTOMOBILE
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-3" data-i18n="fleet_title">
+          Véhicules Récents, Propres & Contrôlés
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg" data-i18n="fleet_desc">
+          Du modèle économique pour la ville au SUV tout-confort pour explorer Taghazout et le Sud marocain.
+        </p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="vehicles/" class="inline-flex items-center gap-2 text-sm font-bold text-brand-dark hover:text-brand-gold whitespace-nowrap">
+          <span data-i18n="fleet_see_all">Voir toute la flotte</span> <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+        </a>
+        <div class="hidden sm:flex items-center gap-2">
+          <button type="button" id="carSliderPrev" class="v-navbtn" aria-label="Véhicules précédents"><i class="fa-solid fa-chevron-left"></i></button>
+          <button type="button" id="carSliderNext" class="v-navbtn" aria-label="Véhicules suivants"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
 
-      <!-- Category Filter Buttons -->
-      <div class="flex flex-wrap items-center justify-center gap-2 mt-8" id="categoryFilterContainer">
+    <!-- Search + category filters -->
+    <div class="flex flex-col lg:flex-row lg:items-center gap-3 mb-8">
+      <div class="relative lg:w-80 shrink-0">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input id="carSearch" type="search" placeholder="Rechercher une marque ou un modèle..." aria-label="Rechercher un véhicule" class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-800 focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none">
+      </div>
+      <div class="flex flex-wrap items-center gap-2 lg:flex-1" id="categoryFilterContainer">
         <button class="filter-btn active px-4 py-2 rounded-xl text-sm font-bold transition-all bg-brand-dark text-white shadow-sm" data-category="all" data-i18n="filter_all">
           Toutes les Voitures
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="auto" data-i18n="filter_auto">
+          Automatiques
         </button>
         <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="eco" data-i18n="filter_eco">
           Économiques
@@ -390,9 +343,15 @@
       </div>
     </div>
 
-    <!-- CAR GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="carCatalogGrid">
-      <!-- Car cards will be rendered dynamically by JavaScript -->
+    <!-- CAR SLIDER (3 cards per view on desktop, 2 on tablet, 1 on mobile; controls live in the header) -->
+    <div id="carSliderViewport" class="overflow-hidden" tabindex="0" role="region" aria-label="Catalogue de véhicules">
+      <div id="carCatalogGrid" class="v-track"></div>
+    </div>
+    <div id="carSliderDots" class="flex items-center justify-center gap-2 mt-7"></div>
+    <div id="carNoResults" hidden class="text-center py-14 text-slate-500">
+      <i class="fa-solid fa-car-side text-3xl text-slate-300"></i>
+      <p class="mt-3 font-semibold">Aucun véhicule ne correspond à votre recherche.</p>
+      <button type="button" onclick="resetVehicleFilters()" class="inline-flex items-center gap-2 mt-4 bg-brand-dark hover:bg-brand-navy text-white px-5 py-2.5 rounded-xl font-bold text-sm"><i class="fa-solid fa-rotate-left"></i> Réinitialiser</button>
     </div>
   </section>
 
@@ -418,9 +377,40 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Booking Form Column -->
-        <div class="lg:col-span-8 bg-slate-800/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-slate-700 shadow-2xl">
-          <form id="bookingForm" onsubmit="handleFormSubmit(event)" novalidate class="space-y-6">
+        <div class="lg:col-span-8 bg-slate-800/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-slate-700 shadow-2xl">
+          <form id="bookingForm" onsubmit="handleFormSubmit(event)" novalidate class="space-y-4">
             
+            <!-- Stepper indicator -->
+            <div>
+              <div class="flex items-center" aria-label="Progression de la réservation">
+                <div class="flex flex-col items-center gap-1.5 shrink-0">
+                  <div id="rDot-1" class="lstep-dot" data-state="current">1</div>
+                  <span id="rLbl-1" class="lstep-label" data-state="current" data-i18n="step1_label">Trajet</span>
+                </div>
+                <div id="rLine-1" class="lstep-line mx-2 sm:mx-3"></div>
+                <div class="flex flex-col items-center gap-1.5 shrink-0">
+                  <div id="rDot-2" class="lstep-dot">2</div>
+                  <span id="rLbl-2" class="lstep-label" data-i18n="step2_label">Véhicule</span>
+                </div>
+                <div id="rLine-2" class="lstep-line mx-2 sm:mx-3"></div>
+                <div class="flex flex-col items-center gap-1.5 shrink-0">
+                  <div id="rDot-3" class="lstep-dot">3</div>
+                  <span id="rLbl-3" class="lstep-label" data-i18n="step3_label">Vos infos</span>
+                </div>
+                <div id="rLine-3" class="lstep-line mx-2 sm:mx-3"></div>
+                <div class="flex flex-col items-center gap-1.5 shrink-0">
+                  <div id="rDot-4" class="lstep-dot">4</div>
+                  <span id="rLbl-4" class="lstep-label" data-i18n="step4_label">Confirmation</span>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center justify-between gap-3">
+                <h3 id="rStepHeading" class="text-white font-bold text-lg" tabindex="-1">Trajet</h3>
+                <span id="rStepCount" class="text-xs font-bold text-slate-400 shrink-0">Étape 1 / 4</span>
+              </div>
+            </div>
+
+            <div class="rsteps-scroll">
+            <div class="rstep space-y-4" data-rstep="1">
             <!-- Locations Row with Moroccan Cities Hierarchy -->
             <div class="space-y-4">
               <div class="flex items-center justify-between">
@@ -538,20 +528,28 @@
               </div>
             </div>
 
+            </div><!-- /rstep 1 -->
+
+            <div class="rstep space-y-4" data-rstep="2" hidden>
             <!-- Vehicle Selection Row -->
             <div>
-              <label for="carSelect" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
                 <i class="fa-solid fa-car text-brand-gold mr-1.5"></i> <span data-i18n="car_select_label">Véhicule Souhaité</span>
               </label>
-              <select id="carSelect" required onchange="updateBookingCalculation()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm font-semibold focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all">
-                <!-- Populated dynamically via JS -->
+              <p class="text-xs text-slate-400 mb-3">Sélectionnez un véhicule — le tarif se met à jour automatiquement.</p>
+              <div id="carSelectCards" role="radiogroup" aria-label="Choix du véhicule" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+              <select id="carSelect" required onchange="updateBookingCalculation(); if(typeof renderVehicleSelectCards==='function') renderVehicleSelectCards();" class="sr-only" aria-hidden="true" tabindex="-1">
+                <!-- Populated dynamically via JS; visual selection via #carSelectCards -->
               </select>
-              <div id="carSelectError" class="hidden text-xs text-rose-400 mt-1.5 flex items-center gap-1.5 font-medium" role="alert" aria-live="polite">
+              <div id="carSelectError" class="hidden text-xs text-rose-400 mt-2 flex items-center gap-1.5 font-medium" role="alert" aria-live="polite">
                 <i class="fa-solid fa-circle-exclamation text-rose-500 shrink-0"></i>
                 <span class="error-msg"></span>
               </div>
             </div>
 
+            </div><!-- /rstep 2 -->
+
+            <div class="rstep space-y-4" data-rstep="3" hidden>
             <!-- Client Contact Details -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -696,6 +694,15 @@
               </div>
             </div>
 
+            </div><!-- /rstep 3 -->
+
+            <div class="rstep space-y-4" data-rstep="4" hidden>
+              <!-- Review summary -->
+              <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+                <span class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-3"><i class="fa-solid fa-clipboard-check mr-1"></i> <span data-i18n="review_title">Récapitulatif de votre demande</span></span>
+                <div id="rReview" class="space-y-2 text-sm text-slate-300"></div>
+              </div>
+
             <!-- Form Error Banner -->
             <div id="bookingFormErrorBanner" class="hidden bg-rose-500/10 border border-rose-500/40 rounded-xl p-3 text-xs text-rose-300 flex items-center gap-2.5 font-medium" role="alert">
               <i class="fa-solid fa-triangle-exclamation text-rose-400 shrink-0 text-sm"></i>
@@ -713,6 +720,18 @@
                 <span data-i18n="btn_submit_book">Confirmer la demande</span>
               </button>
             </div>
+            </div><!-- /rstep 4 -->
+            </div><!-- /rsteps-scroll -->
+
+            <!-- Stepper navigation -->
+            <div class="flex items-center justify-between gap-3 pt-3 mt-1 border-t border-slate-700/60">
+              <button type="button" id="rBackBtn" onclick="reservationStepBack()" class="invisible inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-slate-200 bg-slate-700/70 hover:bg-slate-700 transition-colors whitespace-nowrap">
+                <i class="fa-solid fa-arrow-left text-xs"></i> <span data-i18n="step_back">Retour</span>
+              </button>
+              <button type="button" id="rNextBtn" onclick="reservationStepNext()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-brand-dark bg-brand-gold hover:bg-brand-goldHover shadow-lg transition-all whitespace-nowrap">
+                <span data-i18n="step_next">Continuer</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+            </div>
           </form>
         </div>
 
@@ -720,7 +739,7 @@
         <div class="lg:col-span-4 space-y-6">
           
           <!-- Summary Card -->
-          <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 shadow-xl">
+          <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700 shadow-xl">
             <h3 class="text-lg font-bold text-white mb-4 pb-3 border-b border-slate-700 flex items-center justify-between">
               <span data-i18n="summary_title">Récapitulatif Estimé</span>
               <span class="text-xs font-semibold px-2.5 py-1 rounded bg-brand-gold/20 text-brand-gold" data-i18n="summary_badge">0 Frais Cachés</span>
@@ -1217,8 +1236,8 @@
   </div>
 
   <!-- FLOATING WHATSAPP BUTTON (DESKTOP & TABLET) -->
-  <div class="fixed bottom-16 sm:bottom-6 right-6 z-40 flex items-center gap-3">
-    <div class="hidden sm:block bg-white text-slate-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-lg border border-slate-200">
+  <div class="group fixed bottom-16 sm:bottom-6 right-6 z-40 flex items-center gap-3">
+    <div class="hidden sm:block bg-white text-slate-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-lg border border-slate-200 opacity-0 invisible translate-x-2 group-hover:opacity-100 group-hover:visible group-hover:translate-x-0 transition-all duration-200 pointer-events-none">
       Discutez avec nous en direct !
     </div>
     <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20une%20voiture%20à%20Agadir." 
@@ -1338,1623 +1357,6 @@
   </div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script>
-    // --- 1. DATA: CAR CATALOG (10 Vehicles with Prices in MAD) ---
-    let CARS_DATABASE = [
-      {
-        id: 'sandero',
-        name: 'Dacia Sandero Stepway',
-        category: 'eco',
-        categoryLabel: 'Citadine Économique',
-        priceMAD: 280,
-        badge: 'Le Plus Demandé',
-        image: 'assets/cars/dacia-sandero-stepway.jpg',
-        specs: {
-          gearbox: 'Manuelle',
-          fuel: 'Essence',
-          seats: '5 Places',
-          ac: 'Climatisation A/C',
-          bags: '2 Valises',
-          doors: '5 Portes'
-        },
-        description: 'Idéale pour circuler dans Agadir et visiter Taghazout en réalisant des économies sur le carburant.'
-      },
-      {
-        id: 'clio5',
-        name: 'Renault Clio 5',
-        category: 'eco',
-        categoryLabel: 'Citadine Moderne',
-        priceMAD: 320,
-        badge: 'Très Sobre',
-        image: 'assets/cars/renault-clio-5.jpg',
-        specs: {
-          gearbox: 'Manuelle',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Climatisation A/C',
-          bags: '2 Valises',
-          doors: '5 Portes'
-        },
-        description: 'La citadine préférée des voyageurs : très sobre en carburant avec écran tactile et Bluetooth.'
-      },
-      {
-        id: 'peugeot208',
-        name: 'Peugeot 208 GT',
-        category: 'eco',
-        categoryLabel: 'Citadine Premium',
-        priceMAD: 360,
-        badge: 'Design Sport',
-        image: 'assets/cars/peugeot-208.jpg',
-        specs: {
-          gearbox: 'Automatique',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Climatisation A/C',
-          bags: '2 Valises',
-          doors: '5 Portes'
-        },
-        description: 'Look moderne et cockpit digital. Idéale pour sillonner la corniche et la marina d\'Agadir avec style.'
-      },
-      {
-        id: 'accent',
-        name: 'Hyundai Accent',
-        category: 'berline',
-        categoryLabel: 'Berline Confort',
-        priceMAD: 400,
-        badge: 'Grand Coffre',
-        image: 'assets/cars/hyundai-accent.jpg',
-        specs: {
-          gearbox: 'Automatique',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Climatisation A/C',
-          bags: '3 Valises',
-          doors: '4 Portes'
-        },
-        description: 'Spacieuse, silencieuse et dotée d\'un grand coffre pour accueillir tous vos bagages à l\'aéroport.'
-      },
-      {
-        id: 'golf8',
-        name: 'Volkswagen Golf 8 DSG',
-        category: 'berline',
-        categoryLabel: 'Berline Compacte Luxe',
-        priceMAD: 550,
-        badge: 'Performance Allemande',
-        image: 'assets/cars/vw-golf-8.jpg',
-        specs: {
-          gearbox: 'Automatique DSG',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Clim Bizone',
-          bags: '3 Valises',
-          doors: '5 Portes'
-        },
-        description: 'La référence allemande pour un plaisir de conduite absolu sur les autoroutes et routes du Maroc.'
-      },
-      {
-        id: 'duster',
-        name: 'Dacia Duster 4x4',
-        category: 'suv',
-        categoryLabel: 'SUV Tout-Chemin',
-        priceMAD: 420,
-        badge: 'Idéal Taghazout & Dunes',
-        image: 'assets/cars/dacia-duster.jpg',
-        specs: {
-          gearbox: 'Manuelle 6 vit.',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Climatisation A/C',
-          bags: '3 Valises',
-          doors: '5 Portes'
-        },
-        description: 'Le SUV le plus demandé à Agadir : robuste, surélevé et parfaitement adapté aux plages et sentiers.'
-      },
-      {
-        id: 'tucson',
-        name: 'Hyundai Tucson',
-        category: 'suv',
-        categoryLabel: 'SUV Familial Élégant',
-        priceMAD: 650,
-        badge: 'Toit Panoramique',
-        image: 'assets/cars/hyundai-tucson.jpg',
-        specs: {
-          gearbox: 'Automatique',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Clim Tri-Zone',
-          bags: '4 Valises',
-          doors: '5 Portes'
-        },
-        description: 'Confort de première classe pour les familles ou groupes d\'amis désirant voyager dans un grand luxe.'
-      },
-      {
-        id: 'sportage',
-        name: 'Kia Sportage GT-Line',
-        category: 'suv',
-        categoryLabel: 'SUV Sportif',
-        priceMAD: 580,
-        badge: 'Technologie & Caméra',
-        image: 'assets/cars/kia-sportage.jpg',
-        specs: {
-          gearbox: 'Automatique',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Climatisation A/C',
-          bags: '3 Valises',
-          doors: '5 Portes'
-        },
-        description: 'Lignes dynamiques, caméra de recul et sécurité maximale pour explorer toute la région Souss-Massa.'
-      },
-      {
-        id: 'mercedes',
-        name: 'Mercedes-Benz Classe C',
-        category: 'luxe',
-        categoryLabel: 'Prestige & Berline VIP',
-        priceMAD: 1100,
-        badge: 'Luxe Exceptionnel',
-        image: 'assets/cars/mercedes-c-class.jpg',
-        specs: {
-          gearbox: 'Automatique 9G',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Clim Thermotronic',
-          bags: '3 Valises',
-          doors: '4 Portes'
-        },
-        description: 'L\'élégance incarnée pour vos rendez-vous d\'affaires ou séjours luxueux dans les palaces d\'Agadir.'
-      },
-      {
-        id: 'evoque',
-        name: 'Range Rover Evoque',
-        category: 'luxe',
-        categoryLabel: 'Prestige SUV VIP',
-        priceMAD: 1200,
-        badge: 'Prestige VIP',
-        image: 'assets/cars/range-rover-evoque.jpg',
-        specs: {
-          gearbox: 'Automatique',
-          fuel: 'Diesel',
-          seats: '5 Places',
-          ac: 'Climatisation A/C',
-          bags: '4 Valises',
-          doors: '5 Portes'
-        },
-        description: 'Intérieur cuir raffiné et stature prestigieuse pour une expérience de conduite inoubliable.'
-      }
-    ];
-
-    let currentSelectedCarId = 'sandero';
-    const MAD_TO_EUR_RATE = 10.8;
-    let currentCategoryFilter = 'all';
-    let currentLang = localStorage.getItem('winon_lang') || 'fr';
-
-    // --- GESTION DES DOCUMENTS CLIENTS (Fast-track / Coupe-file) ---
-    const uploadedDocs = {
-      cinRecto: null,
-      cinVerso: null,
-      licenseRecto: null,
-      licenseVerso: null
-    };
-
-    function compressDocImage(file, maxDimension = 1200, quality = 0.75) {
-      return new Promise((resolve, reject) => {
-        if (!file) return reject(new Error('Aucun fichier fourni'));
-        const reader = new FileReader();
-        reader.onerror = () => reject(new Error('Erreur de lecture du fichier'));
-        reader.onload = (e) => {
-          const img = new Image();
-          img.onerror = () => reject(new Error("Format d'image non valide"));
-          img.onload = () => {
-            let width = img.width;
-            let height = img.height;
-            if (width > maxDimension || height > maxDimension) {
-              if (width > height) {
-                height = Math.round((height * maxDimension) / width);
-                width = maxDimension;
-              } else {
-                width = Math.round((width * maxDimension) / height);
-                height = maxDimension;
-              }
-            }
-            const canvas = document.createElement('canvas');
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, width, height);
-
-            let dataUrl = canvas.toDataURL('image/webp', quality);
-            if (!dataUrl.startsWith('data:image/webp')) {
-              dataUrl = canvas.toDataURL('image/jpeg', quality);
-            }
-            if (dataUrl.length > 200000) {
-              dataUrl = canvas.toDataURL('image/jpeg', 0.6);
-            }
-            resolve(dataUrl);
-          };
-          img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    async function handleDocUpload(event, key) {
-      const file = event.target.files?.[0];
-      if (!file) return;
-
-      const previewDiv = document.getElementById(`preview-${key}`);
-      const badge = document.getElementById(`badge-${key}`);
-      const delBtn = document.getElementById(`del-${key}`);
-
-      try {
-        if (previewDiv) {
-          previewDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-brand-gold text-lg mb-1"></i><span class="text-[9px] text-slate-400">Compression...</span>';
-        }
-        const compressed = await compressDocImage(file);
-        uploadedDocs[key] = compressed;
-
-        const sizeKB = Math.round((compressed.length * 3 / 4) / 1024);
-        if (previewDiv) {
-          previewDiv.innerHTML = `<img src="${compressed}" class="w-full h-full object-cover rounded-lg" alt="${key}" />`;
-        }
-        if (badge) {
-          badge.textContent = `✓ ${sizeKB} Ko`;
-          badge.classList.remove('hidden');
-        }
-        if (delBtn) {
-          delBtn.classList.remove('hidden');
-        }
-      } catch (err) {
-        alert("Erreur lors de la compression de l'image : " + (err.message || err));
-        removeDoc(key);
-      }
-    }
-
-    function removeDoc(key) {
-      uploadedDocs[key] = null;
-      const input = document.getElementById(`doc${key.charAt(0).toUpperCase() + key.slice(1)}Input`);
-      if (input) input.value = '';
-
-      const previewDiv = document.getElementById(`preview-${key}`);
-      const badge = document.getElementById(`badge-${key}`);
-      const delBtn = document.getElementById(`del-${key}`);
-
-      const labels = {
-        cinRecto: { icon: 'fa-camera', labelKey: 'doc_cin_front', def: 'CIN / Pass. (Face)' },
-        cinVerso: { icon: 'fa-camera', labelKey: 'doc_cin_back', def: 'CIN (Verso)' },
-        licenseRecto: { icon: 'fa-id-card-clip', labelKey: 'doc_license_front', def: 'Permis (Face)' },
-        licenseVerso: { icon: 'fa-id-card-clip', labelKey: 'doc_license_back', def: 'Permis (Verso)' }
-      };
-      const conf = labels[key] || { icon: 'fa-camera', labelKey: '', def: 'Document' };
-      const labelText = (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang] && WINON_TRANSLATIONS[currentLang][conf.labelKey])
-        ? WINON_TRANSLATIONS[currentLang][conf.labelKey]
-        : conf.def;
-
-      if (previewDiv) {
-        previewDiv.innerHTML = `
-          <i class="fa-solid ${conf.icon} text-slate-500 group-hover:text-brand-gold text-xl mb-1.5 transition"></i>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-white" data-i18n="${conf.labelKey}">${labelText}</span>
-        `;
-      }
-      if (badge) {
-        badge.textContent = '';
-        badge.classList.add('hidden');
-      }
-      if (delBtn) {
-        delBtn.classList.add('hidden');
-      }
-    }
-
-    // --- MOTEUR MULTILINGUE CENTRALISÉ (FR | EN | AR) ---
-    function setLanguage(lang) {
-      if (!['fr', 'en', 'ar'].includes(lang)) lang = 'fr';
-      currentLang = lang;
-      localStorage.setItem('winon_lang', lang);
-
-      // Mise à jour de la balise HTML racine
-      document.documentElement.lang = lang;
-      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-
-      // Mise à jour visuelle des boutons de langue
-      document.querySelectorAll('.lang-switch-btn').forEach(btn => {
-        const btnLang = btn.getAttribute('data-lang-btn');
-        if (btnLang === lang) {
-          btn.className = "lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold bg-brand-gold text-brand-dark shadow-sm" + (btnLang === 'ar' ? ' font-arabic text-sm' : '');
-        } else {
-          btn.className = "lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold text-slate-600 hover:text-slate-900" + (btnLang === 'ar' ? ' font-arabic text-sm' : '');
-        }
-      });
-
-      // Remplacement de tous les textes avec data-i18n
-      if (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[lang]) {
-        const dict = WINON_TRANSLATIONS[lang];
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          const key = el.getAttribute('data-i18n');
-          if (dict[key] !== undefined) {
-            el.textContent = dict[key];
-          }
-        });
-
-        // Placeholders localisés
-        const nameInput = document.getElementById('clientName');
-        const phoneInput = document.getElementById('clientPhone');
-        const emailInput = document.getElementById('clientEmail');
-        const notesInput = document.getElementById('bookingNotes');
-        if (nameInput) {
-          nameInput.placeholder = (lang === 'ar') ? 'مثال: كريم العلمي' : (lang === 'en' ? 'E.g., John Smith' : 'Ex: Karim Alami');
-        }
-        if (phoneInput) {
-          phoneInput.placeholder = (lang === 'ar') ? 'مثال: 0612345678 أو +212 6...' : (lang === 'en' ? 'E.g., +212 6... or +44 7...' : 'Ex: +212 6XX-XXXXXX ou 06 12...');
-        }
-        if (emailInput) {
-          emailInput.placeholder = (lang === 'ar') ? 'مثال: contact@exemple.com' : (lang === 'en' ? 'E.g., contact@example.com' : 'votre.email@exemple.com');
-        }
-        if (notesInput) {
-          notesInput.placeholder = (lang === 'ar') ? 'مثال: اسم الفندق، وقت الوصول...' : (lang === 'en' ? 'E.g., Hotel name, flight details...' : 'Ex: Nom de l\'hôtel, heure spécifique...');
-        }
-
-        // Mettre à jour les messages d'erreur de validation visibles
-        if (typeof refreshVisibleValidationErrors === 'function') {
-          refreshVisibleValidationErrors();
-        }
-      }
-
-      // Re-rendre le catalogue avec les textes traduits
-      if (typeof renderCarCatalog === 'function') {
-        renderCarCatalog(currentCategoryFilter || 'all');
-      }
-    }
-
-    // --- 2. INITIALIZATION ON DOM LOAD ---
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-      // Appliquer la langue sauvegardée
-      setLanguage(currentLang);
-
-      // Set default dates (Tomorrow to 4 days later)
-      const today = new Date();
-      const pickupDateObj = new Date(today);
-      pickupDateObj.setDate(today.getDate() + 1);
-
-      const returnDateObj = new Date(today);
-      returnDateObj.setDate(today.getDate() + 4);
-
-      const pickupDateInput = document.getElementById('pickupDate');
-      const returnDateInput = document.getElementById('returnDate');
-      const quickPickupDate = document.getElementById('quickPickupDate');
-      const quickReturnDate = document.getElementById('quickReturnDate');
-
-      const pickupStr = pickupDateObj.toISOString().split('T')[0];
-      const returnStr = returnDateObj.toISOString().split('T')[0];
-      const todayStr = today.toISOString().split('T')[0];
-
-      pickupDateInput.value = pickupStr;
-      returnDateInput.value = returnStr;
-      pickupDateInput.min = todayStr;
-      returnDateInput.min = pickupStr;
-
-      if (quickPickupDate && quickReturnDate) {
-        quickPickupDate.value = pickupStr;
-        quickReturnDate.value = returnStr;
-        quickPickupDate.min = todayStr;
-        quickReturnDate.min = pickupStr;
-      }
-
-      // Event listeners for dates
-      pickupDateInput.addEventListener('change', () => {
-        if (returnDateInput.value <= pickupDateInput.value) {
-          const nextDay = new Date(pickupDateInput.value);
-          nextDay.setDate(nextDay.getDate() + 1);
-          returnDateInput.value = nextDay.toISOString().split('T')[0];
-        }
-        returnDateInput.min = pickupDateInput.value;
-        if (quickPickupDate) quickPickupDate.value = pickupDateInput.value;
-        if (quickReturnDate) quickReturnDate.value = returnDateInput.value;
-        updateBookingCalculation();
-      });
-
-      returnDateInput.addEventListener('change', () => {
-        if (quickReturnDate) quickReturnDate.value = returnDateInput.value;
-        updateBookingCalculation();
-      });
-
-      // Populate Car Select dropdown in form
-      populateCarSelectDropdown();
-
-      // Initialize Moroccan cities and locations dropdowns
-      initMoroccanLocations();
-
-      // Render Car Catalog Cards
-      renderCarCatalog('all');
-
-      // Initialize filter buttons
-      setupCategoryFilters();
-
-      // Setup mobile menu
-      setupMobileMenu();
-
-      // Perform initial calculation
-      updateBookingCalculation();
-
-      // Charger dynamiquement les véhicules et tarifs en direct depuis Cloudflare D1
-      loadVehiclesFromAPI();
-
-      // Re-synchronisation silencieuse dès que la page redevient active (retour d'onglet)
-      window.addEventListener('focus', loadVehiclesFromAPI);
-    });
-
-    // --- CHARGEMENT DYNAMIQUE DU CATALOGUE DEPUIS CLOUDFLARE D1 ---
-    async function loadVehiclesFromAPI() {
-      try {
-        const res = await fetch('/api/vehicles');
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data && data.success && Array.isArray(data.vehicles) && data.vehicles.length > 0) {
-          CARS_DATABASE = data.vehicles.map(v => ({
-            id: v.id,
-            name: v.name,
-            category: v.category,
-            categoryLabel: v.categoryLabel || v.category,
-            priceMAD: Number(v.priceMad || v.priceMAD || 0),
-            badge: v.badge || '',
-            image: v.imageUrl || v.image || 'assets/cars/dacia-sandero-stepway.jpg',
-            specs: {
-              gearbox: v.gearbox || 'Manuelle',
-              fuel: v.fuel || 'Diesel',
-              seats: v.seats || '5 Places',
-              ac: v.ac || 'Climatisation A/C',
-              bags: v.bags || '2 Valises',
-              doors: v.doors || '5 Portes'
-            },
-            description: v.description || `${v.name} disponible à la location chez WINON CAR Agadir.`,
-            availability: v.availability || 'disponible'
-          }));
-
-          // Maintien du véhicule sélectionné ou repli sur le premier disponible
-          const carSelect = document.getElementById('carSelect');
-          const currentVal = carSelect ? carSelect.value : currentSelectedCarId;
-          const matchingCar = CARS_DATABASE.find(c => c.id === currentVal);
-          if (matchingCar) {
-            currentSelectedCarId = matchingCar.id;
-          } else if (CARS_DATABASE.length > 0) {
-            currentSelectedCarId = CARS_DATABASE[0].id;
-          }
-
-          populateCarSelectDropdown();
-          if (carSelect && currentSelectedCarId) {
-            carSelect.value = currentSelectedCarId;
-          }
-
-          // Rafraîchir l'affichage selon le filtre de catégorie actif
-          const activeFilterBtn = document.querySelector('#categoryFilterContainer .filter-btn.active');
-          const currentCategory = activeFilterBtn ? activeFilterBtn.getAttribute('data-category') : 'all';
-          renderCarCatalog(currentCategory || 'all');
-
-          // Recalcul immédiat du devis
-          updateBookingCalculation();
-        }
-      } catch (err) {
-        console.warn('[WINON CAR] API D1 non joignable, catalogue par défaut actif :', err);
-      }
-    }
-
-    // --- 3. POPULATE SELECT DROPDOWN ---
-    function populateCarSelectDropdown() {
-      const select = document.getElementById('carSelect');
-      if (!select) return;
-      select.innerHTML = '';
-      CARS_DATABASE.forEach(car => {
-        const option = document.createElement('option');
-        option.value = car.id;
-        const eur = Math.round(car.priceMAD / MAD_TO_EUR_RATE);
-        let statusExtra = '';
-        if (car.availability === 'maintenance') statusExtra = ' • [En révision]';
-        else if (car.availability === 'loue') statusExtra = ' • [En location]';
-        option.textContent = `${car.name} — ${car.priceMAD} MAD / jour (~${eur} €) • ${car.categoryLabel}${statusExtra}`;
-        select.appendChild(option);
-      });
-    }
-
-    // --- 4. RENDER CATALOG GRID ---
-    function renderCarCatalog(categoryFilter = 'all') {
-      const grid = document.getElementById('carCatalogGrid');
-      if (!grid) return;
-      grid.innerHTML = '';
-
-      const t = (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang]) ? WINON_TRANSLATIONS[currentLang] : {};
-
-      const filteredCars = categoryFilter === 'all' 
-        ? CARS_DATABASE 
-        : CARS_DATABASE.filter(c => c.category === categoryFilter);
-
-      filteredCars.forEach(car => {
-        const eur = Math.round(car.priceMAD / MAD_TO_EUR_RATE);
-        const card = document.createElement('div');
-        card.className = "bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group";
-        
-        let availabilityBadge = '';
-        if (car.availability === 'maintenance') {
-          availabilityBadge = `<span class="bg-amber-600/95 backdrop-blur-md text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">${t.badge_maintenance || 'En Révision'}</span>`;
-        } else if (car.availability === 'loue') {
-          availabilityBadge = `<span class="bg-blue-600/95 backdrop-blur-md text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">${t.badge_rented || 'En Location'}</span>`;
-        }
-
-        // WhatsApp message per vehicle
-        let carWaText = `Bonjour WINON CAR Agadir, je souhaite réserver ou vérifier la disponibilité de la ${car.name} (${car.priceMAD} MAD / jour).`;
-        if (currentLang === 'ar') {
-          carWaText = `السلام عليكم WINON CAR، بغيت نسول على توفر سيارة ${car.name} (${car.priceMAD} درهم / يوم).`;
-        } else if (currentLang === 'en') {
-          carWaText = `Hello WINON CAR Agadir, I would like to book or check availability for ${car.name} (${car.priceMAD} MAD / day).`;
-        }
-
-        card.innerHTML = `
-          <!-- Image & Badge Container -->
-          <div class="relative h-52 overflow-hidden bg-slate-100">
-            <img src="${car.image}" alt="${car.name}" 
-                 loading="lazy"
-                 onerror="this.onerror=null; this.src='assets/cars/dacia-sandero-stepway.jpg';"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute top-3 left-3 flex flex-wrap gap-1">
-              ${car.badge ? `<span class="bg-brand-dark/95 backdrop-blur-md text-brand-gold text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                ${car.badge}
-              </span>` : ''}
-              ${availabilityBadge}
-            </div>
-            <div class="absolute bottom-3 right-3">
-              <span class="bg-white/95 backdrop-blur-md text-slate-800 text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
-                ${car.categoryLabel}
-              </span>
-            </div>
-          </div>
-
-          <!-- Body Container -->
-          <div class="p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-gold transition-colors">
-                  ${car.name}
-                </h3>
-              </div>
-              <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">
-                ${car.description}
-              </p>
-
-              <!-- Specs Pills -->
-              <div class="grid grid-cols-3 gap-2 py-3 border-y border-slate-100 text-[11px] text-slate-600 mb-4">
-                <div class="flex items-center gap-1.5" title="${t.spec_manual || 'Boîte de vitesse'}">
-                  <i class="fa-solid fa-gear text-brand-gold"></i>
-                  <span>${car.specs.gearbox}</span>
-                </div>
-                <div class="flex items-center gap-1.5" title="${t.spec_diesel || 'Carburant'}">
-                  <i class="fa-solid fa-gas-pump text-brand-gold"></i>
-                  <span>${car.specs.fuel}</span>
-                </div>
-                <div class="flex items-center gap-1.5" title="${t.spec_seats || 'Nombre de places'}">
-                  <i class="fa-solid fa-users text-brand-gold"></i>
-                  <span>${car.specs.seats}</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Price & Actions Footer -->
-            <div>
-              <div class="flex items-baseline justify-between mb-4">
-                <span class="text-xs text-slate-400 font-medium">${t.card_rate_all_inc || 'Tarif journalier TTC'}</span>
-                <div class="text-right">
-                  <span class="text-2xl font-black text-slate-900">${car.priceMAD} MAD</span>
-                  <span class="text-xs text-slate-500 font-semibold">${t.card_per_day || ' / jour'}</span>
-                  <span class="block text-[11px] text-slate-400 font-medium">(~${eur} €)</span>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-3 gap-2">
-                <button onclick="openCarModal('${car.id}')" class="py-2.5 px-2 rounded-xl border border-slate-200 hover:border-slate-800 text-slate-700 hover:text-slate-900 font-bold text-xs transition-colors flex items-center justify-center gap-1" title="Voir les détails complets">
-                  <i class="fa-solid fa-circle-info"></i>
-                  <span>${t.card_details_btn || 'Détails'}</span>
-                </button>
-                <button onclick="selectCarAndScrollToBooking('${car.id}')" class="py-2.5 px-2 rounded-xl bg-brand-dark hover:bg-brand-navy text-white font-bold text-xs transition-colors flex items-center justify-center gap-1" title="Sélectionner pour réserver">
-                  <i class="fa-solid fa-check"></i>
-                  <span>${t.card_book_btn || 'Réserver'}</span>
-                </button>
-                <a href="https://wa.me/212604707847?text=${encodeURIComponent(carWaText)}" 
-                   target="_blank" rel="noopener noreferrer"
-                   class="py-2.5 px-2 rounded-xl bg-brand-whatsapp hover:bg-brand-whatsappHover text-white font-bold text-xs transition-colors flex items-center justify-center gap-1" title="Discuter directement sur WhatsApp">
-                  <i class="fa-brands fa-whatsapp text-sm"></i>
-                  <span>WhatsApp</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    // --- 5. CATEGORY FILTER LOGIC ---
-    function setupCategoryFilters() {
-      const buttons = document.querySelectorAll('#categoryFilterContainer .filter-btn');
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          buttons.forEach(b => {
-            b.classList.remove('active', 'bg-brand-dark', 'text-white');
-            b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
-          });
-          btn.classList.add('active', 'bg-brand-dark', 'text-white');
-          btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
-
-          const category = btn.getAttribute('data-category');
-          currentCategoryFilter = category;
-          renderCarCatalog(category);
-        });
-      });
-    }
-
-    // --- 6. PRICE & DURATION CALCULATION ---
-    function calculateDays() {
-      const pickupDateVal = document.getElementById('pickupDate').value;
-      const returnDateVal = document.getElementById('returnDate').value;
-      if (!pickupDateVal || !returnDateVal) return 1;
-
-      const d1 = new Date(pickupDateVal);
-      const d2 = new Date(returnDateVal);
-      const diffTime = d2.getTime() - d1.getTime();
-      let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      return diffDays > 0 ? diffDays : 1;
-    }
-
-    function updateBookingCalculation() {
-      const carSelect = document.getElementById('carSelect');
-      const selectedId = carSelect.value;
-      const car = CARS_DATABASE.find(c => c.id === selectedId) || CARS_DATABASE[0];
-      
-      currentSelectedCarId = car.id;
-      const days = calculateDays();
-      let baseDaily = car.priceMAD;
-      
-      // Wi-Fi option
-      const wifiChecked = document.getElementById('optWifi')?.checked;
-      const wifiDaily = wifiChecked ? 30 : 0;
-      
-      // Discount for 7+ days (10%)
-      const isDiscounted = days >= 7;
-      const discountRate = isDiscounted ? 0.10 : 0.0;
-      
-      const subtotalCars = days * baseDaily;
-      const discountMAD = Math.round(subtotalCars * discountRate);
-      const extrasTotal = days * wifiDaily;
-      const totalMAD = (subtotalCars - discountMAD) + extrasTotal;
-      const totalEUR = Math.round(totalMAD / MAD_TO_EUR_RATE);
-      const dailyEUR = Math.round(baseDaily / MAD_TO_EUR_RATE);
-
-      document.getElementById('summaryCarName').textContent = car.name;
-      document.getElementById('summaryCarDaily').textContent = `${car.priceMAD} MAD (~${dailyEUR} €)`;
-      document.getElementById('summaryDays').textContent = `${days} jour${days > 1 ? 's' : ''}`;
-      
-      const discountRow = document.getElementById('longTermDiscountRow');
-      if (isDiscounted && discountRow) {
-        discountRow.classList.remove('hidden');
-        document.getElementById('summaryDiscountText').textContent = `-10% (-${discountMAD} MAD)`;
-      } else if (discountRow) {
-        discountRow.classList.add('hidden');
-      }
-
-      document.getElementById('summaryTotal').textContent = `${totalMAD.toLocaleString()} MAD`;
-      document.getElementById('summaryTotalEur').textContent = `(~${totalEUR} €)`;
-    }
-
-    // --- 7. SELECT CAR FROM CATALOG & SCROLL ---
-    function selectCarAndScrollToBooking(carId = null) {
-      if (carId) {
-        currentSelectedCarId = carId;
-        const carSelect = document.getElementById('carSelect');
-        carSelect.value = carId;
-      }
-      closeCarModal();
-      updateBookingCalculation();
-
-      const bookingSection = document.getElementById('reservation');
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
-
-      // Highlight select box temporarily
-      const carSelectElem = document.getElementById('carSelect');
-      carSelectElem.classList.add('ring-2', 'ring-brand-gold');
-      setTimeout(() => carSelectElem.classList.remove('ring-2', 'ring-brand-gold'), 1500);
-    }
-
-    // --- 8. CAR DETAIL MODAL ---
-    function openCarModal(carId) {
-      const car = CARS_DATABASE.find(c => c.id === carId);
-      if (!car) return;
-
-      currentSelectedCarId = car.id;
-      document.getElementById('modalCarImg').src = car.image;
-      document.getElementById('modalCarBadge').textContent = car.categoryLabel;
-      document.getElementById('modalCarTitle').textContent = car.name;
-      document.getElementById('modalCarSub').textContent = car.description;
-      
-      const eur = Math.round(car.priceMAD / MAD_TO_EUR_RATE);
-      document.getElementById('modalCarPrice').textContent = `${car.priceMAD} MAD`;
-      document.getElementById('modalCarPriceEur').textContent = `/ jour (~${eur} € TTC)`;
-
-      // Render specs in modal
-      const specsContainer = document.getElementById('modalCarSpecs');
-      specsContainer.innerHTML = `
-        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
-          <i class="fa-solid fa-gear text-brand-gold text-base mb-1 block"></i>
-          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.gearbox}</span>
-          <span class="text-[10px] text-slate-400">Boîte</span>
-        </div>
-        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
-          <i class="fa-solid fa-gas-pump text-brand-gold text-base mb-1 block"></i>
-          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.fuel}</span>
-          <span class="text-[10px] text-slate-400">Carburant</span>
-        </div>
-        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
-          <i class="fa-solid fa-users text-brand-gold text-base mb-1 block"></i>
-          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.seats}</span>
-          <span class="text-[10px] text-slate-400">Capacité</span>
-        </div>
-        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
-          <i class="fa-solid fa-snowflake text-brand-gold text-base mb-1 block"></i>
-          <span class="text-[11px] font-bold text-slate-800 block">${car.specs.ac}</span>
-          <span class="text-[10px] text-slate-400">Climatisation</span>
-        </div>
-      `;
-
-      // Update direct WhatsApp link in modal
-      const whatsappMsg = encodeURIComponent(
-        `Bonjour WINON CAR Agadir,\n\nJe suis intéressé(e) par la location du véhicule : ${car.name} (${car.priceMAD} MAD / jour, ~${eur} €).\nPouvez-vous me donner plus d'informations sur sa disponibilité ?`
-      );
-      document.getElementById('modalWhatsAppBtn').href = `https://wa.me/212604707847?text=${whatsappMsg}`;
-
-      document.getElementById('carModal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeCarModal() {
-      document.getElementById('carModal').classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('carModal').addEventListener('click', (e) => {
-      if (e.target.id === 'carModal') closeCarModal();
-    });
-
-    // --- 9. MOROCCAN LOCATIONS HIERARCHY & SELECTION ---
-    const MOROCCAN_LOCATIONS = {
-      agadir: {
-        label: "Agadir",
-        locations: [
-          { id: "aga_airport", label: "Aéroport Agadir Al-Massira (AGA)", isAirport: true },
-          { id: "aga_center", label: "Centre-ville Agadir" },
-          { id: "aga_marina", label: "Marina d'Agadir" },
-          { id: "aga_hotel", label: "Hôtel / Résidence à Agadir" },
-          { id: "aga_taghazout", label: "Taghazout / Taghazout Bay" },
-          { id: "aga_imiouaddar", label: "Imi Ouaddar / Paradis Plage" },
-          { id: "aga_other", label: "Autre adresse à Agadir (à préciser)", isCustom: true }
-        ]
-      },
-      marrakech: {
-        label: "Marrakech",
-        locations: [
-          { id: "rak_airport", label: "Aéroport Marrakech-Ménara (RAK)", isAirport: true },
-          { id: "rak_gueliz", label: "Centre-ville / Guéliz / Hivernage" },
-          { id: "rak_station", label: "Gare ferroviaire ONCF Marrakech" },
-          { id: "rak_hotel", label: "Hôtel / Riad à Marrakech" },
-          { id: "rak_other", label: "Autre adresse à Marrakech (à préciser)", isCustom: true }
-        ]
-      },
-      casablanca: {
-        label: "Casablanca",
-        locations: [
-          { id: "cmn_airport", label: "Aéroport Mohammed V (CMN)", isAirport: true },
-          { id: "cmn_center", label: "Centre-ville / Maarif / Gauthier" },
-          { id: "cmn_voyageurs", label: "Gare Casa-Voyageurs / Casa-Port" },
-          { id: "cmn_hotel", label: "Hôtel à Casablanca" },
-          { id: "cmn_other", label: "Autre adresse à Casablanca (à préciser)", isCustom: true }
-        ]
-      },
-      rabat: {
-        label: "Rabat",
-        locations: [
-          { id: "rba_airport", label: "Aéroport Rabat-Salé (RBA)", isAirport: true },
-          { id: "rba_center", label: "Centre-ville / Agdal / Hassan" },
-          { id: "rba_station", label: "Gare Rabat-Ville / Rabat-Agdal" },
-          { id: "rba_other", label: "Autre adresse à Rabat (à préciser)", isCustom: true }
-        ]
-      },
-      tanger: {
-        label: "Tanger",
-        locations: [
-          { id: "tng_airport", label: "Aéroport Tanger Ibn Battouta (TNG)", isAirport: true },
-          { id: "tng_center", label: "Centre-ville / Malabata" },
-          { id: "tng_port", label: "Port Tanger Ville / Tanger Med" },
-          { id: "tng_station", label: "Gare Tanger-Ville" },
-          { id: "tng_other", label: "Autre adresse à Tanger (à préciser)", isCustom: true }
-        ]
-      },
-      essaouira: {
-        label: "Essaouira",
-        locations: [
-          { id: "esu_airport", label: "Aéroport Essaouira-Mogador (ESU)", isAirport: true },
-          { id: "esu_center", label: "Centre-ville / Médina / Port" },
-          { id: "esu_other", label: "Autre adresse à Essaouira (à préciser)", isCustom: true }
-        ]
-      },
-      ouarzazate: {
-        label: "Ouarzazate",
-        locations: [
-          { id: "ozz_airport", label: "Aéroport Ouarzazate (OZZ)", isAirport: true },
-          { id: "ozz_center", label: "Centre-ville / Hôtels" },
-          { id: "ozz_other", label: "Autre adresse à Ouarzazate (à préciser)", isCustom: true }
-        ]
-      },
-      fes: {
-        label: "Fès",
-        locations: [
-          { id: "fez_airport", label: "Aéroport Fès-Saïss (FEZ)", isAirport: true },
-          { id: "fez_center", label: "Centre-ville / Ville Nouvelle" },
-          { id: "fez_other", label: "Autre adresse à Fès (à préciser)", isCustom: true }
-        ]
-      },
-      autre_ville: {
-        label: "Autre Ville au Maroc",
-        locations: [
-          { id: "custom_city_location", label: "Adresse complète de livraison (à préciser)", isCustom: true }
-        ]
-      }
-    };
-
-    function populateCitySelect(selectElement, defaultCity = 'agadir') {
-      if (!selectElement) return;
-      selectElement.innerHTML = '';
-      Object.keys(MOROCCAN_LOCATIONS).forEach(key => {
-        const opt = document.createElement('option');
-        opt.value = key;
-        opt.textContent = MOROCCAN_LOCATIONS[key].label;
-        if (key === defaultCity) opt.selected = true;
-        selectElement.appendChild(opt);
-      });
-    }
-
-    function populateLocationSelect(cityKey, locationSelectElement, customContainerElement) {
-      if (!locationSelectElement) return;
-      locationSelectElement.innerHTML = '';
-      const cityData = MOROCCAN_LOCATIONS[cityKey] || MOROCCAN_LOCATIONS['agadir'];
-      cityData.locations.forEach(loc => {
-        const opt = document.createElement('option');
-        opt.value = loc.label;
-        opt.textContent = loc.label;
-        if (loc.isCustom) opt.dataset.isCustom = 'true';
-        if (loc.isAirport) opt.dataset.isAirport = 'true';
-        locationSelectElement.appendChild(opt);
-      });
-      checkCustomAddressVisibility(locationSelectElement, customContainerElement);
-    }
-
-    function checkCustomAddressVisibility(selectElement, containerElement) {
-      if (!selectElement || !containerElement) return;
-      const selectedOpt = selectElement.options[selectElement.selectedIndex];
-      const isCustom = selectedOpt && selectedOpt.dataset.isCustom === 'true';
-      if (isCustom) {
-        containerElement.classList.remove('hidden');
-      } else {
-        containerElement.classList.add('hidden');
-      }
-    }
-
-    function initMoroccanLocations() {
-      const pickupCitySel = document.getElementById('pickupCity');
-      const returnCitySel = document.getElementById('returnCity');
-      const pickupLocSel = document.getElementById('pickupLocation');
-      const returnLocSel = document.getElementById('returnLocation');
-      const pickupCustomContainer = document.getElementById('pickupCustomAddressContainer');
-      const returnCustomContainer = document.getElementById('returnCustomAddressContainer');
-
-      if (pickupCitySel && pickupLocSel) {
-        populateCitySelect(pickupCitySel, 'agadir');
-        populateLocationSelect('agadir', pickupLocSel, pickupCustomContainer);
-      }
-      if (returnCitySel && returnLocSel) {
-        populateCitySelect(returnCitySel, 'agadir');
-        populateLocationSelect('agadir', returnLocSel, returnCustomContainer);
-      }
-      updateFlightNumberVisibility();
-    }
-
-    function handlePickupCityChange() {
-      const cityKey = document.getElementById('pickupCity').value;
-      const pickupLocSel = document.getElementById('pickupLocation');
-      const pickupCustomContainer = document.getElementById('pickupCustomAddressContainer');
-      populateLocationSelect(cityKey, pickupLocSel, pickupCustomContainer);
-
-      const isSame = document.getElementById('sameLocationCheck').checked;
-      if (isSame) {
-        const returnCitySel = document.getElementById('returnCity');
-        const returnLocSel = document.getElementById('returnLocation');
-        const returnCustomContainer = document.getElementById('returnCustomAddressContainer');
-        if (returnCitySel) returnCitySel.value = cityKey;
-        populateLocationSelect(cityKey, returnLocSel, returnCustomContainer);
-      }
-      updateFlightNumberVisibility();
-    }
-
-    function handlePickupLocationChange() {
-      const pickupLocSel = document.getElementById('pickupLocation');
-      const pickupCustomContainer = document.getElementById('pickupCustomAddressContainer');
-      checkCustomAddressVisibility(pickupLocSel, pickupCustomContainer);
-
-      const isSame = document.getElementById('sameLocationCheck').checked;
-      if (isSame) {
-        const returnLocSel = document.getElementById('returnLocation');
-        const returnCustomContainer = document.getElementById('returnCustomAddressContainer');
-        if (returnLocSel) returnLocSel.value = pickupLocSel.value;
-        checkCustomAddressVisibility(returnLocSel, returnCustomContainer);
-      }
-      updateFlightNumberVisibility();
-    }
-
-    function handleReturnCityChange() {
-      const cityKey = document.getElementById('returnCity').value;
-      const returnLocSel = document.getElementById('returnLocation');
-      const returnCustomContainer = document.getElementById('returnCustomAddressContainer');
-      populateLocationSelect(cityKey, returnLocSel, returnCustomContainer);
-    }
-
-    function handleReturnLocationChange() {
-      const returnLocSel = document.getElementById('returnLocation');
-      const returnCustomContainer = document.getElementById('returnCustomAddressContainer');
-      checkCustomAddressVisibility(returnLocSel, returnCustomContainer);
-    }
-
-    function toggleReturnLocation() {
-      const isChecked = document.getElementById('sameLocationCheck').checked;
-      const returnContainer = document.getElementById('returnLocationContainer');
-      const pickupCityVal = document.getElementById('pickupCity').value;
-      const pickupLocVal = document.getElementById('pickupLocation').value;
-
-      if (isChecked) {
-        returnContainer.classList.add('hidden');
-        document.getElementById('returnCity').value = pickupCityVal;
-        populateLocationSelect(pickupCityVal, document.getElementById('returnLocation'), document.getElementById('returnCustomAddressContainer'));
-        document.getElementById('returnLocation').value = pickupLocVal;
-      } else {
-        returnContainer.classList.remove('hidden');
-      }
-    }
-
-    function updateFlightNumberVisibility() {
-      const pickupLocSel = document.getElementById('pickupLocation');
-      const selectedOpt = pickupLocSel?.options[pickupLocSel.selectedIndex];
-      const isAirport = selectedOpt && selectedOpt.dataset.isAirport === 'true';
-      const flightRow = document.getElementById('flightNumberRow');
-      if (flightRow) {
-        const label = flightRow.querySelector('label');
-        if (isAirport) {
-          flightRow.classList.remove('opacity-60');
-          if (label) label.innerHTML = `<i class="fa-solid fa-plane-arrival text-brand-gold mr-1.5"></i> N° de Vol d'Arrivée (Recommandé pour l'accueil direct à l'aéroport)`;
-        } else {
-          flightRow.classList.add('opacity-60');
-          if (label) label.innerHTML = `<i class="fa-solid fa-plane-arrival text-brand-gold mr-1.5"></i> N° de Vol (Si arrivée par avion)`;
-        }
-      }
-    }
-
-    function applyQuickSearchAndScroll() {
-      const qLoc = document.getElementById('quickLocation')?.value;
-      const qPick = document.getElementById('quickPickupDate')?.value;
-      const qRet = document.getElementById('quickReturnDate')?.value;
-
-      if (qLoc) {
-        document.getElementById('pickupCity').value = 'agadir';
-        handlePickupCityChange();
-        const pickupLoc = document.getElementById('pickupLocation');
-        if (pickupLoc) {
-          for (let opt of pickupLoc.options) {
-            if (opt.value.includes(qLoc) || qLoc.includes(opt.value)) {
-              pickupLoc.value = opt.value;
-              break;
-            }
-          }
-          handlePickupLocationChange();
-        }
-      }
-      if (qPick) document.getElementById('pickupDate').value = qPick;
-      if (qRet) document.getElementById('returnDate').value = qRet;
-
-      updateBookingCalculation();
-      document.getElementById('flotte').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function getSelectedLocationDetails() {
-      const pickupCityKey = document.getElementById('pickupCity').value;
-      const pickupCityLabel = MOROCCAN_LOCATIONS[pickupCityKey]?.label || pickupCityKey;
-      let pickupLocation = document.getElementById('pickupLocation').value;
-      const pickupCustom = document.getElementById('pickupCustomAddress')?.value.trim();
-      const pickupLocSel = document.getElementById('pickupLocation');
-      const isPickupCustom = pickupLocSel?.options[pickupLocSel.selectedIndex]?.dataset.isCustom === 'true';
-      if (isPickupCustom && pickupCustom) {
-        pickupLocation = `${pickupLocation} : ${pickupCustom}`;
-      }
-
-      const isSame = document.getElementById('sameLocationCheck').checked;
-      let returnCityLabel = pickupCityLabel;
-      let returnLocation = pickupLocation;
-
-      if (!isSame) {
-        const returnCityKey = document.getElementById('returnCity').value;
-        returnCityLabel = MOROCCAN_LOCATIONS[returnCityKey]?.label || returnCityKey;
-        returnLocation = document.getElementById('returnLocation').value;
-        const returnCustom = document.getElementById('returnCustomAddress')?.value.trim();
-        const returnLocSel = document.getElementById('returnLocation');
-        const isReturnCustom = returnLocSel?.options[returnLocSel.selectedIndex]?.dataset.isCustom === 'true';
-        if (isReturnCustom && returnCustom) {
-          returnLocation = `${returnLocation} : ${returnCustom}`;
-        }
-      }
-
-      return { pickupCityLabel, pickupLocation, returnCityLabel, returnLocation };
-    }
-
-    // --- 10. WHATSAPP BOOKING GENERATOR ---
-    function buildWhatsAppBookingMessage() {
-      const car = CARS_DATABASE.find(c => c.id === currentSelectedCarId) || CARS_DATABASE[0];
-      const { pickupCityLabel, pickupLocation, returnCityLabel, returnLocation } = getSelectedLocationDetails();
-
-      const pickupDate = document.getElementById('pickupDate').value;
-      const pickupTime = document.getElementById('pickupTime').value;
-      const returnDate = document.getElementById('returnDate').value;
-      const returnTime = document.getElementById('returnTime').value;
-      const clientName = document.getElementById('clientName').value.trim() || 'Client';
-      const clientPhone = document.getElementById('clientPhone').value.trim() || 'Non renseigné';
-      const clientEmail = document.getElementById('clientEmail').value.trim();
-      const flightNumber = document.getElementById('flightNumber').value.trim();
-      const notes = document.getElementById('bookingNotes').value.trim();
-
-      const days = calculateDays();
-      const isDiscounted = days >= 7;
-      const discountRate = isDiscounted ? 0.10 : 0.0;
-      const subtotalCars = days * car.priceMAD;
-      const discountMAD = Math.round(subtotalCars * discountRate);
-      
-      const wifiChecked = document.getElementById('optWifi')?.checked;
-      const wifiDaily = wifiChecked ? 30 : 0;
-      const totalMAD = (subtotalCars - discountMAD) + (days * wifiDaily);
-      const totalEUR = Math.round(totalMAD / MAD_TO_EUR_RATE);
-
-      const babySeatChecked = document.getElementById('optBabySeat')?.checked;
-      const docCount = Object.values(uploadedDocs).filter(Boolean).length;
-      const hasDocs = docCount > 0;
-
-      let msg = '';
-
-      if (currentLang === 'ar') {
-        msg = 
-`السلام عليكم WINON CAR،
-
-بغيت نحجز هاد السيارة ف أكادير :
-🚗 السيارة : ${car.name}
-💰 ثمن الكراء : ${car.priceMAD} درهم / يوم
-⏱ المدة : ${days} أيام
-💵 المجموع التقديري : ${totalMAD} درهم (~${totalEUR} €) ${isDiscounted ? '(تخفيض -10% محتسب)' : ''}
-
-📍 الاستلام (Prise en charge) :
-• المدينة : ${pickupCityLabel}
-• المكان : ${pickupLocation}
-• التاريخ : ${pickupDate} مع ${pickupTime}
-
-📍 الإرجاع (Restitution) :
-• المدينة : ${returnCityLabel}
-• المكان : ${returnLocation}
-• التاريخ : ${returnDate} مع ${returnTime}
-
-🚚 مصاريف التوصيل : يتم تأكيدها عبر WhatsApp حسب المدينة أو المطار.
-
-👤 الزبون : ${clientName}
-📞 الهاتف : ${clientPhone}`;
-
-        if (clientEmail) msg += `\n📧 البريد الإلكتروني : ${clientEmail}`;
-        if (flightNumber) msg += `\n✈️ رقم الرحلة : ${flightNumber}`;
-        if (babySeatChecked) msg += `\n👶 كرسي الأطفال : نعم (مجاني)`;
-        if (wifiChecked) msg += `\n📶 موديم Wi-Fi 4G : نعم`;
-        if (notes) msg += `\n📝 ملاحظة : ${notes}`;
-        if (hasDocs) msg += `\n📄 الوثائق (CIN / Permis) : تم إرفاق ${docCount}/4 وثائق عبر الموقع تسريعاً للاستلام`;
-
-        msg += `\n\nشكراً وعافاكم أكدوا لي التوفر والمصاريف النهائية !`;
-
-      } else if (currentLang === 'en') {
-        msg = 
-`Hello WINON CAR,
-
-I would like to book the following vehicle in Agadir:
-🚗 Vehicle: ${car.name}
-💰 Rental rate: ${car.priceMAD} MAD / day
-⏱ Duration: ${days} day(s)
-💵 Estimated total: ${totalMAD} MAD (~${totalEUR} €) ${isDiscounted ? '(-10% long term discount applied)' : ''}
-
-📍 PICKUP:
-• City: ${pickupCityLabel}
-• Location: ${pickupLocation}
-• Date: ${pickupDate} at ${pickupTime}
-
-📍 RETURN:
-• City: ${returnCityLabel}
-• Location: ${returnLocation}
-• Date: ${returnDate} at ${returnTime}
-
-🚚 DELIVERY FEES: To be confirmed via WhatsApp depending on city/airport.
-
-👤 Client: ${clientName}
-📞 Phone: ${clientPhone}`;
-
-        if (clientEmail) msg += `\n📧 Email: ${clientEmail}`;
-        if (flightNumber) msg += `\n✈️ Flight No: ${flightNumber}`;
-        if (babySeatChecked) msg += `\n👶 Baby seat: Yes (Free)`;
-        if (wifiChecked) msg += `\n📶 4G Wi-Fi hotspot: Yes`;
-        if (notes) msg += `\n📝 Notes: ${notes}`;
-        if (hasDocs) msg += `\n📄 Client Documents: ${docCount}/4 attached via website for fast-track pickup`;
-
-        msg += `\n\nPlease confirm vehicle availability and delivery fees!`;
-
-      } else {
-        msg = 
-`Bonjour WINON CAR,
-
-Je souhaite réserver le véhicule suivant :
-🚗 Véhicule : ${car.name}
-💰 Tarif location : ${car.priceMAD} MAD / jour
-⏱ Durée : ${days} jour(s)
-💵 Total location estimé : ${totalMAD} MAD (~${totalEUR} €) ${isDiscounted ? '(Remise -10% incluse)' : ''}
-
-📍 PRISE EN CHARGE :
-• Ville : ${pickupCityLabel}
-• Lieu : ${pickupLocation}
-• Date : ${pickupDate} à ${pickupTime}
-
-📍 RESTITUTION :
-• Ville : ${returnCityLabel}
-• Lieu : ${returnLocation}
-• Date : ${returnDate} à ${returnTime}
-
-🚚 FRAIS DE LIVRAISON : À confirmer via WhatsApp selon la ville/aéroport.
-
-👤 Client : ${clientName}
-📞 Téléphone : ${clientPhone}`;
-
-        if (clientEmail) msg += `\n📧 Email : ${clientEmail}`;
-        if (flightNumber) msg += `\n✈️ N° Vol : ${flightNumber}`;
-        if (babySeatChecked) msg += `\n👶 Siège bébé : Oui (Offert)`;
-        if (wifiChecked) msg += `\n📶 Option Wi-Fi 4G : Oui`;
-        if (notes) msg += `\n📝 Note particulière : ${notes}`;
-        if (hasDocs) msg += `\n📄 Documents clients : ${docCount}/4 pièces jointes via le site (coupe-file)`;
-
-        msg += `\n\nMerci de me confirmer la disponibilité du véhicule et les frais de livraison !`;
-      }
-
-      return encodeURIComponent(msg);
-    }
-
-    // ─────────────────────────────────────────────────────────────────────────
-    // --- 10b. BOOKING FORM VALIDATION ENGINE ---
-    // Strict rule: phone must be exactly 10 digits, digits only, no letters.
-    // ─────────────────────────────────────────────────────────────────────────
-
-    /**
-     * Show an inline error below an input field.
-     * @param {string} fieldId  - id of the <div id="...Error"> container
-     * @param {string} message  - text to display
-     */
-    function showFieldError(fieldId, message) {
-      const container = document.getElementById(fieldId);
-      if (!container) return;
-      const span = container.querySelector('.error-msg');
-      if (span) span.textContent = message;
-      container.classList.remove('hidden');
-      // Highlight the sibling input/select with a red border
-      const input = container.previousElementSibling;
-      if (input && (input.tagName === 'INPUT' || input.tagName === 'SELECT')) {
-        input.classList.add('border-rose-500');
-        input.classList.remove('border-slate-700');
-      }
-    }
-
-    /**
-     * Clear an inline error container and reset the input border.
-     * @param {string} fieldId
-     */
-    function clearFieldError(fieldId) {
-      const container = document.getElementById(fieldId);
-      if (!container) return;
-      container.classList.add('hidden');
-      const input = container.previousElementSibling;
-      if (input && (input.tagName === 'INPUT' || input.tagName === 'SELECT')) {
-        input.classList.remove('border-rose-500');
-        input.classList.add('border-slate-700');
-      }
-    }
-
-    /**
-     * Get the current translation string for a validation key.
-     * Falls back to French when key is missing.
-     */
-    function t(key) {
-      if (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang]) {
-        return WINON_TRANSLATIONS[currentLang][key] || WINON_TRANSLATIONS['fr'][key] || key;
-      }
-      return key;
-    }
-
-    /**
-     * Validate the phone field (strict: exactly 10 digits, no letters).
-     * Returns true when valid, false + shows error when invalid.
-     */
-    function validatePhoneField() {
-      const phoneInput = document.getElementById('clientPhone');
-      const raw = phoneInput ? phoneInput.value : '';
-
-      // Rule 1 – must not contain any letters
-      if (/[a-zA-Z\u0600-\u06FF]/.test(raw)) {
-        showFieldError('clientPhoneError', t('error_phone_letters'));
-        return false;
-      }
-
-      // Rule 2 – strip everything that's not a digit, count exactly 10
-      const digits = raw.replace(/\D/g, '');
-      if (digits.length !== 10) {
-        showFieldError('clientPhoneError', t('error_phone_invalid'));
-        return false;
-      }
-
-      clearFieldError('clientPhoneError');
-      return true;
-    }
-
-    /**
-     * Validate the full name field (≥ 2 printable characters, no HTML tags).
-     */
-    function validateNameField() {
-      const nameInput = document.getElementById('clientName');
-      const val = nameInput ? nameInput.value.replace(/<[^>]*>/g, '').trim() : '';
-      if (val.length < 2) {
-        showFieldError('clientNameError', t('error_name_required'));
-        return false;
-      }
-      clearFieldError('clientNameError');
-      return true;
-    }
-
-    /**
-     * Validate the optional email field (RFC-basic pattern when non-empty).
-     */
-    function validateEmailField() {
-      const emailInput = document.getElementById('clientEmail');
-      const val = emailInput ? emailInput.value.trim() : '';
-      if (val === '') { clearFieldError('clientEmailError'); return true; } // optional
-      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val) && val.length <= 120;
-      if (!ok) {
-        showFieldError('clientEmailError', t('error_email_invalid'));
-        return false;
-      }
-      clearFieldError('clientEmailError');
-      return true;
-    }
-
-    /**
-     * Validate date/time chronology: return must be strictly after pickup.
-     */
-    function validateDatesField() {
-      const pickupDate = document.getElementById('pickupDate')?.value;
-      const pickupTime = document.getElementById('pickupTime')?.value || '10:00';
-      const returnDate = document.getElementById('returnDate')?.value;
-      const returnTime = document.getElementById('returnTime')?.value || '10:00';
-
-      if (!pickupDate || !returnDate) return true; // handled by HTML required
-      const start = new Date(`${pickupDate}T${pickupTime}`);
-      const end   = new Date(`${returnDate}T${returnTime}`);
-      if (isNaN(start) || isNaN(end) || end <= start) {
-        showFieldError('datesError', t('error_dates_invalid'));
-        return false;
-      }
-      clearFieldError('datesError');
-      return true;
-    }
-
-    /**
-     * Run all booking form validations. Returns true only when all pass.
-     * Also shows / hides the top-level error banner.
-     */
-    function validateBookingForm() {
-      const phoneOk  = validatePhoneField();
-      const nameOk   = validateNameField();
-      const emailOk  = validateEmailField();
-      const datesOk  = validateDatesField();
-      const allOk    = phoneOk && nameOk && emailOk && datesOk;
-
-      const banner = document.getElementById('bookingFormErrorBanner');
-      if (banner) {
-        if (!allOk) {
-          const bannerText = banner.querySelector('.error-banner-text');
-          if (bannerText) bannerText.textContent = t('error_form_has_errors');
-          banner.classList.remove('hidden');
-          // Scroll banner into view smoothly
-          banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          banner.classList.add('hidden');
-        }
-      }
-      return allOk;
-    }
-
-    /**
-     * Called by setLanguage() to refresh any already-visible error messages
-     * in the current active language without re-running the full validation.
-     */
-    function refreshVisibleValidationErrors() {
-      const errorMap = {
-        clientPhoneError : 'error_phone_invalid',
-        clientNameError  : 'error_name_required',
-        clientEmailError : 'error_email_invalid',
-        datesError       : 'error_dates_invalid'
-      };
-      Object.entries(errorMap).forEach(([containerId, key]) => {
-        const container = document.getElementById(containerId);
-        if (container && !container.classList.contains('hidden')) {
-          const span = container.querySelector('.error-msg');
-          if (span) span.textContent = t(key);
-        }
-      });
-      const banner = document.getElementById('bookingFormErrorBanner');
-      if (banner && !banner.classList.contains('hidden')) {
-        const bt = banner.querySelector('.error-banner-text');
-        if (bt) bt.textContent = t('error_form_has_errors');
-      }
-    }
-
-    // ── Live feedback listeners (attached once DOM is ready) ──────────────────
-    document.addEventListener('DOMContentLoaded', () => {
-      const phoneInput = document.getElementById('clientPhone');
-      const nameInput  = document.getElementById('clientName');
-      const emailInput = document.getElementById('clientEmail');
-      const pickupDateInput  = document.getElementById('pickupDate');
-      const pickupTimeInput  = document.getElementById('pickupTime');
-      const returnDateInput  = document.getElementById('returnDate');
-      const returnTimeInput  = document.getElementById('returnTime');
-
-      // Phone: block any non-digit keystroke live + validate on input
-      if (phoneInput) {
-        // Prevent letters from being typed at all
-        phoneInput.addEventListener('keypress', (e) => {
-          if (!/[0-9]/.test(e.key) && !['Backspace','Delete','Tab','ArrowLeft','ArrowRight','Enter'].includes(e.key)) {
-            e.preventDefault();
-          }
-        });
-        // Also handle paste: strip non-digits immediately
-        phoneInput.addEventListener('paste', (e) => {
-          e.preventDefault();
-          const pasted = (e.clipboardData || window.clipboardData).getData('text');
-          const digitsOnly = pasted.replace(/\D/g, '');
-          const cur = phoneInput.value;
-          const start = phoneInput.selectionStart;
-          const end   = phoneInput.selectionEnd;
-          phoneInput.value = cur.slice(0, start) + digitsOnly + cur.slice(end);
-          validatePhoneField();
-        });
-        // Live validation as user types
-        phoneInput.addEventListener('input', () => {
-          // Strip any non-digit characters automatically
-          const cleaned = phoneInput.value.replace(/\D/g, '');
-          if (phoneInput.value !== cleaned) phoneInput.value = cleaned;
-          if (phoneInput.value.length > 0) validatePhoneField();
-          else clearFieldError('clientPhoneError');
-        });
-        phoneInput.addEventListener('blur', validatePhoneField);
-      }
-
-      if (nameInput) {
-        nameInput.addEventListener('input', () => {
-          if (nameInput.value.trim().length > 0) validateNameField();
-          else clearFieldError('clientNameError');
-        });
-        nameInput.addEventListener('blur', validateNameField);
-      }
-
-      if (emailInput) {
-        emailInput.addEventListener('input', () => {
-          if (emailInput.value.trim().length > 0) validateEmailField();
-          else clearFieldError('clientEmailError');
-        });
-        emailInput.addEventListener('blur', validateEmailField);
-      }
-
-      [pickupDateInput, pickupTimeInput, returnDateInput, returnTimeInput].forEach(el => {
-        if (el) el.addEventListener('change', validateDatesField);
-      });
-    });
-
-    function submitViaWhatsApp() {
-      const nameInput  = document.getElementById('clientName');
-      const phoneInput = document.getElementById('clientPhone');
-
-      // Validate name
-      if (!validateNameField()) {
-        nameInput.focus();
-        return;
-      }
-
-      // Validate phone (exactly 10 digits, no letters)
-      if (!validatePhoneField()) {
-        phoneInput.focus();
-        return;
-      }
-
-      const encodedMsg = buildWhatsAppBookingMessage();
-      const whatsappUrl = `https://wa.me/212604707847?text=${encodedMsg}`;
-      window.open(whatsappUrl, '_blank');
-    }
-
-    // --- 11. FORM SUBMISSION HANDLER ---
-    function handleFormSubmit(event) {
-      event.preventDefault();
-
-      // Run all validations — stop here if any field is invalid
-      if (!validateBookingForm()) return;
-      const car = CARS_DATABASE.find(c => c.id === currentSelectedCarId) || CARS_DATABASE[0];
-      const days = calculateDays();
-      const isDiscounted = days >= 7;
-      const discountRate = isDiscounted ? 0.10 : 0.0;
-      const subtotalCars = days * car.priceMAD;
-      const discountMAD = Math.round(subtotalCars * discountRate);
-      
-      const wifiChecked = document.getElementById('optWifi')?.checked;
-      const wifiDaily = wifiChecked ? 30 : 0;
-      const totalMAD = (subtotalCars - discountMAD) + (days * wifiDaily);
-      const totalEUR = Math.round(totalMAD / MAD_TO_EUR_RATE);
-
-      const { pickupCityLabel, pickupLocation, returnCityLabel, returnLocation } = getSelectedLocationDetails();
-      const pickupDate = document.getElementById('pickupDate').value;
-      const returnDate = document.getElementById('returnDate').value;
-      const clientName = document.getElementById('clientName').value.trim();
-      const clientPhone = document.getElementById('clientPhone').value.trim();
-
-      const bookingRef = 'WN-' + Math.floor(1000 + Math.random() * 9000);
-      document.getElementById('confirmBookingRef').textContent = bookingRef;
-
-      const docCount = Object.values(uploadedDocs).filter(Boolean).length;
-      const docsRowHtml = docCount > 0 
-        ? `<div class="flex justify-between border-b border-slate-200 pb-1 text-xs text-emerald-700 font-semibold">
-             <span>${currentLang === 'ar' ? 'الوثائق المرفقة :' : (currentLang === 'en' ? 'Attached Docs:' : 'Documents :')}</span>
-             <span>${docCount}/4 ${currentLang === 'ar' ? 'وثائق مرفقة (تسريع الاستلام)' : (currentLang === 'en' ? 'attached (fast-track)' : 'pièces fournies (coupe-file)')}</span>
-           </div>`
-        : '';
-
-      const detailsHtml = `
-        <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'السيارة :' : (currentLang === 'en' ? 'Vehicle:' : 'Véhicule :')}</span>
-          <strong class="text-slate-900">${car.name}</strong>
-        </div>
-        <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'التواريخ :' : (currentLang === 'en' ? 'Dates:' : 'Dates :')}</span>
-          <span class="text-slate-800">${pickupDate} &rarr; ${returnDate} (${days} j)</span>
-        </div>
-        <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'الاستلام :' : (currentLang === 'en' ? 'Pickup:' : 'Prise en charge :')}</span>
-          <span class="text-slate-800">${pickupCityLabel} — ${pickupLocation}</span>
-        </div>
-        <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'الإرجاع :' : (currentLang === 'en' ? 'Return:' : 'Restitution :')}</span>
-          <span class="text-slate-800">${returnCityLabel} — ${returnLocation}</span>
-        </div>
-        <div class="flex justify-between border-b border-slate-200 pb-1 text-xs text-amber-700 font-semibold">
-          <span>${currentLang === 'ar' ? 'مصاريف التوصيل :' : (currentLang === 'en' ? 'Delivery fees:' : 'Frais de livraison :')}</span>
-          <span>${currentLang === 'ar' ? 'يتم التأكيد عبر WhatsApp' : (currentLang === 'en' ? 'To confirm via WhatsApp' : 'À confirmer via WhatsApp')}</span>
-        </div>
-        ${docsRowHtml}
-        <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'الزبون :' : (currentLang === 'en' ? 'Client:' : 'Client :')}</span>
-          <span class="text-slate-800">${clientName} (${clientPhone})</span>
-        </div>
-        <div class="flex justify-between pt-1">
-          <span class="font-bold text-slate-700">${currentLang === 'ar' ? 'المجموع التقديري :' : (currentLang === 'en' ? 'Estimated Total:' : 'Total location estimé :')}</span>
-          <strong class="text-brand-gold text-sm">${totalMAD} MAD (~${totalEUR} €)</strong>
-        </div>
-      `;
-      document.getElementById('confirmModalDetails').innerHTML = detailsHtml;
-
-      const encodedMsg = buildWhatsAppBookingMessage();
-      const whatsappUrl = `https://wa.me/212604707847?text=${encodedMsg}`;
-      document.getElementById('confirmModalWhatsAppBtn').href = whatsappUrl;
-      document.getElementById('confirmModal').classList.remove('hidden');
-
-      // Enregistrement asynchrone dans Cloudflare D1 via l'API (avec langue & documents)
-      const bookingPayload = {
-        bookingRef,
-        carId: car.id,
-        carName: car.name,
-        pickupCity: pickupCityLabel,
-        pickupLocation: pickupLocation,
-        returnCity: returnCityLabel,
-        returnLocation: returnLocation,
-        pickupDate,
-        pickupTime: document.getElementById('pickupTime')?.value || '10:00',
-        returnDate,
-        returnTime: document.getElementById('returnTime')?.value || '10:00',
-        days,
-        flightNumber: document.getElementById('flightNumber')?.value.trim() || null,
-        clientName,
-        clientPhone,
-        clientEmail: document.getElementById('clientEmail')?.value.trim() || null,
-        notes: document.getElementById('bookingNotes')?.value.trim() || null,
-        optWifi: !!wifiChecked,
-        totalMAD,
-        totalEUR,
-        clientLanguage: currentLang,
-        docCinRecto: uploadedDocs.cinRecto || null,
-        docCinVerso: uploadedDocs.cinVerso || null,
-        docLicenseRecto: uploadedDocs.licenseRecto || null,
-        docLicenseVerso: uploadedDocs.licenseVerso || null
-      };
-
-      fetch('/api/reservations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bookingPayload)
-      }).then(res => res.json())
-        .then(result => {
-          console.log('[WINON CAR] Réservation sauvegardée dans D1 :', result);
-        })
-        .catch(err => {
-          console.warn('[WINON CAR] Mode hors-ligne ou API non connectée :', err);
-        });
-    }
-
-    function closeConfirmModal() {
-      document.getElementById('confirmModal').classList.add('hidden');
-    }
-
-    // --- 12. FAQ ACCORDION TOGGLE ---
-    function toggleFaq(btn) {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector('.fa-chevron-down');
-      const isHidden = content.classList.contains('hidden');
-
-      // Close all other FAQs
-      document.querySelectorAll('#faqAccordion .faq-content').forEach(c => c.classList.add('hidden'));
-      document.querySelectorAll('#faqAccordion .fa-chevron-down').forEach(i => i.style.transform = '');
-
-      if (isHidden) {
-        content.classList.remove('hidden');
-        if (icon) icon.style.transform = 'rotate(180deg)';
-      }
-    }
-
-    // --- 13. MOBILE MENU TOGGLE ---
-    function setupMobileMenu() {
-      const btn = document.getElementById('mobileMenuBtn');
-      const menu = document.getElementById('mobileMenu');
-      const icon = document.getElementById('menuIcon');
-      const links = document.querySelectorAll('.mobile-link');
-
-      btn.addEventListener('click', () => {
-        const isHidden = menu.classList.contains('hidden');
-        if (isHidden) {
-          menu.classList.remove('hidden');
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-xmark');
-        } else {
-          menu.classList.add('hidden');
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
-        }
-      });
-
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          menu.classList.add('hidden');
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
-        });
-      });
-    }
-  </script>
+  <script src="assets/js/landing.js"></script>
 </body>
 </html>
