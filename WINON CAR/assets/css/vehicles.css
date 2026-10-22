@@ -39,6 +39,20 @@
 .v-navbtn:disabled { opacity: .4; cursor: not-allowed; }
 .v-navbtn:focus-visible { outline: 3px solid rgba(212,175,55,0.45); outline-offset: 2px; }
 
+/* Slider arrows flanking the card track (reuse #carSliderPrev / #carSliderNext). */
+.v-navbtn--side { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; }
+.v-navbtn--prev { left: -0.5rem; }
+.v-navbtn--next { right: -0.5rem; }
+.v-navbtn--side:active { transform: translateY(-50%) scale(0.94); }
+@media (min-width: 1280px) {
+  .v-navbtn--prev { left: -1.25rem; }
+  .v-navbtn--next { right: -1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v-navbtn--side:active { transform: translateY(-50%); }
+}
+
+
 /* --- Filter chips (shared) --- */
 .filter-btn.active { background: #0B132B; color: #fff; }
 

@@ -239,71 +239,145 @@
       });
     }
 
+    function docText(key, fallback) {
+      try { return (WINON_TRANSLATIONS[currentLang] && WINON_TRANSLATIONS[currentLang][key]) || fallback; }
+      catch (e) { return fallback; }
+    }
+
+    function showDocError(key, msg) {
+      const err = document.getElementById('err-' + key);
+      const card = document.querySelector('.doc-card[data-doc="' + key + '"]');
+      if (err) { err.textContent = msg; err.classList.remove('hidden'); }
+      if (card) card.classList.add('is-error');
+    }
+
+    function clearDocError(key) {
+      const err = document.getElementById('err-' + key);
+      const card = document.querySelector('.doc-card[data-doc="' + key + '"]');
+      if (err) { err.textContent = ''; err.classList.add('hidden'); }
+      if (card) card.classList.remove('is-error');
+    }
+
+    function resetDocPreview(key) {
+      const previewDiv = document.getElementById('preview-' + key);
+      if (!previewDiv) return;
+      previewDiv.innerHTML =
+        '<i class="fa-solid fa-cloud-arrow-up doc-drop-ico"></i>' +
+        '<span class="doc-drop-btn" data-i18n="doc_choose_file">' + docText('doc_choose_file', 'Choisir un fichier') + '</span>' +
+        '<span class="doc-drop-hint">JPG, PNG \u00b7 10 Mo max</span>';
+      previewDiv.style.cursor = '';
+      const inputId = 'doc' + key.charAt(0).toUpperCase() + key.slice(1) + 'Input';
+      previewDiv.onclick = function () { const el = document.getElementById(inputId); if (el) el.click(); };
+      previewDiv.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); previewDiv.onclick(); } };
+    }
+
     async function handleDocUpload(event, key) {
-      const file = event.target.files?.[0];
+      const file = event.target.files && event.target.files[0];
       if (!file) return;
 
-      const previewDiv = document.getElementById(`preview-${key}`);
-      const badge = document.getElementById(`badge-${key}`);
-      const delBtn = document.getElementById(`del-${key}`);
+      const previewDiv = document.getElementById('preview-' + key);
+      const badge = document.getElementById('badge-' + key);
+      const delBtn = document.getElementById('del-' + key);
+      const repBtn = document.getElementById('rep-' + key);
+      const card = document.querySelector('.doc-card[data-doc="' + key + '"]');
+
+      clearDocError(key);
+
+      // Client-side validation. The backend only accepts images (JPEG/PNG/WebP).
+      const allowed = ['image/jpeg', 'image/png', 'image/webp'];
+      if (file.type && allowed.indexOf(file.type) === -1) {
+        showDocError(key, docText('doc_err_type', 'Format non pris en charge. Utilisez une image JPG ou PNG.'));
+        if (event.target) event.target.value = '';
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        showDocError(key, docText('doc_err_size', 'Fichier trop volumineux (10 Mo maximum).'));
+        if (event.target) event.target.value = '';
+        return;
+      }
 
       try {
         if (previewDiv) {
-          previewDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-brand-gold text-lg mb-1"></i><span class="text-[9px] text-slate-400">Compression...</span>';
+          previewDiv.innerHTML = '<i class="fa-solid fa-spinner fa-spin doc-drop-ico" style="color:#D4AF37"></i>' +
+            '<span class="doc-drop-txt">' + docText('doc_compressing', 'Compression...') + '</span>';
         }
         const compressed = await compressDocImage(file);
+        // Only mark as attached once compression actually succeeded.
         uploadedDocs[key] = compressed;
 
         const sizeKB = Math.round((compressed.length * 3 / 4) / 1024);
+        const safeName = String(file.name || 'document').replace(/[&<>"']/g, '');
+        const shortName = safeName.length > 22 ? (safeName.slice(0, 19) + '…') : safeName;
         if (previewDiv) {
-          previewDiv.innerHTML = `<img src="${compressed}" class="w-full h-full object-cover rounded-lg" alt="${key}" />`;
+          previewDiv.innerHTML = '<img src="' + compressed + '" alt="' + shortName + '" title="' + docText('doc_preview_open', 'Agrandir') + '" />';
+          previewDiv.style.cursor = 'zoom-in';
+          previewDiv.onclick = function () { openDocPreview(key); };
+          previewDiv.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDocPreview(key); } };
         }
-        if (badge) {
-          badge.textContent = `✓ ${sizeKB} Ko`;
-          badge.classList.remove('hidden');
-        }
-        if (delBtn) {
-          delBtn.classList.remove('hidden');
-        }
+        if (badge) { badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + shortName + ' \u00b7 ' + sizeKB + ' Ko'; badge.classList.remove('hidden'); }
+        if (delBtn) delBtn.classList.remove('hidden');
+        if (repBtn) repBtn.classList.remove('hidden');
+        if (card) { card.classList.add('is-filled'); card.classList.remove('is-error'); }
       } catch (err) {
-        alert("Erreur lors de la compression de l'image : " + (err.message || err));
-        removeDoc(key);
+        uploadedDocs[key] = null;
+        if (event.target) event.target.value = '';
+        resetDocPreview(key);
+        if (badge) badge.classList.add('hidden');
+        if (delBtn) delBtn.classList.add('hidden');
+        if (repBtn) repBtn.classList.add('hidden');
+        if (card) card.classList.remove('is-filled');
+        showDocError(key, (err && err.message) ? err.message : "Erreur lors du traitement de l'image.");
       }
     }
 
     function removeDoc(key) {
       uploadedDocs[key] = null;
-      const input = document.getElementById(`doc${key.charAt(0).toUpperCase() + key.slice(1)}Input`);
+      const input = document.getElementById('doc' + key.charAt(0).toUpperCase() + key.slice(1) + 'Input');
       if (input) input.value = '';
 
-      const previewDiv = document.getElementById(`preview-${key}`);
-      const badge = document.getElementById(`badge-${key}`);
-      const delBtn = document.getElementById(`del-${key}`);
+      const badge = document.getElementById('badge-' + key);
+      const delBtn = document.getElementById('del-' + key);
+      const repBtn = document.getElementById('rep-' + key);
+      const card = document.querySelector('.doc-card[data-doc="' + key + '"]');
 
-      const labels = {
-        cinRecto: { icon: 'fa-camera', labelKey: 'doc_cin_front', def: 'CIN / Pass. (Face)' },
-        cinVerso: { icon: 'fa-camera', labelKey: 'doc_cin_back', def: 'CIN (Verso)' },
-        licenseRecto: { icon: 'fa-id-card-clip', labelKey: 'doc_license_front', def: 'Permis (Face)' },
-        licenseVerso: { icon: 'fa-id-card-clip', labelKey: 'doc_license_back', def: 'Permis (Verso)' }
-      };
-      const conf = labels[key] || { icon: 'fa-camera', labelKey: '', def: 'Document' };
-      const labelText = (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang] && WINON_TRANSLATIONS[currentLang][conf.labelKey])
-        ? WINON_TRANSLATIONS[currentLang][conf.labelKey]
-        : conf.def;
+      resetDocPreview(key);
+      if (badge) { badge.textContent = ''; badge.classList.add('hidden'); }
+      if (delBtn) delBtn.classList.add('hidden');
+      if (repBtn) repBtn.classList.add('hidden');
+      if (card) { card.classList.remove('is-filled'); card.classList.remove('is-error'); }
+      clearDocError(key);
+    }
 
-      if (previewDiv) {
-        previewDiv.innerHTML = `
-          <i class="fa-solid ${conf.icon} text-slate-500 group-hover:text-brand-gold text-xl mb-1.5 transition"></i>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-white" data-i18n="${conf.labelKey}">${labelText}</span>
-        `;
-      }
-      if (badge) {
-        badge.textContent = '';
-        badge.classList.add('hidden');
-      }
-      if (delBtn) {
-        delBtn.classList.add('hidden');
-      }
+    function openDocPreview(key) {
+      const data = uploadedDocs[key];
+      if (!data) return;
+      const modal = document.getElementById('docPreviewModal');
+      const img = document.getElementById('docPreviewImg');
+      if (img) img.src = data;
+      if (modal) { modal.classList.remove('hidden'); modal.classList.add('is-open'); const b = modal.querySelector('button'); if (b) { try { b.focus(); } catch (e) {} } }
+    }
+    function closeDocPreview() {
+      const modal = document.getElementById('docPreviewModal');
+      const img = document.getElementById('docPreviewImg');
+      if (modal) { modal.classList.add('hidden'); modal.classList.remove('is-open'); }
+      if (img) img.src = '';
+    }
+    function initDocPreviewModal() {
+      const modal = document.getElementById('docPreviewModal');
+      if (!modal) return;
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeDocPreview(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeDocPreview(); });
+    }
+    function initBackToTop() {
+      const btn = document.getElementById('backToTopBtn');
+      if (!btn) return;
+      const onScroll = () => { btn.classList.toggle('is-visible', window.scrollY > 400); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      btn.addEventListener('click', () => {
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
     }
 
     // --- MOTEUR MULTILINGUE CENTRALISÉ (FR | EN | AR) ---
@@ -335,6 +409,10 @@
             el.textContent = dict[key];
           }
         });
+        document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+          const key = el.getAttribute('data-i18n-aria');
+          if (dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+        });
 
         // Placeholders localisés
         const nameInput = document.getElementById('clientName');
@@ -364,6 +442,7 @@
       if (typeof renderCarCatalog === 'function') {
         renderCarCatalog(currentCategoryFilter || 'all');
       }
+      if (typeof renderReservationStep === 'function') { try { renderReservationStep(false); } catch (e) {} }
     }
 
     // --- 2. INITIALIZATION ON DOM LOAD ---
@@ -452,6 +531,8 @@
 
       // Initialiser le formulaire de réservation en 4 étapes (stepper)
       initReservationStepper();
+      initBackToTop();
+      initDocPreviewModal();
     });
 
     // --- CHARGEMENT DYNAMIQUE DU CATALOGUE DEPUIS CLOUDFLARE D1 ---
@@ -726,24 +807,42 @@
 
     // --- 7. SELECT CAR FROM CATALOG & SCROLL ---
     function selectCarAndScrollToBooking(carId = null) {
-      if (carId) {
-        currentSelectedCarId = carId;
-        const carSelect = document.getElementById('carSelect');
-        carSelect.value = carId;
+      // Fall back to the vehicle stored by the details modal / last selection so
+      // the modal "Choisir cette voiture" CTA (invoked without an id) still
+      // selects the correct car instead of a stale dropdown value.
+      const carSelect = document.getElementById('carSelect');
+      const targetId = carId || currentSelectedCarId;
+      if (targetId && CARS_DATABASE.some(c => c.id === targetId)) {
+        currentSelectedCarId = targetId;
+        if (carSelect) carSelect.value = targetId;
       }
       closeCarModal();
       updateBookingCalculation();
+      // Keep the Step 2 visual vehicle cards in sync with the new selection
+      // so the chosen car is immediately highlighted when Step 2 opens.
+      if (typeof renderVehicleSelectCards === 'function') renderVehicleSelectCards();
 
+      // Scroll to the booking section, offsetting the sticky header so the
+      // section heading is not hidden behind it. Respect reduced-motion.
       const bookingSection = document.getElementById('reservation');
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
+      if (bookingSection) {
+        const header = document.querySelector('header');
+        const headerH = header ? header.getBoundingClientRect().height : 0;
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const top = bookingSection.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+        window.scrollTo({ top: Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' });
+      }
 
       // Highlight select box temporarily
       const carSelectElem = document.getElementById('carSelect');
-      carSelectElem.classList.add('ring-2', 'ring-brand-gold');
-      setTimeout(() => carSelectElem.classList.remove('ring-2', 'ring-brand-gold'), 1500);
+      if (carSelectElem) {
+        carSelectElem.classList.add('ring-2', 'ring-brand-gold');
+        setTimeout(() => carSelectElem.classList.remove('ring-2', 'ring-brand-gold'), 1500);
+      }
     }
 
     // --- 8. CAR DETAIL MODAL ---
+    let lastModalTrigger = null;
     function openCarModal(carId) {
       const car = CARS_DATABASE.find(c => c.id === carId);
       if (!car) return;
@@ -756,50 +855,64 @@
       
       const eur = Math.round(car.priceMAD / MAD_TO_EUR_RATE);
       document.getElementById('modalCarPrice').textContent = `${car.priceMAD} MAD`;
-      document.getElementById('modalCarPriceEur').textContent = `/ jour (~${eur} € TTC)`;
+      const _mt = (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang]) ? WINON_TRANSLATIONS[currentLang] : {};
+      const perDay = _mt.m_price_per_day || '/ jour';
+      document.getElementById('modalCarPriceEur').textContent = `${perDay} (~${eur} €)`;
 
-      // Render specs in modal
+      // Render specs in modal (captions localised, values come from vehicle data)
+      const lblGearbox = _mt.m_spec_gearbox || 'Boîte';
+      const lblFuel = _mt.m_spec_fuel || 'Carburant';
+      const lblCapacity = _mt.m_spec_capacity || 'Capacité';
+      const lblAc = _mt.m_spec_ac || 'Climatisation';
       const specsContainer = document.getElementById('modalCarSpecs');
       specsContainer.innerHTML = `
         <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
           <i class="fa-solid fa-gear text-brand-gold text-base mb-1 block"></i>
           <span class="text-[11px] font-bold text-slate-800 block">${car.specs.gearbox}</span>
-          <span class="text-[10px] text-slate-400">Boîte</span>
+          <span class="text-[10px] text-slate-400">${lblGearbox}</span>
         </div>
         <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
           <i class="fa-solid fa-gas-pump text-brand-gold text-base mb-1 block"></i>
           <span class="text-[11px] font-bold text-slate-800 block">${car.specs.fuel}</span>
-          <span class="text-[10px] text-slate-400">Carburant</span>
+          <span class="text-[10px] text-slate-400">${lblFuel}</span>
         </div>
         <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
           <i class="fa-solid fa-users text-brand-gold text-base mb-1 block"></i>
           <span class="text-[11px] font-bold text-slate-800 block">${car.specs.seats}</span>
-          <span class="text-[10px] text-slate-400">Capacité</span>
+          <span class="text-[10px] text-slate-400">${lblCapacity}</span>
         </div>
         <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-center">
           <i class="fa-solid fa-snowflake text-brand-gold text-base mb-1 block"></i>
           <span class="text-[11px] font-bold text-slate-800 block">${car.specs.ac}</span>
-          <span class="text-[10px] text-slate-400">Climatisation</span>
+          <span class="text-[10px] text-slate-400">${lblAc}</span>
         </div>
       `;
 
-      // Update direct WhatsApp link in modal
-      const whatsappMsg = encodeURIComponent(
-        `Bonjour WINON CAR Agadir,\n\nJe suis intéressé(e) par la location du véhicule : ${car.name} (${car.priceMAD} MAD / jour, ~${eur} €).\nPouvez-vous me donner plus d'informations sur sa disponibilité ?`
-      );
-      document.getElementById('modalWhatsAppBtn').href = `https://wa.me/212604707847?text=${whatsappMsg}`;
+      // Secondary CTA -> Contact page carrying the selected vehicle context
+      const askBtn = document.getElementById('modalAskBtn');
+      if (askBtn) askBtn.href = `contact/?vehicle=${encodeURIComponent(car.name)}`;
 
+      lastModalTrigger = document.activeElement;
       document.getElementById('carModal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      const closeBtn = document.getElementById('carModalClose');
+      if (closeBtn) setTimeout(() => closeBtn.focus(), 0);
     }
 
     function closeCarModal() {
       document.getElementById('carModal').classList.add('hidden');
       document.body.style.overflow = '';
+      if (lastModalTrigger && typeof lastModalTrigger.focus === 'function') {
+        lastModalTrigger.focus();
+        lastModalTrigger = null;
+      }
     }
 
     document.getElementById('carModal').addEventListener('click', (e) => {
       if (e.target.id === 'carModal') closeCarModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !document.getElementById('carModal').classList.contains('hidden')) closeCarModal();
     });
 
     // --- 9. MOROCCAN LOCATIONS HIERARCHY & SELECTION ---
@@ -1480,6 +1593,7 @@ Je souhaite réserver le véhicule suivant :
 
       // Run all validations — stop here if any field is invalid
       if (!validateBookingForm()) return;
+      if (window.__winonSubmitting) return; // prevent duplicate submissions
       const car = CARS_DATABASE.find(c => c.id === currentSelectedCarId) || CARS_DATABASE[0];
       const days = calculateDays();
       const isDiscounted = days >= 7;
@@ -1545,9 +1659,7 @@ Je souhaite réserver le véhicule suivant :
       const encodedMsg = buildWhatsAppBookingMessage();
       const whatsappUrl = `https://wa.me/212604707847?text=${encodedMsg}`;
       document.getElementById('confirmModalWhatsAppBtn').href = whatsappUrl;
-      document.getElementById('confirmModal').classList.remove('hidden');
-
-      // Enregistrement asynchrone dans Cloudflare D1 via l'API (avec langue & documents)
+      // Enregistrement dans Cloudflare D1 via l'API (avec langue & documents)
       const bookingPayload = {
         bookingRef,
         carId: car.id,
@@ -1576,16 +1688,38 @@ Je souhaite réserver le véhicule suivant :
         docLicenseVerso: uploadedDocs.licenseVerso || null
       };
 
+      const submitBtn = document.getElementById('rSubmitBtn');
+      const banner = document.getElementById('bookingFormErrorBanner');
+      if (banner) banner.classList.add('hidden');
+      window.__winonSubmitting = true;
+      const prevBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>' + docText('submit_loading', 'Envoi en cours…') + '</span>'; }
+
       fetch('/api/reservations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingPayload)
-      }).then(res => res.json())
-        .then(result => {
-          console.log('[WINON CAR] Réservation sauvegardée dans D1 :', result);
+      }).then(res => res.json().then(result => ({ ok: res.ok, result })))
+        .then(({ ok, result }) => {
+          if (ok && result && result.success) {
+            console.log('[WINON CAR] Réservation enregistrée dans D1 :', result);
+            document.getElementById('confirmModal').classList.remove('hidden');
+            if (submitBtn) submitBtn.innerHTML = prevBtnHtml;
+          } else {
+            throw new Error((result && result.error) ? result.error : 'submit_failed');
+          }
         })
         .catch(err => {
-          console.warn('[WINON CAR] Mode hors-ligne ou API non connectée :', err);
+          console.warn('[WINON CAR] Échec enregistrement réservation :', err);
+          window.__winonSubmitting = false;
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = prevBtnHtml; }
+          if (banner) {
+            const span = banner.querySelector('.error-banner-text');
+            if (span) span.textContent = docText('submit_error', "L'envoi a échoué. Vos informations sont conservées — réessayez ou utilisez WhatsApp.");
+            banner.classList.remove('hidden');
+            const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            banner.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+          }
         });
     }
 
@@ -1768,12 +1902,13 @@ Je souhaite réserver le véhicule suivant :
     // Reuses the existing fields, validators, pricing and submit flow.
     // Panels are grouped by .rstep[data-rstep]; only field VISIBILITY changes.
     let reservationStep = 1;
-    const RESERVATION_TOTAL_STEPS = 4;
+    const RESERVATION_TOTAL_STEPS = 5;
     const RESERVATION_STEP_HEADINGS = {
       1: { fr: 'Trajet', en: 'Trip', ar: 'المسار' },
       2: { fr: 'Véhicule', en: 'Vehicle', ar: 'السيارة' },
       3: { fr: 'Vos informations', en: 'Your details', ar: 'معلوماتك' },
-      4: { fr: 'Confirmation', en: 'Confirmation', ar: 'التأكيد' }
+      4: { fr: 'Documents', en: 'Documents', ar: 'الوثائق' },
+      5: { fr: 'Confirmation', en: 'Confirmation', ar: 'التأكيد' }
     };
 
     function initReservationStepper() {
@@ -1803,13 +1938,23 @@ Je souhaite réserver le véhicule suivant :
       const heading = document.getElementById('rStepHeading');
       if (heading) heading.textContent = RESERVATION_STEP_HEADINGS[reservationStep][currentLang] || RESERVATION_STEP_HEADINGS[reservationStep].fr;
       const count = document.getElementById('rStepCount');
-      if (count) count.textContent = (currentLang === 'ar') ? ('خطوة ' + reservationStep + ' / 4')
-        : (currentLang === 'en' ? ('Step ' + reservationStep + ' / 4') : ('Étape ' + reservationStep + ' / 4'));
+      if (count) count.textContent = (currentLang === 'ar') ? ('خطوة ' + reservationStep + ' / 5')
+        : (currentLang === 'en' ? ('Step ' + reservationStep + ' / 5') : ('Étape ' + reservationStep + ' / 5'));
 
       const back = document.getElementById('rBackBtn');
       const next = document.getElementById('rNextBtn');
       if (back) back.classList.toggle('invisible', reservationStep === 1);
       if (next) next.classList.toggle('hidden', reservationStep === RESERVATION_TOTAL_STEPS);
+      const submitBtn = document.getElementById('rSubmitBtn');
+      if (submitBtn) submitBtn.classList.toggle('hidden', reservationStep !== RESERVATION_TOTAL_STEPS);
+      if (next) {
+        const _ns = next.querySelector('span');
+        if (_ns) {
+          const _k = {1:'step_next_vehicle',2:'step_next_infos',3:'step_next_documents',4:'step_next_confirm'}[reservationStep] || 'step_next_default';
+          const _t = (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang] && WINON_TRANSLATIONS[currentLang][_k]);
+          if (_t) { _ns.textContent = _t; _ns.removeAttribute('data-i18n'); }
+        }
+      }
 
       if (reservationStep === 2 && typeof renderVehicleSelectCards === 'function') renderVehicleSelectCards();
       if (reservationStep === RESERVATION_TOTAL_STEPS) buildReservationReview();
@@ -1859,6 +2004,10 @@ Je souhaite réserver le véhicule suivant :
       const totalEur = (document.getElementById('summaryTotalEur') || {}).textContent || '';
       const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
       const row = (k, v) => '<div class="flex justify-between gap-3 border-b border-slate-700/60 pb-1.5"><span class="text-slate-400">' + k + '</span><span class="text-white font-semibold text-right">' + (esc(v) || '—') + '</span></div>';
+      const _dc = Object.values(uploadedDocs).filter(Boolean).length;
+      const _dt = (k,f)=>((typeof WINON_TRANSLATIONS!=='undefined' && WINON_TRANSLATIONS[currentLang] && WINON_TRANSLATIONS[currentLang][k]) || f);
+      const _docLabel = _dt('doc_status_label','Documents');
+      const _docStatus = _dc > 0 ? (_dc + '/4 ' + _dt('doc_status_count','pièce(s) jointe(s)')) : _dt('doc_status_none','Aucun document joint (facultatif)');
       review.innerHTML =
         row('Véhicule', car ? car.name : '—') +
         row('Prise en charge', loc.pickupLocation ? (loc.pickupCityLabel + ' — ' + loc.pickupLocation) : '—') +
@@ -1867,6 +2016,7 @@ Je souhaite réserver le véhicule suivant :
         row('Durée', days + ' jour' + (days > 1 ? 's' : '')) +
         row('Options', wifi ? 'Wi-Fi 4G (+30 MAD/j)' : 'Standard') +
         row('Client', name ? (name + ' (' + phone + ')') : '—') +
+        row(_docLabel, _docStatus) +
         '<div class="flex justify-between gap-3 pt-1"><span class="text-slate-300 font-bold">Total estimé</span><span class="gold-text-gradient font-extrabold">' + esc(totalText) + ' ' + esc(totalEur) + '</span></div>' +
         '<p class="text-[11px] text-amber-300/90 pt-1"><i class="fa-solid fa-circle-info mr-1"></i>Frais de livraison confirmés via WhatsApp. Votre demande est envoyée pour confirmation.</p>';
     }

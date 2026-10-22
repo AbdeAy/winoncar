@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos | WINON CAR — Location de Voitures à Agadir</title>
+  <meta name="description" content="À propos de WINON CAR : service de location de voitures à Agadir avec livraison à l'aéroport Al-Massira, au centre-ville et aux hôtels. Découvrez comment réserver, les documents requis et nos conditions de location.">
+
+  <link rel="icon" type="image/jpeg" href="../winon-logo.jpeg">
+  <link rel="apple-touch-icon" href="../winon-logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D4AF37', goldHover: '#C5A059', goldLight: '#FDF8EC',
+              dark: '#0B132B', navy: '#1C2541', slate: '#3A506B',
+              whatsapp: '#25D366', whatsappHover: '#1EBE5D'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            arabic: ['"Tajawal"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="../assets/translations.js"></script>
+  <link rel="stylesheet" href="../assets/css/landing.css">
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-white bg-white pb-20 lg:pb-0">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-brand-dark text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+        <span class="flex items-center gap-1.5 text-brand-gold font-semibold">
+          <i class="fa-solid fa-map-pin"></i> <span data-i18n="top_location">Agadir, Maroc</span>
+        </span>
+        <span class="hidden md:inline text-slate-600">•</span>
+        <span class="flex items-center gap-1.5 text-slate-300">
+          <i class="fa-solid fa-plane-arrival text-brand-gold"></i> <span data-i18n="top_delivery">Livraison gratuite Aéroport Al-Massira (AGA) &amp; Hôtels</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+212604707847" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 font-medium">
+          <i class="fa-solid fa-phone text-brand-gold"></i> +212 604-707847
+        </a>
+        <span class="text-slate-600">|</span>
+        <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20des%20informations%20pour%20une%20location%20à%20Agadir." target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-bold">
+          <i class="fa-brands fa-whatsapp text-sm"></i> <span data-i18n="top_whatsapp">WhatsApp 24/7</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-sm border border-slate-200 overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center p-0.5">
+            <img src="../winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-brand-dark flex items-center gap-1">
+              WINON <span class="gold-text-gradient font-black">CAR</span>
+            </span>
+            <span class="text-[10px] tracking-widest text-slate-500 font-bold uppercase -mt-1">
+              Agadir • Location de Voitures
+            </span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-bold text-slate-700 whitespace-nowrap">
+          <a href="../#accueil" class="hover:text-brand-gold transition-colors" data-i18n="nav_home">Accueil</a>
+          <a href="../vehicles/" class="hover:text-brand-gold transition-colors" data-i18n="nav_cars">Nos véhicules</a>
+          <a href="./" class="text-brand-gold" aria-current="page" data-i18n="nav_about">À propos</a>
+          <a href="../contact/" class="hover:text-brand-gold transition-colors" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-3">
+          <div class="inline-flex items-center bg-slate-100 rounded-xl p-1 border border-slate-200 text-xs font-black shadow-inner">
+            <button type="button" onclick="setLanguage('fr')" data-lang-btn="fr" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold">FR</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold">EN</button>
+            <button type="button" onclick="setLanguage('ar')" data-lang-btn="ar" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-arabic font-bold text-sm">عربي</button>
+          </div>
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Contacter WINON CAR sur WhatsApp" title="WhatsApp"
+             class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all hover:scale-105 shrink-0">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+          </a>
+          <a href="../reservation/" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-5 h-11 rounded-xl font-bold text-sm transition-all shadow-md whitespace-nowrap">
+            <i class="fa-solid fa-calendar-check text-brand-gold"></i>
+            <span data-i18n="nav_reserve">Réserver</span>
+          </a>
+        </div>
+
+        <div class="flex lg:hidden items-center gap-2">
+          <div class="inline-flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200 text-[11px] font-bold">
+            <button type="button" onclick="setLanguage('fr')" data-lang-btn="fr" class="lang-switch-btn px-2 py-0.5 rounded transition-all">FR</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-switch-btn px-2 py-0.5 rounded transition-all">EN</button>
+            <button type="button" onclick="setLanguage('ar')" data-lang-btn="ar" class="lang-switch-btn px-2 py-0.5 rounded transition-all font-arabic">عربي</button>
+          </div>
+          <button id="mobileMenuBtn" aria-label="Ouvrir le menu" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+            <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 shadow-xl transition-all">
+      <nav class="flex flex-col gap-2 text-base font-semibold text-slate-800">
+        <a href="../#accueil" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_home">Accueil</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="../vehicles/" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_cars">Nos véhicules</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="./" class="mobile-link py-2.5 px-3 rounded-lg bg-brand-goldLight text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_about">À propos</span>
+          <i class="fa-solid fa-chevron-right text-xs text-brand-gold"></i>
+        </a>
+        <a href="../contact/" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_contact">Contact</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5 mt-2">
+          <a href="../reservation/" class="flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-white py-3 rounded-xl font-bold text-center shadow">
+            <span data-i18n="nav_reserve">Réserver</span>
+            <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+          </a>
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
+             target="_blank" rel="noopener noreferrer"
+             class="flex items-center justify-center gap-2 bg-brand-whatsapp text-white py-3 rounded-xl font-bold text-center shadow">
+            <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp (+212 604-707847)
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECTION 1 — INTRODUCTION -->
+  <section class="relative bg-brand-dark text-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
+      <nav class="text-xs text-slate-400 font-semibold mb-6" aria-label="Fil d'Ariane">
+        <a href="../" class="hover:text-brand-gold">Accueil</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-slate-200">À propos</span>
+      </nav>
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 text-brand-gold text-xs sm:text-sm font-bold uppercase tracking-wide mb-4">
+          <i class="fa-solid fa-car-side"></i> WINON CAR Agadir
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-5">
+          À propos de <span class="gold-text-gradient">WINON CAR</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-4">
+          WINON CAR est un service de location de voitures basé à Agadir. Nous aidons les voyageurs et les résidents à se déplacer librement dans la ville et dans toute la région Souss-Massa, avec une prise en charge simple et des conditions claires.
+        </p>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+          Selon les modalités disponibles, nous assurons la livraison et la restitution de votre véhicule à l'aéroport Al-Massira (AGA), en centre-ville et dans les hôtels d'Agadir. Notre équipe reste joignable par téléphone et sur WhatsApp pour répondre à vos questions avant et pendant votre location.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — WHY CHOOSE WINON CAR -->
+  <section class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mb-10">
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">Pourquoi WINON CAR ?</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark tracking-tight mb-3">Un service pensé pour votre séjour</h2>
+      <p class="text-slate-600 text-base">Les avantages concrets de notre service de location à Agadir.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-plane-arrival"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base mb-2">Prise en charge à l'aéroport</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Livraison et restitution à l'aéroport Al-Massira, en ville ou à votre hôtel, selon les modalités disponibles.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-file-contract"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base mb-2">Tarifs et conditions clairs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Des prix en dirhams (MAD) et des conditions de location expliquées avant la confirmation, sans mauvaise surprise.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-car-side"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base mb-2">Des véhicules pour chaque besoin</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Citadines économiques, berlines, SUV et modèles de prestige : un choix adapté à votre trajet et à votre budget.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-xl mb-4">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base mb-2">Support et contact WhatsApp</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Une équipe joignable par téléphone et sur WhatsApp pour préparer votre location et répondre à vos questions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — HOW IT WORKS -->
+  <section class="py-16 sm:py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-10">
+        <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">Comment ça marche</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark tracking-tight mb-3">Réserver en quelques étapes</h2>
+        <p class="text-slate-600 text-base">Un parcours simple, de la demande jusqu'à la confirmation avec notre équipe.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-dark text-white flex items-center justify-center font-black mb-4">1</div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Choisissez vos dates et votre lieu</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Indiquez votre lieu de prise en charge et vos dates de départ et de retour.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-dark text-white flex items-center justify-center font-black mb-4">2</div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Sélectionnez un véhicule</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Comparez les modèles disponibles et choisissez celui qui correspond à votre séjour.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-dark text-white flex items-center justify-center font-black mb-4">3</div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Transmettez vos informations</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Renseignez vos coordonnées et les documents requis pour préparer votre contrat.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-brand-gold text-brand-dark flex items-center justify-center font-black mb-4">4</div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Confirmez avec l'équipe</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Nous validons ensemble la disponibilité et les derniers détails de la prise en charge.</p>
+        </div>
+      </div>
+      <div class="mt-8 flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-5 max-w-3xl">
+        <i class="fa-solid fa-circle-info text-brand-gold mt-0.5"></i>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          <strong>Bon à savoir :</strong> l'envoi d'une demande de réservation ne vaut pas confirmation définitive. Votre location est <strong>confirmée uniquement après l'accord de notre équipe</strong>, qui vérifie la disponibilité du véhicule et les modalités de prise en charge.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — RENTAL INFORMATION -->
+  <section class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mb-10">
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">Informations de location</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark tracking-tight mb-3">Ce qu'il faut savoir avant de réserver</h2>
+      <p class="text-slate-600 text-base">Les points importants de votre location. Pour tout cas particulier, contactez notre équipe.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Prise en charge et restitution</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Livraison et restitution à l'aéroport Al-Massira (AGA), en centre-ville ou à votre hôtel d'Agadir, selon les modalités disponibles. Le lieu exact est confirmé avec notre équipe.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-id-card text-brand-gold"></i> Documents requis</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Un permis de conduire original en cours de validité (minimum 2 ans) et un passeport (touristes et MRE) ou une Carte d'Identité Nationale (CIN) pour les résidents marocains.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-gold"></i> Assurance et kilométrage</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Kilométrage illimité sur nos formules de location. La couverture d'assurance s'applique selon les conditions du contrat de location, détaillées avant la signature.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-hand-holding-dollar text-brand-gold"></i> Paiement et caution</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Le règlement s'effectue à la livraison du véhicule, en dirhams (MAD) ou en euros, ou par carte bancaire. Une caution peut être demandée (pré-autorisation ou espèces) et vous est restituée à la remise du véhicule.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-truck text-brand-gold"></i> Frais de livraison éventuels</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Certaines prises en charge ou zones peuvent impliquer des frais de livraison. Le cas échéant, ils vous sont communiqués et confirmés avant la finalisation de votre réservation.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-gold"></i> Confirmation de réservation</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Après l'envoi de votre demande, notre équipe vérifie la disponibilité et confirme votre location, généralement via WhatsApp. Une question ? <a href="../contact/" class="text-brand-gold font-semibold hover:underline">Contactez-nous</a> ou écrivez-nous sur <a href="https://wa.me/212604707847" target="_blank" rel="noopener noreferrer" class="text-brand-gold font-semibold hover:underline">WhatsApp</a>.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- SECTION 5 — FAQ (relocated from homepage) -->
+  <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
+          Tout ce qu'il faut savoir
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4" data-i18n="faq_title">
+          Foire Aux Questions (FAQ)
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Vous avez des questions sur la location de voiture à Agadir ? Voici toutes les réponses transparentes de WINON CAR.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faqAccordion">
+        <!-- Item 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-id-card text-brand-gold text-lg"></i>
+              Quels sont les documents obligatoires pour louer un véhicule ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            Pour louer un véhicule chez WINON CAR à Agadir, vous avez simplement besoin d'un <strong>permis de conduire original en cours de validité</strong> (minimum 2 ans) et d'un <strong>passeport</strong> (pour les touristes étrangers et MRE) ou d'une <strong>Carte d'Identité Nationale (CIN)</strong> pour les résidents marocains. Aucun permis international n'est exigé pour les permis européens.
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-plane text-brand-gold text-lg"></i>
+              Comment se déroule la livraison à l'Aéroport Agadir Al-Massira (AGA) ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            La livraison à l'Aéroport Al-Massira est <strong>100% gratuite et assurée 24h/24 et 7j/7</strong>. Notre agent vous attend avec une pancarte personnalisée à la sortie du terminal. L'état des lieux et la signature du contrat se font sur place en moins de 5 minutes pour que vous puissiez commencer votre voyage immédiatement sans attente en navette ou guichet.
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-hand-holding-dollar text-brand-gold text-lg"></i>
+              Comment s'effectue le paiement et comment fonctionne la caution ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            Le règlement de la location se fait <strong>uniquement à la livraison de la voiture</strong>. Nous acceptons les espèces en Dirhams marocains (MAD) ou en Euros (€), ainsi que les cartes bancaires (Visa, Mastercard). La caution peut être déposée soit par pré-autorisation bancaire (montant bloqué non débité), soit en espèces, et vous est <strong>intégralement restituée</strong> dès la remise du véhicule.
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-infinity text-brand-gold text-lg"></i>
+              Le kilométrage est-il réellement illimité ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            <strong>Oui, absolument !</strong> Toutes nos formules de location bénéficient du kilométrage 100% illimité. Vous êtes libre de parcourir Agadir, Taghazout, Paradise Valley, Essaouira, Marrakech ou Taroudant sans aucun surcoût kilométrique.
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
+              <i class="fa-solid fa-clock text-brand-gold text-lg"></i>
+              Que se passe-t-il si mon vol a du retard ?
+            </span>
+            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            Si vous indiquez votre numéro de vol dans le formulaire de réservation, notre équipe suit en temps réel l'avancée de votre vol. Même en cas de retard de plusieurs heures ou d'arrivée nocturne, votre véhicule et votre agent WINON CAR seront au rendez-vous, <strong>sans aucun frais de retard ni pénalité</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+    <!-- SECTION 6 — CTA BEFORE MAP -->
+  <section class="py-16 sm:py-20 bg-brand-dark text-white relative overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">Prêt à découvrir Agadir en toute liberté ?</h2>
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8">Découvrez nos véhicules ou contactez notre équipe pour préparer votre location.</p>
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5">
+        <a href="../reservation/" class="gold-gradient hover:opacity-95 text-brand-dark px-7 h-13 min-h-[3.25rem] rounded-xl font-extrabold shadow-lg transition-all hover:scale-[1.03] flex items-center justify-center gap-2 whitespace-nowrap">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Réserver un véhicule</span>
+        </a>
+        <a href="../contact/" class="bg-white/10 hover:bg-white/15 border border-white/20 text-white px-7 h-13 min-h-[3.25rem] rounded-xl font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+          <i class="fa-solid fa-headset text-brand-gold"></i>
+          <span>Nous contacter</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- SECTION 7 — LOCATION / SERVICE AREA (immediately before footer) -->
+  <section id="localisation" class="py-16 sm:py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div>
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">Zone de service</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark tracking-tight mb-5">Retrouvez WINON CAR à Agadir</h2>
+          <p class="text-slate-600 text-base leading-relaxed mb-6">
+            WINON CAR opère à Agadir et dans la région Souss-Massa. Nous assurons la livraison et la restitution de votre véhicule à l’aéroport Al-Massira (AGA), en centre-ville et dans les hôtels d’Agadir, selon les modalités disponibles.
+          </p>
+          <div class="space-y-3 text-sm text-slate-700 mb-7">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-plane-arrival text-brand-gold mt-1 w-4 text-center"></i>
+              <span><strong>Point de prise en charge principal :</strong> Aéroport Agadir Al-Massira (AGA).</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-brand-gold mt-1 w-4 text-center"></i>
+              <span>Zone de service : Agadir, Taghazout, Marina et région Souss-Massa.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-phone text-brand-gold mt-1 w-4 text-center"></i>
+              <a href="tel:+212604707847" class="font-semibold hover:text-brand-gold">+212 604-707847</a>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=A%C3%A9roport+Agadir+Al+Massira" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-6 h-12 rounded-xl font-bold text-sm shadow transition-colors whitespace-nowrap">
+              <i class="fa-solid fa-diamond-turn-right text-brand-gold"></i>
+              <span>Itinéraire vers l’aéroport</span>
+            </a>
+            <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20des%20informations%20pour%20une%20location%20%C3%A0%20Agadir." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white px-6 h-12 rounded-xl font-bold text-sm shadow transition-colors whitespace-nowrap">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Organiser ma prise en charge</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
+            <iframe
+              title="Zone de service WINON CAR – Aéroport Agadir Al-Massira"
+              src="https://www.google.com/maps?q=A%C3%A9roport%20Agadir%20Al%20Massira&output=embed"
+              width="100%" height="360" style="border:0; display:block;"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+          <p class="text-xs text-slate-400 mt-3 text-center">
+            <i class="fa-solid fa-circle-info mr-1"></i> Carte indicative de la zone de service et du point de prise en charge (aéroport Al-Massira). La prise en charge exacte est confirmée avec notre équipe.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-brand-dark text-slate-300 pt-14 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-white p-0.5 shadow-md overflow-hidden shrink-0 flex items-center justify-center">
+              <img src="../winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full">
+            </div>
+            <div>
+              <span class="text-2xl font-black text-white">WINON <span class="gold-text-gradient font-black">CAR</span></span>
+              <span class="block text-[10px] tracking-widest text-slate-400 font-bold uppercase">Agadir • Location de Voitures</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="footer_about">
+            Votre partenaire pour la location de voitures à Agadir. Prise en charge à l'aéroport Al-Massira, en ville et aux hôtels, selon les modalités disponibles.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-400">
+            <li><a href="../#accueil" class="hover:text-brand-gold transition-colors">Accueil</a></li>
+            <li><a href="../vehicles/" class="hover:text-brand-gold transition-colors">Nos véhicules</a></li>
+            <li><a href="../reservation/" class="hover:text-brand-gold transition-colors">Réservation</a></li>
+            <li><a href="./" class="hover:text-brand-gold transition-colors">À propos</a></li>
+            <li><a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Contact Direct</h4>
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="flex items-start gap-2.5">
+              <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+              <span>Agadir, Maroc • Aéroport Al-Massira (point de prise en charge)</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-phone text-brand-gold"></i>
+              <a href="tel:+212604707847" class="hover:text-white font-semibold">+212 604-707847</a>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-brands fa-whatsapp text-brand-whatsapp text-base"></i>
+              <a href="https://wa.me/212604707847" target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">WhatsApp : +212 604-707847</a>
+            </div>
+            <div class="pt-2 text-[11px] text-slate-400 border-t border-slate-700">
+              <i class="fa-regular fa-clock text-brand-gold mr-1"></i> Ouvert 24h/24 &amp; 7j/7
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© <span id="currentYear"></span> WINON CAR Agadir. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+        <p>Location de voitures à Agadir, Maroc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BOTTOM ACTION BAR -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 flex items-center justify-between gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+    <a href="tel:+212604707847" class="flex-1 flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
+      <i class="fa-solid fa-phone text-brand-gold"></i> <span>Appeler</span>
+    </a>
+    <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20un%20véhicule%20à%20Agadir." target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-2.5 px-2 rounded-xl font-bold text-xs shadow transition-colors">
+      <i class="fa-brands fa-whatsapp text-base"></i> <span>WhatsApp</span>
+    </a>
+    <a href="../reservation/" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-dark hover:bg-brand-navy text-white py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
+      <i class="fa-solid fa-calendar-check text-brand-gold"></i> <span>Réserver</span>
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      let currentLang = localStorage.getItem('winon_lang') || 'fr';
+      window.toggleFaq = function (btn) {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.fa-chevron-down');
+        const isHidden = content.classList.contains('hidden');
+        document.querySelectorAll('#faqAccordion .faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('#faqAccordion .fa-chevron-down').forEach(i => i.style.transform = '');
+        if (isHidden) { content.classList.remove('hidden'); if (icon) icon.style.transform = 'rotate(180deg)'; }
+      };
+      window.setLanguage = function (lang) {
+        if (!['fr', 'en', 'ar'].includes(lang)) lang = 'fr';
+        currentLang = lang;
+        localStorage.setItem('winon_lang', lang);
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        document.querySelectorAll('.lang-switch-btn').forEach(btn => {
+          const b = btn.getAttribute('data-lang-btn');
+          const on = (b === lang);
+          btn.classList.toggle('bg-brand-gold', on);
+          btn.classList.toggle('text-brand-dark', on);
+          btn.classList.toggle('shadow-sm', on);
+          btn.classList.toggle('text-slate-600', !on);
+        });
+        if (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[lang]) {
+          const d = WINON_TRANSLATIONS[lang];
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+            const k = el.getAttribute('data-i18n');
+            if (d[k] !== undefined) el.textContent = d[k];
+          });
+        }
+      };
+      document.addEventListener('DOMContentLoaded', () => {
+        const y = document.getElementById('currentYear');
+        if (y) y.textContent = new Date().getFullYear();
+        setLanguage(currentLang);
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        const icon = document.getElementById('menuIcon');
+        if (btn && menu) {
+          btn.addEventListener('click', () => {
+            const hidden = menu.classList.toggle('hidden');
+            if (icon) { icon.classList.toggle('fa-bars', hidden); icon.classList.toggle('fa-xmark', !hidden); }
+          });
+          document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+          }));
+        }
+      });
+    })();
+  </script>
+
+  <!-- BACK TO TOP BUTTON (styling: assets/css/landing.css #backToTopBtn) -->
+  <button type="button" id="backToTopBtn" aria-label="Haut de page" title="Haut de page">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+  <script src="../assets/js/back-to-top.js" defer></script>
+</body>
+</html>

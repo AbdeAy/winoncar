@@ -40,8 +40,12 @@ html[dir="rtl"], html[dir="rtl"] body { font-family: 'Tajawal', system-ui, sans-
 textarea.res-field { height: auto; min-height: 5.5rem; padding: 0.75rem 1rem; resize: vertical; }
 .res-label { display: flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 700; color: #334155; margin-bottom: .4rem; }
 .res-help  { font-size: .78rem; color: #64748B; margin-top: .3rem; }
-.res-error { font-size: .78rem; color: #DC2626; font-weight: 600; margin-top: .35rem; min-height: 1rem; display: none; }
-.res-error.show { display: block; }
+/* Error message reserves its vertical space at all times so showing/hiding it
+   never shifts neighbouring fields (matches the contact form's .cf-error).
+   In the two-column name/phone row this keeps both columns aligned. */
+.res-error { font-size: .78rem; color: #DC2626; font-weight: 600; margin-top: .35rem; min-height: 1.05rem; line-height: 1.05rem; display: flex; align-items: center; gap: .3rem; visibility: hidden; }
+.res-error.show { visibility: visible; }
+.res-error.show::before { content: '\f06a'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: .72rem; }
 
 /* --- Vehicle cards --- */
 .veh-card {

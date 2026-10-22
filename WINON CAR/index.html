@@ -101,10 +101,11 @@
         </a>
 
         <!-- Desktop Navigation (essential links only) -->
-        <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-700 whitespace-nowrap">
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-bold text-slate-700 whitespace-nowrap">
           <a href="#accueil" class="text-brand-gold" aria-current="page" data-i18n="nav_home">Accueil</a>
           <a href="#flotte" class="hover:text-brand-gold transition-colors" data-i18n="nav_cars">Nos véhicules</a>
-          <a href="#contact" class="hover:text-brand-gold transition-colors" data-i18n="nav_contact">Contact</a>
+          <a href="about/" class="hover:text-brand-gold transition-colors" data-i18n="nav_about">À propos</a>
+          <a href="contact/" class="hover:text-brand-gold transition-colors" data-i18n="nav_contact">Contact</a>
         </nav>
 
         <!-- Right Action Buttons & Language Selector -->
@@ -115,8 +116,7 @@
             <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold">EN</button>
             <button type="button" onclick="setLanguage('ar')" data-lang-btn="ar" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-arabic font-bold text-sm">عربي</button>
           </div>
-
-          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir." 
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
              target="_blank" rel="noopener noreferrer"
              aria-label="Contacter WINON CAR sur WhatsApp" title="WhatsApp"
              class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all hover:scale-105 shrink-0">
@@ -153,18 +153,22 @@
           <span data-i18n="nav_cars">Nos véhicules</span>
           <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
         </a>
-        <a href="#contact" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+        <a href="about/" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_about">À propos</span>
+          <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="contact/" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
           <span data-i18n="nav_contact">Contact</span>
           <i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
         </a>
-        
+
         <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5 mt-2">
           <a href="reservation/" class="flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-white py-3 rounded-xl font-bold text-center shadow">
             <span data-i18n="nav_reserve">Réserver</span>
             <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
           </a>
           <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
-             target="_blank" rel="noopener noreferrer" 
+             target="_blank" rel="noopener noreferrer"
              class="flex items-center justify-center gap-2 bg-brand-whatsapp text-white py-3 rounded-xl font-bold text-center shadow">
             <i class="fa-brands fa-whatsapp text-xl"></i> Réserver sur WhatsApp (+212 604-707847)
           </a>
@@ -177,66 +181,65 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section id="accueil" class="relative hero-pattern text-white py-20 lg:py-28 overflow-hidden">
-    <!-- Subtle glow element -->
-    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+  <section id="accueil" class="relative hero-pattern text-white py-16 sm:py-20 lg:py-28 overflow-hidden">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-3xl">
-        <!-- Top Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-brand-gold text-xs sm:text-sm font-bold mb-6">
-          <i class="fa-solid fa-award"></i>
-          <span data-i18n="hero_badge">N°1 DE LA LOCATION DE VOITURES À AGADIR</span>
+      <div class="max-w-2xl">
+        <!-- A. Small restrained gold trust label -->
+        <div class="inline-flex items-center gap-2 mb-5">
+          <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-brand-gold/15 text-brand-gold text-xs shrink-0">
+            <i class="fa-solid fa-location-dot"></i>
+          </span>
+          <span class="text-brand-gold text-xs sm:text-sm font-bold uppercase tracking-wide" data-i18n="hero_badge">Location de voitures à Agadir • Aéroport Al-Massira</span>
         </div>
-
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] mb-6">
-          <span data-i18n="hero_title_1">Louez Votre Voiture à Agadir au</span> <span class="gold-text-gradient" data-i18n="hero_title_2">Meilleur Prix Garanti</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] mb-5">
+          <span data-i18n="hero_title_1">Louez votre voiture à Agadir,</span> <span class="gold-text-gradient" data-i18n="hero_title_2">en toute simplicité.</span>
         </h1>
-        
-        <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-8" data-i18n="hero_desc">
-          Prise en charge express à l'Aéroport Al-Massira (AGA), Centre-ville ou votre hôtel. Zéro caution cachée, kilométrage illimité et contrat 100% transparent.
+        <p class="text-base sm:text-lg text-slate-200 font-normal leading-relaxed mb-8 max-w-xl" data-i18n="hero_desc">
+          Récupérez votre véhicule à l'aéroport Al-Massira, en centre-ville ou à votre hôtel, selon les modalités disponibles.
         </p>
-
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
-          <a href="#reservation" class="gold-gradient hover:opacity-95 text-brand-dark px-7 py-4 rounded-xl font-extrabold text-center shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
-            <i class="fa-solid fa-calendar-check text-lg"></i>
-            <span data-i18n="hero_btn_book">Réserver un Véhicule</span>
+        <!-- CTAs: primary gold booking + secondary contact -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
+          <a href="#reservation" class="bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-7 h-14 rounded-xl font-extrabold text-center shadow-lg transition-all hover:scale-[1.03] flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark">
+            <i class="fa-solid fa-calendar-check text-lg" aria-hidden="true"></i>
+            <span data-i18n="hero_btn_book">Réserver un véhicule</span>
           </a>
-          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir." 
-             target="_blank" rel="noopener noreferrer"
-             class="bg-brand-whatsapp hover:bg-brand-whatsappHover text-white px-7 py-4 rounded-xl font-bold text-center shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-xl"></i>
-            <span data-i18n="hero_btn_whatsapp">Discuter sur WhatsApp</span>
+          <a href="contact/" class="bg-white/10 hover:bg-white/15 border border-white/25 text-white px-7 h-14 rounded-xl font-bold text-center shadow-lg transition-all hover:scale-[1.03] flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold">
+            <i class="fa-regular fa-comments text-lg text-brand-gold" aria-hidden="true"></i>
+            <span data-i18n="hero_btn_contact">Contactez-nous</span>
           </a>
         </div>
 
-        <!-- Trust Features Strip -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-700/60 text-xs sm:text-sm text-slate-300">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
-              <i class="fa-solid fa-plane"></i>
-            </div>
-            <span data-i18n="hero_trust_1">Livraison Gratuite Aéroport</span>
+        <!-- Service benefits -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-5 pt-6 border-t border-white/10">
+          <div class="flex items-start gap-3">
+          <span class="w-9 h-9 rounded-lg bg-white/10 ring-1 ring-white/10 flex items-center justify-center text-brand-gold shrink-0"><i class="fa-solid fa-plane" aria-hidden="true"></i></span>
+          <div class="min-w-0">
+            <p class="text-sm font-bold text-white leading-tight" data-i18n="benefit1_t">Livraison aéroport</p>
+            <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="benefit1_s">Selon disponibilité</p>
           </div>
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
-              <i class="fa-solid fa-infinity"></i>
-            </div>
-            <span data-i18n="hero_trust_2">Kilométrage Illimité</span>
+        </div>
+          <div class="flex items-start gap-3">
+          <span class="w-9 h-9 rounded-lg bg-white/10 ring-1 ring-white/10 flex items-center justify-center text-brand-gold shrink-0"><i class="fa-solid fa-infinity" aria-hidden="true"></i></span>
+          <div class="min-w-0">
+            <p class="text-sm font-bold text-white leading-tight" data-i18n="benefit2_t">Kilométrage illimité</p>
+            <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="benefit2_s">Explorez le Maroc librement</p>
           </div>
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <span data-i18n="hero_trust_3">Assurance Tous Risques Incluse</span>
+        </div>
+          <div class="flex items-start gap-3">
+          <span class="w-9 h-9 rounded-lg bg-white/10 ring-1 ring-white/10 flex items-center justify-center text-brand-gold shrink-0"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+          <div class="min-w-0">
+            <p class="text-sm font-bold text-white leading-tight" data-i18n="benefit3_t">Assurance</p>
+            <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="benefit3_s">Selon votre contrat de location</p>
           </div>
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-gold shrink-0">
-              <i class="fa-solid fa-headset"></i>
-            </div>
-            <span data-i18n="hero_trust_4">Assistance 24/7 au Maroc</span>
+        </div>
+          <div class="flex items-start gap-3">
+          <span class="w-9 h-9 rounded-lg bg-white/10 ring-1 ring-white/10 flex items-center justify-center text-brand-gold shrink-0"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
+          <div class="min-w-0">
+            <p class="text-sm font-bold text-white leading-tight" data-i18n="benefit4_t">Assistance 24/7</p>
+            <p class="text-xs text-slate-300 leading-snug mt-0.5" data-i18n="benefit4_s">Une aide quand vous en avez besoin</p>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -308,10 +311,6 @@
         <a href="vehicles/" class="inline-flex items-center gap-2 text-sm font-bold text-brand-dark hover:text-brand-gold whitespace-nowrap">
           <span data-i18n="fleet_see_all">Voir toute la flotte</span> <i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
         </a>
-        <div class="hidden sm:flex items-center gap-2">
-          <button type="button" id="carSliderPrev" class="v-navbtn" aria-label="Véhicules précédents"><i class="fa-solid fa-chevron-left"></i></button>
-          <button type="button" id="carSliderNext" class="v-navbtn" aria-label="Véhicules suivants"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
       </div>
     </div>
 
@@ -343,9 +342,13 @@
       </div>
     </div>
 
-    <!-- CAR SLIDER (3 cards per view on desktop, 2 on tablet, 1 on mobile; controls live in the header) -->
-    <div id="carSliderViewport" class="overflow-hidden" tabindex="0" role="region" aria-label="Catalogue de véhicules">
-      <div id="carCatalogGrid" class="v-track"></div>
+    <!-- CAR SLIDER (3 cards per view on desktop, 2 on tablet, 1 on mobile; prev/next arrows flank the track) -->
+    <div class="relative">
+      <button type="button" id="carSliderPrev" class="v-navbtn v-navbtn--side v-navbtn--prev hidden sm:flex" aria-label="Véhicules précédents"><i class="fa-solid fa-chevron-left"></i></button>
+      <button type="button" id="carSliderNext" class="v-navbtn v-navbtn--side v-navbtn--next hidden sm:flex" aria-label="Véhicules suivants"><i class="fa-solid fa-chevron-right"></i></button>
+      <div id="carSliderViewport" class="overflow-hidden sm:px-1" tabindex="0" role="region" aria-label="Catalogue de véhicules">
+        <div id="carCatalogGrid" class="v-track"></div>
+      </div>
     </div>
     <div id="carSliderDots" class="flex items-center justify-center gap-2 mt-7"></div>
     <div id="carNoResults" hidden class="text-center py-14 text-slate-500">
@@ -356,7 +359,7 @@
   </section>
 
   <!-- RESERVATION SECTION WITH COMPLETE BOOKING FORM -->
-  <section id="reservation" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+  <section id="reservation" class="py-20 bg-brand-dark text-white relative overflow-hidden">
     <!-- Background Decor -->
     <div class="absolute top-0 right-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -377,7 +380,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Booking Form Column -->
-        <div class="lg:col-span-8 bg-slate-800/90 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-slate-700 shadow-2xl">
+        <div class="lg:col-span-8 booking-surface bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-xl">
           <form id="bookingForm" onsubmit="handleFormSubmit(event)" novalidate class="space-y-4">
             
             <!-- Stepper indicator -->
@@ -400,12 +403,17 @@
                 <div id="rLine-3" class="lstep-line mx-2 sm:mx-3"></div>
                 <div class="flex flex-col items-center gap-1.5 shrink-0">
                   <div id="rDot-4" class="lstep-dot">4</div>
-                  <span id="rLbl-4" class="lstep-label" data-i18n="step4_label">Confirmation</span>
+                  <span id="rLbl-4" class="lstep-label" data-i18n="step4_label">Documents</span>
+                </div>
+                <div id="rLine-4" class="lstep-line mx-2 sm:mx-3"></div>
+                <div class="flex flex-col items-center gap-1.5 shrink-0">
+                  <div id="rDot-5" class="lstep-dot">5</div>
+                  <span id="rLbl-5" class="lstep-label" data-i18n="step5_label">Confirmation</span>
                 </div>
               </div>
               <div class="mt-4 flex items-center justify-between gap-3">
                 <h3 id="rStepHeading" class="text-white font-bold text-lg" tabindex="-1">Trajet</h3>
-                <span id="rStepCount" class="text-xs font-bold text-slate-400 shrink-0">Étape 1 / 4</span>
+                <span id="rStepCount" class="text-xs font-bold text-slate-400 shrink-0">Étape 1 / 5</span>
               </div>
             </div>
 
@@ -427,7 +435,6 @@
               <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3.5 flex items-start gap-3 text-xs">
                 <i class="fa-solid fa-circle-info text-amber-400 text-base mt-0.5 flex-shrink-0"></i>
                 <div class="space-y-1">
-                  <p class="text-amber-200 font-bold" dir="rtl" data-i18n="delivery_notice_main">ثمن التوصيل كيتحدد حسب المدينة أو المطار، المرجو التواصل معنا عبر WhatsApp لتأكيد الثمن.</p>
                   <p class="text-slate-300" data-i18n="delivery_notice_sub">Les frais de livraison dépendent de la ville ou de l’aéroport. Contactez-nous sur WhatsApp pour confirmer le tarif.</p>
                 </div>
               </div>
@@ -536,7 +543,7 @@
               <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
                 <i class="fa-solid fa-car text-brand-gold mr-1.5"></i> <span data-i18n="car_select_label">Véhicule Souhaité</span>
               </label>
-              <p class="text-xs text-slate-400 mb-3">Sélectionnez un véhicule — le tarif se met à jour automatiquement.</p>
+              <p class="text-xs text-slate-400 mb-3" data-i18n="car_select_help">Sélectionnez un véhicule — le tarif se met à jour automatiquement.</p>
               <div id="carSelectCards" role="radiogroup" aria-label="Choix du véhicule" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
               <select id="carSelect" required onchange="updateBookingCalculation(); if(typeof renderVehicleSelectCards==='function') renderVehicleSelectCards();" class="sr-only" aria-hidden="true" tabindex="-1">
                 <!-- Populated dynamically via JS; visual selection via #carSelectCards -->
@@ -618,85 +625,131 @@
               </div>
             </div>
 
-            <!-- Téléversement Sécurisé des Documents Clients (Optionnel — Coupe-file) -->
-            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/60 space-y-3">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <i class="fa-solid fa-id-card text-brand-gold text-base"></i>
-                  <span class="text-xs font-bold uppercase tracking-wider text-slate-200" data-i18n="docs_title">Documents Clients (Optionnel — Coupe-file)</span>
-                </div>
-                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold" data-i18n="docs_badge">Gain de temps</span>
-              </div>
-              <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="docs_desc">
-                Attachez une photo de votre CIN (ou Passeport) et de votre Permis de conduire pour accélérer la remise des clés à l'aéroport ou à l'hôtel.
-              </p>
+            </div><!-- /rstep 3 -->
 
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+            <div class="rstep space-y-4" data-rstep="4" hidden>
+              <!-- Documents step intro -->
+              <div class="flex items-start gap-3 bg-slate-900/50 rounded-xl p-4 border border-slate-700/50">
+                <span class="shrink-0 w-10 h-10 rounded-full bg-brand-gold/15 text-brand-gold flex items-center justify-center text-lg"><i class="fa-solid fa-id-card"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-white" data-i18n="docs_step_title">Vos documents (facultatif)</p>
+                  <p class="text-xs text-slate-300 leading-relaxed mt-0.5" data-i18n="docs_step_desc">Ajoutez des photos de votre pièce d'identité et de votre permis pour accélérer la remise des clés. Aucun document n'est obligatoire à cette étape — vous pouvez aussi les présenter sur place.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- CIN Recto -->
-                <div class="bg-slate-800/90 p-2.5 rounded-xl border border-slate-700/80 hover:border-brand-gold/50 transition flex flex-col items-center text-center">
+                <div class="doc-card" data-doc="cinRecto">
                   <input type="file" id="docCinRectoInput" accept="image/jpeg,image/png,image/webp" class="hidden" onchange="handleDocUpload(event, 'cinRecto')">
-                  <div id="preview-cinRecto" onclick="document.getElementById('docCinRectoInput').click()" class="w-full aspect-[4/3] rounded-lg bg-slate-900 border border-slate-700/80 flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-slate-950 transition overflow-hidden relative group">
-                    <i class="fa-solid fa-camera text-slate-500 group-hover:text-brand-gold text-xl mb-1.5 transition"></i>
-                    <span class="text-[10px] font-bold text-slate-300 group-hover:text-white" data-i18n="doc_cin_front">CIN / Pass. (Face)</span>
+                  <div class="doc-card-head">
+                    <span class="doc-ico"><i class="fa-solid fa-id-card"></i></span>
+                    <div class="min-w-0 flex-1">
+                      <p class="doc-title" data-i18n="doc_cin_front_t">CIN / Passeport — Recto</p>
+                      <p class="doc-sub" data-i18n="doc_cin_front_s">Face avant, nette et lisible</p>
+                    </div>
+                    <span class="doc-tag" data-i18n="doc_optional">Optionnel</span>
                   </div>
-                  <div class="flex items-center justify-between w-full mt-1.5 px-0.5 min-h-[18px]">
-                    <span id="badge-cinRecto" class="text-[9px] font-mono text-emerald-400 font-bold hidden"></span>
-                    <button type="button" id="del-cinRecto" onclick="removeDoc('cinRecto')" class="text-[10px] text-rose-400 hover:text-rose-300 font-bold hidden ml-auto" title="Supprimer">
-                      <i class="fa-solid fa-trash-can mr-1"></i><span data-i18n="doc_remove">Retirer</span>
-                    </button>
+                  <div id="preview-cinRecto" class="doc-drop" role="button" tabindex="0" aria-label="Ajouter CIN recto" onclick="document.getElementById('docCinRectoInput').click()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('docCinRectoInput').click();}">
+                    <i class="fa-solid fa-cloud-arrow-up doc-drop-ico"></i>
+                    <span class="doc-drop-btn" data-i18n="doc_choose_file">Choisir un fichier</span>
+                    <span class="doc-drop-hint">JPG, PNG · 10 Mo max</span>
+                  </div>
+                  <p id="err-cinRecto" class="doc-err hidden" role="alert"></p>
+                  <div class="doc-actions">
+                    <span id="badge-cinRecto" class="doc-badge hidden"></span>
+                    <div class="doc-actions-btns">
+                      <button type="button" id="rep-cinRecto" class="doc-replace hidden" onclick="document.getElementById('docCinRectoInput').click()"><i class="fa-solid fa-rotate"></i> <span data-i18n="doc_replace">Remplacer</span></button>
+                      <button type="button" id="del-cinRecto" class="doc-del hidden" onclick="removeDoc('cinRecto')"><i class="fa-solid fa-trash-can"></i> <span data-i18n="doc_remove">Retirer</span></button>
+                    </div>
                   </div>
                 </div>
 
                 <!-- CIN Verso -->
-                <div class="bg-slate-800/90 p-2.5 rounded-xl border border-slate-700/80 hover:border-brand-gold/50 transition flex flex-col items-center text-center">
+                <div class="doc-card" data-doc="cinVerso">
                   <input type="file" id="docCinVersoInput" accept="image/jpeg,image/png,image/webp" class="hidden" onchange="handleDocUpload(event, 'cinVerso')">
-                  <div id="preview-cinVerso" onclick="document.getElementById('docCinVersoInput').click()" class="w-full aspect-[4/3] rounded-lg bg-slate-900 border border-slate-700/80 flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-slate-950 transition overflow-hidden relative group">
-                    <i class="fa-solid fa-camera text-slate-500 group-hover:text-brand-gold text-xl mb-1.5 transition"></i>
-                    <span class="text-[10px] font-bold text-slate-300 group-hover:text-white" data-i18n="doc_cin_back">CIN (Verso)</span>
+                  <div class="doc-card-head">
+                    <span class="doc-ico"><i class="fa-solid fa-id-card"></i></span>
+                    <div class="min-w-0 flex-1">
+                      <p class="doc-title" data-i18n="doc_cin_back_t">CIN — Verso</p>
+                      <p class="doc-sub" data-i18n="doc_cin_back_s">Face arrière (si CIN marocaine)</p>
+                    </div>
+                    <span class="doc-tag" data-i18n="doc_if_applicable">Si applicable</span>
                   </div>
-                  <div class="flex items-center justify-between w-full mt-1.5 px-0.5 min-h-[18px]">
-                    <span id="badge-cinVerso" class="text-[9px] font-mono text-emerald-400 font-bold hidden"></span>
-                    <button type="button" id="del-cinVerso" onclick="removeDoc('cinVerso')" class="text-[10px] text-rose-400 hover:text-rose-300 font-bold hidden ml-auto" title="Supprimer">
-                      <i class="fa-solid fa-trash-can mr-1"></i><span data-i18n="doc_remove">Retirer</span>
-                    </button>
+                  <div id="preview-cinVerso" class="doc-drop" role="button" tabindex="0" aria-label="Ajouter CIN verso" onclick="document.getElementById('docCinVersoInput').click()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('docCinVersoInput').click();}">
+                    <i class="fa-solid fa-cloud-arrow-up doc-drop-ico"></i>
+                    <span class="doc-drop-btn" data-i18n="doc_choose_file">Choisir un fichier</span>
+                    <span class="doc-drop-hint">JPG, PNG · 10 Mo max</span>
+                  </div>
+                  <p id="err-cinVerso" class="doc-err hidden" role="alert"></p>
+                  <div class="doc-actions">
+                    <span id="badge-cinVerso" class="doc-badge hidden"></span>
+                    <div class="doc-actions-btns">
+                      <button type="button" id="rep-cinVerso" class="doc-replace hidden" onclick="document.getElementById('docCinVersoInput').click()"><i class="fa-solid fa-rotate"></i> <span data-i18n="doc_replace">Remplacer</span></button>
+                      <button type="button" id="del-cinVerso" class="doc-del hidden" onclick="removeDoc('cinVerso')"><i class="fa-solid fa-trash-can"></i> <span data-i18n="doc_remove">Retirer</span></button>
+                    </div>
                   </div>
                 </div>
 
                 <!-- Permis Recto -->
-                <div class="bg-slate-800/90 p-2.5 rounded-xl border border-slate-700/80 hover:border-brand-gold/50 transition flex flex-col items-center text-center">
+                <div class="doc-card" data-doc="licenseRecto">
                   <input type="file" id="docLicenseRectoInput" accept="image/jpeg,image/png,image/webp" class="hidden" onchange="handleDocUpload(event, 'licenseRecto')">
-                  <div id="preview-licenseRecto" onclick="document.getElementById('docLicenseRectoInput').click()" class="w-full aspect-[4/3] rounded-lg bg-slate-900 border border-slate-700/80 flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-slate-950 transition overflow-hidden relative group">
-                    <i class="fa-solid fa-id-card-clip text-slate-500 group-hover:text-brand-gold text-xl mb-1.5 transition"></i>
-                    <span class="text-[10px] font-bold text-slate-300 group-hover:text-white" data-i18n="doc_license_front">Permis (Face)</span>
+                  <div class="doc-card-head">
+                    <span class="doc-ico"><i class="fa-solid fa-id-card-clip"></i></span>
+                    <div class="min-w-0 flex-1">
+                      <p class="doc-title" data-i18n="doc_lic_front_t">Permis de conduire — Recto</p>
+                      <p class="doc-sub" data-i18n="doc_lic_front_s">Face avant du permis</p>
+                    </div>
+                    <span class="doc-tag" data-i18n="doc_optional">Optionnel</span>
                   </div>
-                  <div class="flex items-center justify-between w-full mt-1.5 px-0.5 min-h-[18px]">
-                    <span id="badge-licenseRecto" class="text-[9px] font-mono text-emerald-400 font-bold hidden"></span>
-                    <button type="button" id="del-licenseRecto" onclick="removeDoc('licenseRecto')" class="text-[10px] text-rose-400 hover:text-rose-300 font-bold hidden ml-auto" title="Supprimer">
-                      <i class="fa-solid fa-trash-can mr-1"></i><span data-i18n="doc_remove">Retirer</span>
-                    </button>
+                  <div id="preview-licenseRecto" class="doc-drop" role="button" tabindex="0" aria-label="Ajouter permis recto" onclick="document.getElementById('docLicenseRectoInput').click()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('docLicenseRectoInput').click();}">
+                    <i class="fa-solid fa-cloud-arrow-up doc-drop-ico"></i>
+                    <span class="doc-drop-btn" data-i18n="doc_choose_file">Choisir un fichier</span>
+                    <span class="doc-drop-hint">JPG, PNG · 10 Mo max</span>
+                  </div>
+                  <p id="err-licenseRecto" class="doc-err hidden" role="alert"></p>
+                  <div class="doc-actions">
+                    <span id="badge-licenseRecto" class="doc-badge hidden"></span>
+                    <div class="doc-actions-btns">
+                      <button type="button" id="rep-licenseRecto" class="doc-replace hidden" onclick="document.getElementById('docLicenseRectoInput').click()"><i class="fa-solid fa-rotate"></i> <span data-i18n="doc_replace">Remplacer</span></button>
+                      <button type="button" id="del-licenseRecto" class="doc-del hidden" onclick="removeDoc('licenseRecto')"><i class="fa-solid fa-trash-can"></i> <span data-i18n="doc_remove">Retirer</span></button>
+                    </div>
                   </div>
                 </div>
 
                 <!-- Permis Verso -->
-                <div class="bg-slate-800/90 p-2.5 rounded-xl border border-slate-700/80 hover:border-brand-gold/50 transition flex flex-col items-center text-center">
+                <div class="doc-card" data-doc="licenseVerso">
                   <input type="file" id="docLicenseVersoInput" accept="image/jpeg,image/png,image/webp" class="hidden" onchange="handleDocUpload(event, 'licenseVerso')">
-                  <div id="preview-licenseVerso" onclick="document.getElementById('docLicenseVersoInput').click()" class="w-full aspect-[4/3] rounded-lg bg-slate-900 border border-slate-700/80 flex flex-col items-center justify-center p-2 cursor-pointer hover:bg-slate-950 transition overflow-hidden relative group">
-                    <i class="fa-solid fa-id-card-clip text-slate-500 group-hover:text-brand-gold text-xl mb-1.5 transition"></i>
-                    <span class="text-[10px] font-bold text-slate-300 group-hover:text-white" data-i18n="doc_license_back">Permis (Verso)</span>
+                  <div class="doc-card-head">
+                    <span class="doc-ico"><i class="fa-solid fa-id-card-clip"></i></span>
+                    <div class="min-w-0 flex-1">
+                      <p class="doc-title" data-i18n="doc_lic_back_t">Permis — Verso</p>
+                      <p class="doc-sub" data-i18n="doc_lic_back_s">Face arrière (si applicable)</p>
+                    </div>
+                    <span class="doc-tag" data-i18n="doc_if_applicable">Si applicable</span>
                   </div>
-                  <div class="flex items-center justify-between w-full mt-1.5 px-0.5 min-h-[18px]">
-                    <span id="badge-licenseVerso" class="text-[9px] font-mono text-emerald-400 font-bold hidden"></span>
-                    <button type="button" id="del-licenseVerso" onclick="removeDoc('licenseVerso')" class="text-[10px] text-rose-400 hover:text-rose-300 font-bold hidden ml-auto" title="Supprimer">
-                      <i class="fa-solid fa-trash-can mr-1"></i><span data-i18n="doc_remove">Retirer</span>
-                    </button>
+                  <div id="preview-licenseVerso" class="doc-drop" role="button" tabindex="0" aria-label="Ajouter permis verso" onclick="document.getElementById('docLicenseVersoInput').click()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('docLicenseVersoInput').click();}">
+                    <i class="fa-solid fa-cloud-arrow-up doc-drop-ico"></i>
+                    <span class="doc-drop-btn" data-i18n="doc_choose_file">Choisir un fichier</span>
+                    <span class="doc-drop-hint">JPG, PNG · 10 Mo max</span>
+                  </div>
+                  <p id="err-licenseVerso" class="doc-err hidden" role="alert"></p>
+                  <div class="doc-actions">
+                    <span id="badge-licenseVerso" class="doc-badge hidden"></span>
+                    <div class="doc-actions-btns">
+                      <button type="button" id="rep-licenseVerso" class="doc-replace hidden" onclick="document.getElementById('docLicenseVersoInput').click()"><i class="fa-solid fa-rotate"></i> <span data-i18n="doc_replace">Remplacer</span></button>
+                      <button type="button" id="del-licenseVerso" class="doc-del hidden" onclick="removeDoc('licenseVerso')"><i class="fa-solid fa-trash-can"></i> <span data-i18n="doc_remove">Retirer</span></button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            </div><!-- /rstep 3 -->
+              <div class="flex items-start gap-2.5 text-[11px] text-slate-400 leading-relaxed bg-slate-900/40 rounded-xl p-3 border border-slate-700/40">
+                <i class="fa-solid fa-lock text-emerald-400 mt-0.5 shrink-0"></i>
+                <p data-i18n="docs_privacy">Vos documents sont redimensionnés sur votre appareil, puis transmis de façon chiffrée (HTTPS) et conservés uniquement pour préparer votre location. Formats acceptés : JPG, PNG. Taille maximale : 10 Mo par fichier.</p>
+              </div>
+            </div><!-- /rstep 4 -->
 
-            <div class="rstep space-y-4" data-rstep="4" hidden>
+            <div class="rstep space-y-4" data-rstep="5" hidden>
               <!-- Review summary -->
               <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
                 <span class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-3"><i class="fa-solid fa-clipboard-check mr-1"></i> <span data-i18n="review_title">Récapitulatif de votre demande</span></span>
@@ -708,28 +761,19 @@
               <i class="fa-solid fa-triangle-exclamation text-rose-400 shrink-0 text-sm"></i>
               <span class="error-banner-text"></span>
             </div>
-
-            <!-- Form Actions -->
-            <div class="flex flex-col sm:flex-row gap-3 pt-2">
-              <button type="button" onclick="submitViaWhatsApp()" class="flex-1 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-4 px-6 rounded-xl font-bold text-center shadow-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 text-base">
-                <i class="fa-brands fa-whatsapp text-2xl"></i>
-                <span data-i18n="btn_whatsapp_book">Réserver directement via WhatsApp</span>
-              </button>
-              <button type="submit" class="bg-brand-gold hover:bg-brand-goldHover text-brand-dark py-4 px-6 rounded-xl font-extrabold text-center shadow-lg transition-all hover:scale-[1.02] text-sm flex items-center justify-center gap-2">
-                <i class="fa-solid fa-paper-plane"></i>
-                <span data-i18n="btn_submit_book">Confirmer la demande</span>
-              </button>
-            </div>
-            </div><!-- /rstep 4 -->
+            </div><!-- /rstep 5 -->
             </div><!-- /rsteps-scroll -->
 
             <!-- Stepper navigation -->
-            <div class="flex items-center justify-between gap-3 pt-3 mt-1 border-t border-slate-700/60">
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-3 mt-1 border-t border-slate-700/60">
               <button type="button" id="rBackBtn" onclick="reservationStepBack()" class="invisible inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-slate-200 bg-slate-700/70 hover:bg-slate-700 transition-colors whitespace-nowrap">
                 <i class="fa-solid fa-arrow-left text-xs"></i> <span data-i18n="step_back">Retour</span>
               </button>
-              <button type="button" id="rNextBtn" onclick="reservationStepNext()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-brand-dark bg-brand-gold hover:bg-brand-goldHover shadow-lg transition-all whitespace-nowrap">
+              <button type="button" id="rNextBtn" onclick="reservationStepNext()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-brand-dark bg-brand-gold hover:bg-brand-goldHover shadow-lg transition-all text-center">
                 <span data-i18n="step_next">Continuer</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+              <button type="submit" id="rSubmitBtn" class="hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-extrabold text-brand-dark bg-brand-gold hover:bg-brand-goldHover shadow-lg transition-all text-center">
+                <i class="fa-solid fa-paper-plane text-xs"></i> <span data-i18n="btn_submit_book">Envoyer ma demande de réservation</span>
               </button>
             </div>
           </form>
@@ -739,7 +783,7 @@
         <div class="lg:col-span-4 space-y-6">
           
           <!-- Summary Card -->
-          <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700 shadow-xl">
+          <div class="summary-surface bg-white rounded-2xl p-5 border border-slate-200 shadow-xl">
             <h3 class="text-lg font-bold text-white mb-4 pb-3 border-b border-slate-700 flex items-center justify-between">
               <span data-i18n="summary_title">Récapitulatif Estimé</span>
               <span class="text-xs font-semibold px-2.5 py-1 rounded bg-brand-gold/20 text-brand-gold" data-i18n="summary_badge">0 Frais Cachés</span>
@@ -759,20 +803,20 @@
                 <span id="summaryDays" class="font-semibold text-white">3 jours</span>
               </div>
               <div id="longTermDiscountRow" class="hidden flex justify-between items-center text-emerald-400 font-semibold text-xs bg-emerald-950/60 p-2 rounded-lg border border-emerald-800/40">
-                <span>Remise longue durée (7j+) :</span>
+                <span data-i18n="summary_discount_label">Remise longue durée (7j+) :</span>
                 <span id="summaryDiscountText">-10% appliquée</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-slate-400">Livraison :</span>
-                <span id="summaryDeliveryStatus" class="text-amber-400 font-semibold text-xs text-right">À confirmer via WhatsApp</span>
+                <span class="text-slate-400" data-i18n="summary_delivery_label">Livraison :</span>
+                <span id="summaryDeliveryStatus" class="text-amber-400 font-semibold text-xs text-right" data-i18n="summary_delivery_status">À confirmer via WhatsApp</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-slate-400">Kilométrage :</span>
+                <span class="text-slate-400" data-i18n="summary_mileage_label">Kilométrage :</span>
                 <span class="text-white font-medium" data-i18n="hero_trust_2">Kilométrage Illimité</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-slate-400">Assurance :</span>
-                <span class="text-white font-medium" data-i18n="hero_trust_3">Assurance Tous Risques Incluse</span>
+                <span class="text-slate-400" data-i18n="summary_insurance_label">Assurance :</span>
+                <span class="text-white font-medium" data-i18n="hero_trust_3">Assurance selon le contrat</span>
               </div>
             </div>
 
@@ -809,300 +853,156 @@
     </div>
   </section>
 
-  <!-- WHY CHOOSE WINON CAR SECTION -->
-  <section id="avantages" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block" data-i18n="why_badge">
-        VOTRE SATISFACTION, NOTRE PRIORITÉ
-      </span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4" data-i18n="why_title">
-        Pourquoi Choisir WINON CAR Agadir ?
-      </h2>
-      <p class="text-slate-600 text-base sm:text-lg">
-        Nous nous engageons à offrir une expérience de location transparente, fluide et sans contrainte.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      <!-- Feature 1 -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
-          <i class="fa-solid fa-plane-circle-check"></i>
+  <!-- CUSTOMER REVIEWS SLIDER -->
+  <section id="avis" class="py-20 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+        <div class="max-w-2xl">
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">Avis de nos clients</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-2">Ils nous font confiance</h2>
+          <p class="text-slate-600 text-base">Découvrez les expériences de voyageurs et de résidents qui ont loué leur véhicule avec WINON CAR à Agadir.</p>
         </div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2" data-i18n="why_card1_title">Transparence Totale</h3>
-        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="why_card1_desc">
-          Le prix affiché est le prix payé. Pas de frais de dossier, pas de mauvaise surprise à l'arrivée.
-        </p>
+        <div class="hidden sm:flex items-center gap-2 shrink-0">
+          <button type="button" id="reviewPrev" aria-label="Avis précédents" class="w-11 h-11 rounded-xl border border-slate-300 bg-white text-slate-700 hover:border-brand-gold hover:text-brand-gold transition-colors flex items-center justify-center">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button type="button" id="reviewNext" aria-label="Avis suivants" class="w-11 h-11 rounded-xl border border-slate-300 bg-white text-slate-700 hover:border-brand-gold hover:text-brand-gold transition-colors flex items-center justify-center">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Feature 2 -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
-          <i class="fa-solid fa-plane-arrival"></i>
-        </div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2" data-i18n="why_card2_title">Ponctualité & Suivi de Vol</h3>
-        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="why_card2_desc">
-          Notre agent vous accueille à la sortie du terminal avec une pancarte à votre nom, même en cas de retard de vol.
-        </p>
+      <div id="reviewTrack" class="review-track flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 focus:outline-none" tabindex="0" role="region" aria-label="Carrousel des avis clients" aria-roledescription="carrousel">
+
+        <article class="review-card snap-start shrink-0 basis-full sm:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <i class="fa-brands fa-google text-slate-300 text-lg" title="Avis Google" aria-label="Avis Google"></i>
+            </div>
+            <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">« Superbe expérience avec WINON CAR ! La Duster 4x4 nous attendait à l’aéroport d’Agadir sans retard. Voiture très propre et parfaite pour aller jusqu’à Taghazout. Je recommande les yeux fermés. »</p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm shrink-0">TL</div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Thomas L.</h4>
+              <span class="text-xs text-slate-400">Paris, France • Visite en Octobre</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card snap-start shrink-0 basis-full sm:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <i class="fa-brands fa-google text-slate-300 text-lg" title="Avis Google" aria-label="Avis Google"></i>
+            </div>
+            <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">« Réservation ultra-simple par WhatsApp avec le numéro direct. L’équipe a été très professionnelle, contrat transparent, prix en dirhams respecté à la lettre sans supplément. »</p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm shrink-0">SB</div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Samira B.</h4>
+              <span class="text-xs text-slate-400">Bruxelles, Belgique • Location Clio 5</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card snap-start shrink-0 basis-full sm:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <i class="fa-brands fa-google text-slate-300 text-lg" title="Avis Google" aria-label="Avis Google"></i>
+            </div>
+            <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">« La Golf 8 était dans un état impeccable. Livraison directe à notre hôtel de la baie d’Agadir et restitution rapide à l’aéroport Al-Massira. Merci WINON CAR ! »</p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm shrink-0">MA</div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Mehdi A.</h4>
+              <span class="text-xs text-slate-400">Casablanca, Maroc • Déplacement Pro</span>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <!-- Feature 3 -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
-          <i class="fa-solid fa-car-on"></i>
-        </div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2" data-i18n="why_card3_title">Véhicules Propres & Fiables</h3>
-        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="why_card3_desc">
-          Parc automobile récent, révisé avant chaque départ et scrupuleusement nettoyé pour votre confort.
-        </p>
-      </div>
-
-      <!-- Feature 4 -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-        <div class="w-14 h-14 rounded-xl bg-amber-50 text-brand-gold flex items-center justify-center text-2xl mb-5">
-          <i class="fa-solid fa-headset"></i>
-        </div>
-        <h3 class="font-bold text-slate-900 text-lg mb-2" data-i18n="why_card4_title">Service Client Réactif 24/7</h3>
-        <p class="text-slate-600 text-sm leading-relaxed" data-i18n="why_card4_desc">
-          Une équipe disponible jour et nuit sur WhatsApp et par téléphone pour vous assister partout au Maroc.
-        </p>
-      </div>
-
+      <div id="reviewDots" class="flex items-center justify-center gap-2 mt-6" role="tablist" aria-label="Position dans le carrousel"></div>
     </div>
   </section>
 
-  <!-- AGADIR DESTINATION & EXCURSIONS -->
-  <section id="agadir" class="py-16 bg-slate-50 border-y border-slate-200">
+  <!-- PRE-BOOKING CTA SECTION -->
+  <section class="py-16 sm:py-20 bg-gradient-to-br from-brand-dark to-brand-navy text-white relative overflow-hidden">
+    <div class="absolute -top-24 -right-16 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <span class="inline-flex items-center gap-3 text-brand-gold text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
+        <span class="inline-block w-8 h-px bg-brand-gold/60"></span>
+        <span data-i18n="cta_eyebrow">Besoin d'aide ?</span>
+        <span class="inline-block w-8 h-px bg-brand-gold/60"></span>
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4" data-i18n="cta_title">Une question avant de réserver ?</h2>
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-9" data-i18n="cta_desc">Notre équipe vous accompagne pour choisir votre véhicule, comprendre les conditions de location et préparer votre arrivée à Agadir.</p>
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5">
+        <a href="#reservation" class="bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-7 h-14 rounded-xl font-extrabold shadow-lg transition-all hover:scale-[1.03] flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <i class="fa-solid fa-calendar-check text-lg" aria-hidden="true"></i>
+          <span data-i18n="cta_btn_book">Réserver un véhicule</span>
+        </a>
+        <a href="contact/" class="bg-white/10 hover:bg-white/15 border border-white/25 text-white px-7 h-14 rounded-xl font-bold transition-all hover:scale-[1.03] flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <i class="fa-regular fa-comments text-brand-gold"></i>
+          <span data-i18n="cta_btn_team">Parler à notre équipe</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION / SERVICE AREA SECTION -->
+  <section id="localisation" class="py-20 bg-white border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
         <div>
-          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
-            Évadez-vous en Toute Liberté
-          </span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-6">
-            Découvrez Agadir et la Région Souss-Massa
-          </h2>
-          <p class="text-slate-600 text-base leading-relaxed mb-6">
-            Avoir votre propre voiture à Agadir est la meilleure façon de découvrir les merveilles de la côte atlantique marocaine à votre propre rythme :
-          </p>
-          
-          <div class="space-y-4">
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block" data-i18n="map_eyebrow">Zone de service</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-5" data-i18n="map_title">Retrouvez WINON CAR à Agadir</h2>
+          <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="map_desc">Besoin de plus d’informations sur la prise en charge, la livraison ou votre séjour ? Notre équipe est là pour vous aider.</p>
+          <div class="space-y-3 text-sm text-slate-700 mb-7">
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-lg bg-brand-gold/15 text-brand-gold flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">1</div>
-              <div>
-                <h4 class="font-bold text-slate-800 text-sm">Taghazout Bay & Vallée du Paradis (25 min)</h4>
-                <p class="text-xs text-slate-500">Idéal pour le surf, les piscines naturelles rocheuses et les couchers de soleil atlantiques.</p>
-              </div>
+              <i class="fa-solid fa-plane-arrival text-brand-gold mt-1 w-4 text-center"></i>
+              <span><strong>Point de prise en charge principal :</strong> Aéroport Agadir Al-Massira (AGA).</span>
             </div>
-
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-lg bg-brand-gold/15 text-brand-gold flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">2</div>
-              <div>
-                <h4 class="font-bold text-slate-800 text-sm">Kasbah d'Agadir Oufella & Marina (10 min)</h4>
-                <p class="text-xs text-slate-500">Vue panoramique spectaculaire sur la baie et promenade animée de restaurants.</p>
-              </div>
+              <i class="fa-solid fa-location-dot text-brand-gold mt-1 w-4 text-center"></i>
+              <span>Zone de service : Agadir, Taghazout, Marina et région Souss-Massa.</span>
             </div>
-
             <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-lg bg-brand-gold/15 text-brand-gold flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">3</div>
-              <div>
-                <h4 class="font-bold text-slate-800 text-sm">Essaouira Mogador (2h30 de belle route côtière)</h4>
-                <p class="text-xs text-slate-500">La mythique cité fortifiée des alizés et ses célèbres remparts historiques.</p>
-              </div>
+              <i class="fa-solid fa-phone text-brand-gold mt-1 w-4 text-center"></i>
+              <a href="tel:+212604707847" class="font-semibold hover:text-brand-gold">+212 604-707847</a>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-regular fa-clock text-brand-gold mt-1 w-4 text-center"></i>
+              <span>Ouvert 24h/24 &amp; 7j/7 (sur rendez-vous de prise en charge).</span>
             </div>
           </div>
-
-          <div class="mt-8">
-            <a href="#reservation" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow transition-colors">
-              <span>Choisir un véhicule pour mon séjour</span>
-              <i class="fa-solid fa-arrow-right text-brand-gold"></i>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="contact/" class="inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-6 h-12 rounded-xl font-bold text-sm shadow transition-colors whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold">
+              <i class="fa-regular fa-comments text-brand-gold"></i>
+              <span data-i18n="map_btn_contact">Une question ? Contactez-nous</span>
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=A%C3%A9roport+Agadir+Al+Massira" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white border border-slate-300 hover:border-brand-gold text-slate-700 hover:text-brand-gold px-6 h-12 rounded-xl font-bold text-sm transition-colors whitespace-nowrap">
+              <i class="fa-solid fa-diamond-turn-right text-brand-gold"></i>
+              <span data-i18n="map_btn_directions">Itinéraire vers l’aéroport</span>
             </a>
           </div>
         </div>
-
-        <div class="relative">
-          <div class="aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-            <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1000&q=80" alt="Conduite à Agadir WINON CAR" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80';">
-          </div>
-          <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-slate-100 max-w-xs hidden sm:block">
-            <div class="flex items-center gap-3">
-              <div class="text-brand-gold text-2xl">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </div>
-              <div>
-                <span class="block font-bold text-slate-900 text-sm">4.9 / 5 sur Google</span>
-                <span class="text-xs text-slate-500">+450 voyageurs satisfaits</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS SECTION -->
-  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
-        Avis de nos Conducteurs
-      </span>
-      <h2 class="text-3xl font-extrabold text-brand-dark tracking-tight mb-2">
-        Ce que disent nos clients
-      </h2>
-      <p class="text-slate-500 text-sm">Des centaines de touristes et résidents nous font confiance à Agadir.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
         <div>
-          <div class="text-amber-400 text-sm mb-3">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
+            <iframe
+              title="Zone de service WINON CAR – Aéroport Agadir Al-Massira"
+              src="https://www.google.com/maps?q=A%C3%A9roport%20Agadir%20Al%20Massira&output=embed"
+              width="100%" height="380" style="border:0; display:block;"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
           </div>
-          <p class="text-slate-600 text-sm italic mb-4">
-            « Superbe expérience avec WINON CAR ! La Duster 4x4 nous attendait à l'aéroport d'Agadir sans retard. Voiture très propre et parfaite pour aller jusqu'à Taghazout. Je recommande les yeux fermés. »
+          <p class="text-xs text-slate-400 mt-3 text-center">
+            <i class="fa-solid fa-circle-info mr-1"></i> Carte indicative de la zone de service et du point de prise en charge (aéroport Al-Massira). La prise en charge exacte est confirmée avec notre équipe.
           </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-          <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
-            TL
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 text-sm">Thomas L.</h4>
-            <span class="text-xs text-slate-400">Paris, France • Visite en Octobre</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
-        <div>
-          <div class="text-amber-400 text-sm mb-3">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="text-slate-600 text-sm italic mb-4">
-            « Réservation ultra-simple par WhatsApp avec le numéro direct. L'équipe a été très professionnelle, contrat transparent, prix en dirhams respecté à la lettre sans supplément. »
-          </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-          <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
-            SB
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 text-sm">Samira B.</h4>
-            <span class="text-xs text-slate-400">Bruxelles, Belgique • Location Clio 5</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
-        <div>
-          <div class="text-amber-400 text-sm mb-3">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="text-slate-600 text-sm italic mb-4">
-            « La Golf 8 était dans un état impeccable. Livraison directe à notre hôtel de la baie d'Agadir et restitution rapide à l'aéroport Al-Massira. Merci WINON CAR ! »
-          </p>
-        </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-          <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-700 text-sm">
-            MA
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 text-sm">Mehdi A.</h4>
-            <span class="text-xs text-slate-400">Casablanca, Maroc • Déplacement Pro</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQ SECTION (FREQUENTLY ASKED QUESTIONS) -->
-  <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">
-          Tout ce qu'il faut savoir
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-4" data-i18n="faq_title">
-          Foire Aux Questions (FAQ)
-        </h2>
-        <p class="text-slate-600 text-base sm:text-lg">
-          Vous avez des questions sur la location de voiture à Agadir ? Voici toutes les réponses transparentes de WINON CAR.
-        </p>
-      </div>
-
-      <div class="space-y-4" id="faqAccordion">
-        <!-- Item 1 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
-            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
-              <i class="fa-solid fa-id-card text-brand-gold text-lg"></i>
-              Quels sont les documents obligatoires pour louer un véhicule ?
-            </span>
-            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-            Pour louer un véhicule chez WINON CAR à Agadir, vous avez simplement besoin d'un <strong>permis de conduire original en cours de validité</strong> (minimum 2 ans) et d'un <strong>passeport</strong> (pour les touristes étrangers et MRE) ou d'une <strong>Carte d'Identité Nationale (CIN)</strong> pour les résidents marocains. Aucun permis international n'est exigé pour les permis européens.
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
-            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
-              <i class="fa-solid fa-plane text-brand-gold text-lg"></i>
-              Comment se déroule la livraison à l'Aéroport Agadir Al-Massira (AGA) ?
-            </span>
-            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-            La livraison à l'Aéroport Al-Massira est <strong>100% gratuite et assurée 24h/24 et 7j/7</strong>. Notre agent vous attend avec une pancarte personnalisée à la sortie du terminal. L'état des lieux et la signature du contrat se font sur place en moins de 5 minutes pour que vous puissiez commencer votre voyage immédiatement sans attente en navette ou guichet.
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
-            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
-              <i class="fa-solid fa-hand-holding-dollar text-brand-gold text-lg"></i>
-              Comment s'effectue le paiement et comment fonctionne la caution ?
-            </span>
-            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-            Le règlement de la location se fait <strong>uniquement à la livraison de la voiture</strong>. Nous acceptons les espèces en Dirhams marocains (MAD) ou en Euros (€), ainsi que les cartes bancaires (Visa, Mastercard). La caution peut être déposée soit par pré-autorisation bancaire (montant bloqué non débité), soit en espèces, et vous est <strong>intégralement restituée</strong> dès la remise du véhicule.
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
-            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
-              <i class="fa-solid fa-infinity text-brand-gold text-lg"></i>
-              Le kilométrage est-il réellement illimité ?
-            </span>
-            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-            <strong>Oui, absolument !</strong> Toutes nos formules de location bénéficient du kilométrage 100% illimité. Vous êtes libre de parcourir Agadir, Taghazout, Paradise Valley, Essaouira, Marrakech ou Taroudant sans aucun surcoût kilométrique.
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
-            <span class="font-bold text-slate-900 text-base sm:text-lg flex items-center gap-3">
-              <i class="fa-solid fa-clock text-brand-gold text-lg"></i>
-              Que se passe-t-il si mon vol a du retard ?
-            </span>
-            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
-            Si vous indiquez votre numéro de vol dans le formulaire de réservation, notre équipe suit en temps réel l'avancée de votre vol. Même en cas de retard de plusieurs heures ou d'arrivée nocturne, votre véhicule et votre agent WINON CAR seront au rendez-vous, <strong>sans aucun frais de retard ni pénalité</strong>.
-          </div>
         </div>
       </div>
     </div>
@@ -1169,9 +1069,10 @@
             <li><a href="#accueil" class="hover:text-brand-gold transition-colors">Accueil</a></li>
             <li><a href="#flotte" class="hover:text-brand-gold transition-colors">Nos Voitures & Tarifs</a></li>
             <li><a href="#reservation" class="hover:text-brand-gold transition-colors">Réservation en Ligne</a></li>
-            <li><a href="#avantages" class="hover:text-brand-gold transition-colors">Nos Avantages</a></li>
-            <li><a href="#agadir" class="hover:text-brand-gold transition-colors">Guide Tourisme Agadir</a></li>
-            <li><a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a></li>
+            <li><a href="about/" class="hover:text-brand-gold transition-colors">À propos de WINON CAR</a></li>
+            <li><a href="#avis" class="hover:text-brand-gold transition-colors">Avis clients</a></li>
+            <li><a href="#localisation" class="hover:text-brand-gold transition-colors">Localisation</a></li>
+            <li><a href="about/#faq" class="hover:text-brand-gold transition-colors">FAQ</a></li>
           </ul>
         </div>
 
@@ -1235,93 +1136,114 @@
     </a>
   </div>
 
-  <!-- FLOATING WHATSAPP BUTTON (DESKTOP & TABLET) -->
-  <div class="group fixed bottom-16 sm:bottom-6 right-6 z-40 flex items-center gap-3">
-    <div class="hidden sm:block bg-white text-slate-800 text-xs font-bold py-2 px-3.5 rounded-full shadow-lg border border-slate-200 opacity-0 invisible translate-x-2 group-hover:opacity-100 group-hover:visible group-hover:translate-x-0 transition-all duration-200 pointer-events-none">
-      Discutez avec nous en direct !
+  <!-- BACK TO TOP BUTTON (styling: assets/css/landing.css #backToTopBtn) -->
+  <button type="button" id="backToTopBtn" aria-label="Haut de page" title="Haut de page">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- DOCUMENT PREVIEW MODAL -->
+  <div id="docPreviewModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-label="Aperçu du document">
+    <div class="relative max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-3">
+      <button type="button" onclick="closeDocPreview()" aria-label="Fermer" class="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-brand-dark text-white flex items-center justify-center shadow-lg hover:bg-brand-navy">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="docPreviewImg" src="" alt="Aperçu du document" class="w-full max-h-[80vh] object-contain rounded-xl bg-slate-100">
     </div>
-    <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20une%20voiture%20à%20Agadir." 
-       target="_blank" rel="noopener noreferrer" 
-       aria-label="Contacter WINON CAR sur WhatsApp"
-       class="w-14 h-14 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white rounded-full flex items-center justify-center text-3xl shadow-2xl transition-transform hover:scale-110 pulse-whatsapp">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
   </div>
 
   <!-- VEHICLE DETAIL MODAL -->
-  <div id="carModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 relative animate-in fade-in zoom-in-95 duration-200">
-      
-      <!-- Close button -->
-      <button onclick="closeCarModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-slate-900/60 hover:bg-slate-900 text-white rounded-full flex items-center justify-center transition-colors">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
+  <div id="carModal" role="dialog" aria-modal="true" aria-labelledby="modalCarTitle"
+       class="fixed inset-0 z-50 hidden flex items-center justify-center p-0 sm:p-4 modal-backdrop">
+    <div class="relative bg-white w-full max-w-xl sm:max-w-2xl h-full sm:h-auto max-h-[100dvh] sm:max-h-[90vh] rounded-none sm:rounded-3xl shadow-2xl border border-slate-100 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
 
-      <!-- Modal Image -->
-      <div class="relative h-64 sm:h-72 w-full bg-slate-900 overflow-hidden">
-        <img id="modalCarImg" src="" alt="Véhicule" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='assets/cars/dacia-sandero-stepway.jpg';">
-        <div class="absolute bottom-3 left-4">
-          <span id="modalCarBadge" class="bg-brand-gold text-brand-dark text-xs font-extrabold px-3 py-1 rounded-full uppercase">
-            Catégorie
-          </span>
+      <!-- A. VEHICLE HERO (fixed header) -->
+      <div class="relative flex-none">
+        <div class="relative h-44 sm:h-52 w-full bg-slate-900 overflow-hidden">
+          <img id="modalCarImg" src="" alt="Véhicule" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='assets/cars/dacia-sandero-stepway.jpg';">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/15 to-transparent"></div>
+          <span id="modalCarBadge" class="absolute bottom-3 left-4 bg-brand-gold text-brand-dark text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">Catégorie</span>
         </div>
+        <button type="button" id="carModalClose" onclick="closeCarModal()" aria-label="Fermer" data-i18n-aria="modal_close"
+                class="absolute top-3 right-3 z-10 w-10 h-10 bg-slate-900/55 hover:bg-slate-900 text-white rounded-full flex items-center justify-center transition-colors backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
       </div>
 
-      <!-- Modal Content -->
-      <div class="p-6 sm:p-8">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 pb-4 border-b border-slate-100">
-          <div>
-            <h3 id="modalCarTitle" class="text-2xl font-black text-slate-900">Modèle du Véhicule</h3>
-            <p id="modalCarSub" class="text-xs text-slate-500">Idéal pour vos déplacements à Agadir & environs</p>
+      <!-- SCROLLABLE BODY -->
+      <div class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden modal-scroll px-5 sm:px-7 py-5 sm:py-6">
+
+        <!-- B. IDENTITY + PRICE -->
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 pb-4 mb-5 border-b border-slate-100">
+          <div class="min-w-0">
+            <h3 id="modalCarTitle" class="text-xl sm:text-2xl font-black text-brand-dark leading-tight">Modèle du Véhicule</h3>
+            <p id="modalCarSub" class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">Idéal pour vos déplacements à Agadir &amp; environs</p>
           </div>
-          <div class="text-left sm:text-right">
-            <span id="modalCarPrice" class="text-3xl font-extrabold text-brand-gold">0 MAD</span>
-            <span id="modalCarPriceEur" class="text-xs text-slate-500 block">/ jour (TTC)</span>
+          <div class="shrink-0 sm:text-right">
+            <span id="modalCarPrice" class="text-2xl sm:text-3xl font-extrabold text-brand-gold whitespace-nowrap block">0 MAD</span>
+            <span id="modalCarPriceEur" class="text-[11px] sm:text-xs text-slate-500 block whitespace-nowrap">/ jour</span>
           </div>
         </div>
 
-        <!-- Specifications Grid -->
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Caractéristiques Techniques</h4>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6" id="modalCarSpecs">
+        <!-- C. QUICK SPECIFICATIONS -->
+        <h4 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5" data-i18n="m_specs_title">Caractéristiques</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-6" id="modalCarSpecs">
           <!-- Populated by JS -->
         </div>
 
-        <!-- Included services -->
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Ce qui est inclus dans le prix</h4>
-        <ul class="space-y-2 text-xs sm:text-sm text-slate-700 mb-8">
-          <li class="flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-emerald-500"></i>
-            <span>Kilométrage 100% illimité dans tout le Maroc</span>
+        <!-- D. BENEFITS & INCLUDED SERVICES -->
+        <h4 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5" data-i18n="m_benefits_title">Avantages inclus</h4>
+        <ul class="space-y-2.5">
+          <li class="flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5">
+            <i class="fa-solid fa-infinity text-brand-gold text-base mt-0.5 w-5 text-center shrink-0"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-brand-dark" data-i18n="m_benefit_mileage_t">Kilométrage illimité</p>
+              <p class="text-xs text-slate-500" data-i18n="m_benefit_mileage_s">Partout au Maroc</p>
+            </div>
           </li>
-          <li class="flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-emerald-500"></i>
-            <span>Livraison & restitution gratuite à l'Aéroport Al-Massira et hôtels d'Agadir</span>
+          <li class="flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5">
+            <i class="fa-solid fa-location-dot text-brand-gold text-base mt-0.5 w-5 text-center shrink-0"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-brand-dark" data-i18n="m_benefit_delivery_t">Livraison aéroport &amp; hôtels</p>
+              <p class="text-xs text-slate-500" data-i18n="m_benefit_delivery_s">Selon les modalités disponibles</p>
+            </div>
           </li>
-          <li class="flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-emerald-500"></i>
-            <span>Assurance collision et vol avec franchise réduite</span>
+          <li class="flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5">
+            <i class="fa-solid fa-shield-halved text-brand-gold text-base mt-0.5 w-5 text-center shrink-0"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-brand-dark" data-i18n="m_benefit_insurance_t">Assurance</p>
+              <p class="text-xs text-slate-500" data-i18n="m_benefit_insurance_s">Selon votre contrat de location</p>
+            </div>
           </li>
-          <li class="flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-emerald-500"></i>
-            <span>Deuxième conducteur gratuit sur simple demande</span>
+          <li class="flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5">
+            <i class="fa-solid fa-user-plus text-brand-gold text-base mt-0.5 w-5 text-center shrink-0"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-brand-dark" data-i18n="m_benefit_driver_t">Conducteur additionnel</p>
+              <p class="text-xs text-slate-500" data-i18n="m_benefit_driver_s">Possible sur demande</p>
+            </div>
           </li>
-          <li class="flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-emerald-500"></i>
-            <span>Assistance dépannage 24h/24 7j/7 dans toute la région Souss-Massa</span>
+          <li class="flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5">
+            <i class="fa-solid fa-headset text-brand-gold text-base mt-0.5 w-5 text-center shrink-0"></i>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-brand-dark" data-i18n="m_benefit_assist_t">Assistance 24/7</p>
+              <p class="text-xs text-slate-500" data-i18n="m_benefit_assist_s">Dans la région Souss-Massa</p>
+            </div>
           </li>
         </ul>
+      </div>
 
-        <!-- Modal Actions -->
-        <div class="flex flex-col sm:flex-row gap-3">
-          <button id="modalBookNowBtn" onclick="selectCarAndScrollToBooking()" class="flex-1 bg-brand-dark hover:bg-brand-navy text-white py-3.5 px-6 rounded-xl font-bold text-center transition-colors flex items-center justify-center gap-2">
-            <i class="fa-solid fa-check"></i>
-            <span>Choisir pour ma réservation</span>
-          </button>
-          <a id="modalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-3.5 px-6 rounded-xl font-bold text-center flex items-center justify-center gap-2 transition-colors">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span>Demander sur WhatsApp</span>
-          </a>
-        </div>
+      <!-- 3. PERSISTENT CTA FOOTER -->
+      <div class="flex-none border-t border-slate-100 bg-white px-5 sm:px-7 pt-3.5 sm:pt-4 flex flex-col sm:flex-row gap-2.5"
+           style="padding-bottom: calc(0.875rem + env(safe-area-inset-bottom, 0px));">
+        <button id="modalBookNowBtn" type="button" onclick="selectCarAndScrollToBooking()"
+                class="order-1 sm:flex-1 inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-goldHover text-brand-dark h-12 px-5 rounded-xl font-extrabold text-sm sm:text-base whitespace-nowrap transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2">
+          <i class="fa-solid fa-check"></i>
+          <span data-i18n="m_cta_choose">Choisir cette voiture</span>
+        </button>
+        <a id="modalAskBtn" href="contact/"
+           class="order-2 sm:flex-1 inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-brand-dark border border-slate-300 hover:border-brand-dark h-12 px-5 rounded-xl font-bold text-sm sm:text-base whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2">
+          <i class="fa-regular fa-comment-dots"></i>
+          <span data-i18n="m_cta_ask">Poser une question</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1355,6 +1277,72 @@
       </div>
     </div>
   </div>
+
+  <!-- CUSTOMER REVIEWS SLIDER LOGIC -->
+  <script>
+    (function () {
+      const track = document.getElementById('reviewTrack');
+      if (!track) return;
+      const cards = Array.from(track.querySelectorAll('.review-card'));
+      const dotsWrap = document.getElementById('reviewDots');
+      const prev = document.getElementById('reviewPrev');
+      const next = document.getElementById('reviewNext');
+      if (!cards.length) return;
+
+      function step() {
+        // distance between two consecutive cards (incl. gap)
+        if (cards.length < 2) return cards[0].offsetWidth;
+        return Math.abs(cards[1].offsetLeft - cards[0].offsetLeft) || cards[0].offsetWidth;
+      }
+      function activeIndex() {
+        const s = step() || 1;
+        return Math.round(track.scrollLeft / s);
+      }
+      function scrollToIndex(i) {
+        const max = cards.length - 1;
+        i = Math.max(0, Math.min(max, i));
+        track.scrollTo({ left: i * step() });
+      }
+
+      // Build dot indicators (one per card)
+      cards.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'review-dot';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', 'Avis ' + (i + 1));
+        b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        b.addEventListener('click', () => scrollToIndex(i));
+        dotsWrap.appendChild(b);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function sync() {
+        const idx = activeIndex();
+        dots.forEach((d, i) => d.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
+        if (prev) prev.disabled = idx <= 0;
+        if (next) next.disabled = idx >= cards.length - 1;
+        [prev, next].forEach(btn => { if (btn) btn.style.opacity = btn.disabled ? '.4' : '1'; });
+      }
+
+      let raf;
+      track.addEventListener('scroll', () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(sync);
+      });
+      if (prev) prev.addEventListener('click', () => scrollToIndex(activeIndex() - 1));
+      if (next) next.addEventListener('click', () => scrollToIndex(activeIndex() + 1));
+
+      // Keyboard navigation when the track is focused
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(activeIndex() + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); scrollToIndex(activeIndex() - 1); }
+      });
+
+      window.addEventListener('resize', sync);
+      sync();
+    })();
+  </script>
 
   <!-- JAVASCRIPT LOGIC -->
   <script src="assets/js/landing.js"></script>

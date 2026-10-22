@@ -264,9 +264,17 @@
     $('r-return-date').addEventListener('change', (e) => { state.returnDate = e.target.value; renderSummary(); });
     $('r-return-time').addEventListener('change', (e) => { state.returnTime = e.target.value; renderSummary(); });
 
+    // While typing: clear an existing error so messages never flash on every
+    // keystroke. The real check happens on blur (below) and on Continue.
     $('r-name').addEventListener('input', (e) => { state.clientName = e.target.value; clearError('r-name'); });
     $('r-phone').addEventListener('input', (e) => { state.clientPhone = e.target.value; clearError('r-phone'); });
     $('r-email').addEventListener('input', (e) => { state.clientEmail = e.target.value; clearError('r-email'); });
+
+    // On blur: validate the field the user just left (concise, specific message).
+    $('r-name').addEventListener('blur', () => validateField('r-name'));
+    $('r-phone').addEventListener('blur', () => validateField('r-phone'));
+    $('r-email').addEventListener('blur', () => validateField('r-email'));
+    $('r-flight').addEventListener('blur', () => validateField('r-flight'));
     $('r-notes').addEventListener('input', (e) => { state.notes = e.target.value.slice(0, 500); $('r-notes-count').textContent = state.notes.length; });
     $('r-wifi').addEventListener('change', (e) => { state.optWifi = e.target.checked; renderSummary(); });
 
@@ -282,8 +290,41 @@
   }
 
   function goNext() {
-    if (!validateStep(state.step)) return;
+    if (!validateStep(state.step)) { focusFirstInvalid(); return; }
     if (state.step < TOTAL_STEPS) { state.step++; renderStep(); }
+  }
+
+  // Validate a single field on demand (blur / correction). Returns true if valid.
+  function validateField(id) {
+    if (id === 'r-name') {
+      const name = (state.clientName || '').trim();
+      if (name.length < 2 || name.length > 100) { setError('r-name', 'Nom complet requis (au moins 2 caractères).'); return false; }
+      clearError('r-name'); return true;
+    }
+    if (id === 'r-phone') {
+      if (!validatePhone(state.clientPhone)) { setError('r-phone', 'Numéro invalide : exactement 10 chiffres (ex. 0612345678).'); return false; }
+      clearError('r-phone'); return true;
+    }
+    if (id === 'r-email') {
+      if (!validateEmail(state.clientEmail)) { setError('r-email', "Format d'adresse email invalide."); return false; }
+      clearError('r-email'); return true;
+    }
+    if (id === 'r-flight') {
+      if (!validateFlight($('r-flight').value)) { setError('r-flight', "Format de num\u00e9ro de vol invalide (ex. AT452)."); return false; }
+      clearError('r-flight'); return true;
+    }
+    return true;
+  }
+
+  // Move keyboard focus (and scroll) to the first invalid control in the
+  // currently visible step so the user is taken straight to what needs fixing.
+  function focusFirstInvalid() {
+    const active = document.querySelector('.res-step.active');
+    if (!active) return;
+    let el = active.querySelector('.is-invalid');
+    if (el && typeof el.focus === 'function') { el.focus({ preventScroll: true }); }
+    const target = el || active.querySelector('.res-error.show');
+    if (target) target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
   }
 
   function validateStep(step) {
@@ -480,8 +521,11 @@
   // ---------- Submit ----------
   async function submitReservation() {
     if (state.submitting || state.submitted) return;
-    if (!validateStep(1) || !validateStep(2) || !validateStep(3)) {
-      showResult('error', 'Certaines informations sont incomplètes. Revenez en arrière pour les corriger.');
+    // If any earlier step is invalid, take the user straight back to it and
+    // focus the first problem instead of only showing a generic message.
+    const firstBad = !validateStep(1) ? 1 : (!validateStep(2) ? 2 : (!validateStep(3) ? 3 : 0));
+    if (firstBad) {
+      state.step = firstBad; renderStep(); focusFirstInvalid();
       return;
     }
     state.submitting = true;
@@ -562,12 +606,20 @@
   function setError(id, msg) {
     const err = $(id + '-error'); const field = $(id);
     if (err) { err.textContent = msg; err.classList.add('show'); }
-    if (field) field.classList.add('is-invalid');
+    if (field) {
+      field.classList.add('is-invalid');
+      field.setAttribute('aria-invalid', 'true');
+      if (err) field.setAttribute('aria-describedby', id + '-error');
+    }
   }
   function clearError(id) {
     const err = $(id + '-error'); const field = $(id);
     if (err) err.classList.remove('show');
-    if (field) field.classList.remove('is-invalid');
+    if (field) {
+      field.classList.remove('is-invalid');
+      field.removeAttribute('aria-invalid');
+      field.removeAttribute('aria-describedby');
+    }
   }
   function fmtDate(iso) {
     if (!iso) return '—';

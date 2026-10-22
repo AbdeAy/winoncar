@@ -1,7 +1,61 @@
 /* WINON CAR — Landing page custom styles (extracted from index.html).
    Loaded in <head> after the Tailwind CDN so these rules keep their cascade. */
+
+/* ============================================================
+   SHARED DESIGN TOKENS
+   Single source of truth for the brand palette, typography scale,
+   spacing scale, radii, control heights and shadows. Loaded on every
+   public page (index / about / contact / reservation / vehicles) via
+   landing.css, so all pages resolve to the same values.
+   ============================================================ */
+:root {
+  /* Brand palette (navy / gold / white / green) — unchanged identity */
+  --c-navy:        #0B132B;
+  --c-navy-soft:   #1C2541;
+  --c-gold:        #D4AF37;
+  --c-gold-dark:   #B8860B;
+  --c-green:       #16A34A;
+  --c-whatsapp:    #25D366;
+  --c-ink:         #1E293B;  /* body text */
+  --c-muted:       #64748B;  /* secondary / metadata text (AA on white) */
+  --c-border:      #E2E8F0;
+  --c-surface:     #FFFFFF;
+  --c-bg:          #F8FAFC;
+  --c-error:       #DC2626;
+
+  /* Typography scale (desktop targets; headings clamp down on mobile) */
+  --fs-hero:    clamp(1.9rem, 1.2rem + 2.6vw, 2.5rem);   /* 30 -> 40px */
+  --fs-section: clamp(1.4rem, 1.1rem + 1.2vw, 1.75rem);  /* 22 -> 28px */
+  --fs-card:    1.125rem;  /* 18px subsection / card heading */
+  --fs-body:    0.95rem;   /* ~15px body */
+  --fs-label:   0.85rem;   /* 13-14px form labels */
+  --fs-meta:    0.78rem;   /* 12-13px helper / metadata */
+  --fs-btn:     0.925rem;  /* ~15px buttons */
+  --lh-heading: 1.2;
+  --lh-body:    1.6;
+
+  /* Spacing scale */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px;
+
+  /* Radii + control heights + shadows */
+  --radius-sm: .5rem;  --radius: .85rem;  --radius-lg: 1rem;
+  --control-h: 2.9rem;
+  --shadow-sm: 0 2px 8px rgba(11,19,43,0.08);
+  --shadow-md: 0 10px 24px rgba(11,19,43,0.10);
+  --focus-ring: 0 0 0 3px rgba(212,175,55,0.22);
+}
+
+/* Safe, universal heading hygiene: prevents long FR/EN/AR words from
+   clipping or overflowing, keeps comfortable line-height. Does not change
+   font sizes (those stay controlled by Tailwind utilities per element). */
+h1, h2, h3, h4 { overflow-wrap: break-word; line-height: var(--lh-heading); }
+h1, h2 { text-wrap: balance; }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--c-bg);
+      color: var(--c-ink);
     }
     html[dir="rtl"], html[dir="rtl"] body {
       font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
@@ -11,10 +65,8 @@
     html[dir="rtl"] .fa-arrow-right-from-bracket,
     html[dir="rtl"] .fa-arrow-right-to-bracket {
       transform: scaleX(-1);
-    }  background-color: #F8FAFC;
-      color: #1E293B;
     }
-    
+
     .gold-gradient {
       background: linear-gradient(135deg, #DFB76C 0%, #C5A059 50%, #9E7D3B 100%);
     }
@@ -27,8 +79,23 @@
     }
 
     .hero-pattern {
-      background: linear-gradient(180deg, rgba(11, 19, 43, 0.88) 0%, rgba(28, 37, 65, 0.95) 100%), 
-                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      /* Directional navy overlay: stronger contrast behind the left-aligned text,
+         more vehicle detail visible toward the right. */
+      background:
+        linear-gradient(100deg,
+          rgba(11, 19, 43, 0.93) 0%,
+          rgba(11, 19, 43, 0.82) 42%,
+          rgba(28, 37, 65, 0.55) 72%,
+          rgba(28, 37, 65, 0.38) 100%),
+        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center right / cover no-repeat;
+    }
+    @media (max-width: 640px) {
+      /* On narrow screens a vertical overlay keeps the headline fully readable. */
+      .hero-pattern {
+        background:
+          linear-gradient(180deg, rgba(11, 19, 43, 0.90) 0%, rgba(11, 19, 43, 0.84) 100%),
+          url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80') center / cover no-repeat;
+      }
     }
 
     .pulse-whatsapp {
@@ -52,6 +119,18 @@
       background-color: rgba(11, 19, 43, 0.8);
       backdrop-filter: blur(6px);
     }
+
+    /* Vehicle modal: subtle brand-matched internal scrollbar + scroll containment */
+    .modal-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+    .modal-scroll::-webkit-scrollbar { width: 8px; }
+    .modal-scroll::-webkit-scrollbar-track { background: transparent; }
+    .modal-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+    .modal-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
     /* --- Landing-page reservation stepper (dark section) --- */
     .lstep-dot {
@@ -97,4 +176,231 @@
     @media (prefers-reduced-motion: reduce) {
       .lstep-dot, .lstep-line { transition: none; }
     }
+
+    /* Mobile: keep the step indicator compact (dots only; the heading + "Étape X / 5"
+       counter above act as the mobile progress display). */
+    @media (max-width: 639px) {
+      #reservation .lstep-label { display: none; }
+      #reservation .lstep-line { margin-left: .4rem; margin-right: .4rem; }
+    }
+
+    /* --- Consistent custom checkboxes inside the reservation form ---
+       Replaces the inconsistent browser-default (blue) checkbox with one
+       calm brand control. Colour is paired with a check glyph, never alone. */
+    #reservation input[type="checkbox"] {
+      -webkit-appearance: none; appearance: none;
+      width: 1.2rem; height: 1.2rem; flex: 0 0 auto;
+      border: 1.5px solid #475569; border-radius: .35rem; background: #0f172a;
+      cursor: pointer; position: relative;
+      transition: background-color .15s ease, border-color .15s ease;
+    }
+    #reservation input[type="checkbox"]:hover { border-color: #64748b; }
+    #reservation input[type="checkbox"]:checked { background: #D4AF37; border-color: #D4AF37; }
+    #reservation input[type="checkbox"]:checked::after {
+      content: ''; position: absolute; left: .38rem; top: .17rem;
+      width: .3rem; height: .55rem; border: solid #0B132B; border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    #reservation input[type="checkbox"]:focus-visible {
+      outline: 3px solid rgba(212,175,55,.45); outline-offset: 2px;
+    }
+
+    /* Unified focus ring + comfortable tap targets for every field in the form. */
+    #reservation input:not([type="checkbox"]),
+    #reservation select,
+    #reservation textarea {
+      min-height: 2.9rem;
+    }
+    #reservation .rstep input:focus-visible,
+    #reservation .rstep select:focus-visible,
+    #reservation .rstep textarea:focus-visible {
+      outline: none; box-shadow: 0 0 0 3px rgba(212,175,55,0.22); border-color: #D4AF37;
+    }
+
+    /* --- Documents step (reservation step 4) --- */
+    .doc-card {
+      background: #1e293b; border: 1.5px solid #334155; border-radius: 1rem;
+      padding: 1rem; display: flex; flex-direction: column; gap: .7rem;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .doc-card:hover { border-color: #475569; }
+    .doc-card.is-filled { border-color: #16A34A; box-shadow: 0 0 0 3px rgba(22,163,74,0.14); }
+    .doc-card.is-error { border-color: #DC2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.14); }
+    .doc-card-head { display: flex; align-items: center; gap: .65rem; }
+    .doc-ico {
+      width: 2.25rem; height: 2.25rem; border-radius: .6rem; flex: 0 0 auto;
+      background: rgba(212,175,55,.14); color: #D4AF37;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .doc-title { font-size: .85rem; font-weight: 800; color: #fff; line-height: 1.2; }
+    .doc-sub { font-size: .72rem; color: #94a3b8; margin-top: .1rem; }
+    .doc-tag {
+      font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
+      color: #cbd5e1; background: #0f172a; border: 1px solid #334155;
+      padding: .15rem .5rem; border-radius: 9999px; flex: 0 0 auto; white-space: nowrap;
+    }
+    .doc-drop {
+      width: 100%; aspect-ratio: 16 / 9; border: 2px dashed #475569; border-radius: .8rem;
+      background: #0f172a; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: .25rem; cursor: pointer; overflow: hidden;
+      transition: border-color .2s ease, background-color .2s ease;
+    }
+    .doc-drop:hover { border-color: #D4AF37; background: #0b1222; }
+    .doc-drop img { width: 100%; height: 100%; object-fit: cover; }
+    .doc-drop-ico { font-size: 1.4rem; color: #64748b; transition: color .2s ease; }
+    .doc-drop:hover .doc-drop-ico { color: #D4AF37; }
+    .doc-drop-txt { font-size: .78rem; font-weight: 700; color: #e2e8f0; }
+    .doc-drop-hint { font-size: .66rem; color: #64748b; }
+    .doc-drop:focus-visible { outline: 3px solid rgba(212,175,55,.45); outline-offset: 2px; }
+    .doc-err { font-size: .72rem; color: #fca5a5; font-weight: 600; display: flex; align-items: center; gap: .35rem; }
+    .doc-err::before { content: '\f06a'; font-family: 'Font Awesome 6 Free'; font-weight: 900; }
+    .doc-actions { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-height: 1.4rem; }
+    .doc-actions-btns { display: flex; align-items: center; gap: .9rem; margin-left: auto; }
+    .doc-badge { font-size: .68rem; font-weight: 700; color: #86efac; display: inline-flex; align-items: center; gap: .3rem; }
+    .doc-replace { font-size: .72rem; font-weight: 700; color: #cbd5e1; display: inline-flex; align-items: center; gap: .3rem; }
+    .doc-replace:hover { color: #fff; }
+    .doc-del { font-size: .72rem; font-weight: 700; color: #fca5a5; display: inline-flex; align-items: center; gap: .3rem; }
+    .doc-del:hover { color: #fecaca; }
+    .doc-replace:focus-visible, .doc-del:focus-visible { outline: 2px solid rgba(212,175,55,.5); outline-offset: 2px; border-radius: .25rem; }
+    @media (prefers-reduced-motion: reduce) { .doc-card, .doc-drop, .doc-drop-ico { transition: none; } }
   
+
+    /* --- Customer reviews slider --- */
+    .review-track {
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;   /* IE/Edge */
+      scrollbar-width: none;      /* Firefox */
+    }
+    .review-track::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+    .review-dot {
+      width: 8px; height: 8px; border-radius: 9999px;
+      background: #CBD5E1; transition: all .25s ease; cursor: pointer;
+      border: none; padding: 0;
+    }
+    .review-dot[aria-selected="true"] { background: #D4AF37; width: 22px; }
+    @media (prefers-reduced-motion: reduce) {
+      .review-track { scroll-behavior: auto; }
+      .review-dot { transition: none; }
+    }
+
+
+    /* ============================================================
+       LIGHT FORM SURFACE (reservation) — overrides earlier dark rules.
+       ============================================================ */
+    .booking-surface, .summary-surface { color: #1e293b; }
+    .booking-surface input:not([type="checkbox"]),
+    .booking-surface select,
+    .booking-surface textarea {
+      background: #ffffff !important; border-color: #CBD5E1 !important; color: #0f172a !important;
+    }
+    .booking-surface input::placeholder, .booking-surface textarea::placeholder { color: #94a3b8 !important; }
+    .booking-surface [class*="bg-slate-900"] { background: #F8FAFC !important; border-color: #E2E8F0 !important; }
+    .booking-surface [class*="border-slate-700"], .summary-surface [class*="border-slate-700"] { border-color: #E2E8F0 !important; }
+    .booking-surface .text-white, .summary-surface .text-white { color: #0B132B !important; }
+    .booking-surface .text-slate-200, .summary-surface .text-slate-200 { color: #334155 !important; }
+    .booking-surface .text-slate-300, .summary-surface .text-slate-300 { color: #475569 !important; }
+    .booking-surface .text-slate-400, .summary-surface .text-slate-400 { color: #64748B !important; }
+    #rStepHeading { color: #0B132B !important; }
+    #rStepCount { color: #64748B !important; }
+    .booking-surface #rBackBtn { background: #F1F5F9 !important; color: #334155 !important; }
+    .booking-surface #rBackBtn:hover { background: #E2E8F0 !important; }
+    .summary-surface [class*="bg-emerald-950"] { background: #ECFDF5 !important; border-color: #A7F3D0 !important; }
+    .summary-surface .text-emerald-400 { color: #047857 !important; }
+    .summary-surface .text-amber-400 { color: #B45309 !important; }
+
+    /* Stepper dots on light */
+    .lstep-dot { background: #E2E8F0; color: #64748B; }
+    .lstep-dot[data-state="current"] { background: #D4AF37; color: #0B132B; box-shadow: 0 0 0 4px rgba(212,175,55,0.18); }
+    .lstep-dot[data-state="done"] { background: #16A34A; color: #fff; }
+    .lstep-line { background: #E2E8F0; }
+    .lstep-line[data-state="done"] { background: #16A34A; }
+    .lstep-label { color: #64748B; }
+    .lstep-label[data-state="current"] { color: #0B132B; }
+    .lstep-label[data-state="done"] { color: #15803D; }
+
+    /* Vehicle select cards on light */
+    .vsel-card { background: #fff; border-color: #E2E8F0; }
+    .vsel-card:hover { border-color: #CBD5E1; background: #F8FAFC; }
+    .vsel-card[aria-checked="true"] { border-color: #D4AF37; background: #FDF8EC; box-shadow: 0 0 0 3px rgba(212,175,55,0.18); }
+    .vsel-card .text-white { color: #0B132B !important; }
+    .vsel-card .text-slate-400 { color: #64748B !important; }
+    .vsel-card img { background: #F1F5F9; }
+
+    /* Custom checkbox on light surface */
+    #reservation input[type="checkbox"] { border-color: #CBD5E1; background: #fff; }
+    #reservation input[type="checkbox"]:checked { background: #D4AF37; border-color: #D4AF37; }
+
+    /* Document cards on light */
+    .doc-card { background: #fff; border-color: #E2E8F0; }
+    .doc-card:hover { border-color: #CBD5E1; }
+    .doc-card.is-filled { border-color: #16A34A; box-shadow: 0 0 0 3px rgba(22,163,74,0.12); }
+    .doc-card.is-error { border-color: #DC2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.12); }
+    .doc-ico { background: rgba(212,175,55,.14); color: #B8860B; }
+    .doc-title { color: #0f172a; }
+    .doc-sub { color: #64748B; }
+    .doc-tag { color: #475569; background: #F1F5F9; border-color: #E2E8F0; }
+    .doc-drop { background: #F8FAFC; border-color: #CBD5E1; }
+    .doc-drop:hover { border-color: #D4AF37; background: #FDF8EC; }
+    .doc-drop-ico { color: #94a3b8; }
+    .doc-drop:hover .doc-drop-ico { color: #B8860B; }
+    .doc-drop-txt { color: #334155; }
+    .doc-drop-hint { color: #94a3b8; }
+    .doc-drop-btn { display: inline-flex; align-items: center; font-size: .76rem; font-weight: 700;
+      color: #0B132B; background: #FDF8EC; border: 1px solid #E7D7A6; padding: .3rem .8rem; border-radius: 9999px; margin-top: .1rem; }
+    .doc-drop:hover .doc-drop-btn { background: #F5E9C6; }
+    .doc-err { color: #DC2626; }
+    .doc-badge { color: #15803D; max-width: 62%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    .doc-replace { color: #475569; }
+    .doc-replace:hover { color: #0f172a; }
+    .doc-del { color: #DC2626; }
+    .doc-del:hover { color: #b91c1c; }
+    .doc-drop img { cursor: zoom-in; }
+
+    /* Document preview modal */
+    #docPreviewModal.is-open { display: flex; }
+
+    /* Floating Back-to-top button (shared across all pages) */
+    #backToTopBtn {
+      position: fixed;
+      right: 1.5rem;
+      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+      z-index: 45;
+      width: 3rem;
+      height: 3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      background: #1C2541;              /* brand navy */
+      color: #D4AF37;                  /* brand gold icon */
+      font-size: 1.125rem;
+      line-height: 1;
+      border: 1px solid rgba(212, 175, 55, .35);
+      box-shadow: 0 10px 25px -5px rgba(11, 19, 43, .45), 0 4px 10px -4px rgba(0, 0, 0, .3);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px) scale(.9);
+      transition: opacity .25s ease, transform .25s ease, background-color .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    #backToTopBtn.is-visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    #backToTopBtn:hover {
+      background: #0B132B;             /* brand dark */
+      border-color: rgba(212, 175, 55, .6);
+      box-shadow: 0 14px 32px -6px rgba(11, 19, 43, .55), 0 6px 14px -4px rgba(0, 0, 0, .35);
+      transform: translateY(-3px) scale(1.06);
+    }
+    #backToTopBtn:active { transform: translateY(-1px) scale(1.02); }
+    #backToTopBtn:focus-visible { outline: 3px solid rgba(212, 175, 55, .6); outline-offset: 3px; }
+
+    /* Lift above the mobile sticky action bar on small screens */
+    @media (max-width: 1023px) {
+      #backToTopBtn { bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #backToTopBtn,
+      #backToTopBtn.is-visible,
+      #backToTopBtn:hover,
+      #backToTopBtn:active { transform: none; transition: opacity .2s ease, visibility .2s ease; }
+    }
