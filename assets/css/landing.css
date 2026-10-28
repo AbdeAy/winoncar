@@ -57,9 +57,32 @@ h1, h2 { text-wrap: balance; }
       background-color: var(--c-bg);
       color: var(--c-ink);
     }
-    html[dir="rtl"], html[dir="rtl"] body {
-      font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
-    }
+    html[dir="rtl"],
+html[dir="rtl"] body,
+html[dir="rtl"] input,
+html[dir="rtl"] button,
+html[dir="rtl"] select,
+html[dir="rtl"] textarea,
+html[dir="rtl"] .font-sans {
+  font-family: 'Tajawal', system-ui, -apple-system, sans-serif !important;
+}
+
+html[dir="rtl"] * {
+  letter-spacing: normal !important;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3 {
+  line-height: 1.35 !important;
+}
+
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] a[href^="tel:"] {
+  direction: ltr !important;
+  unicode-bidi: isolate;
+  text-align: right;
+}
     html[dir="rtl"] .fa-arrow-right,
     html[dir="rtl"] .fa-chevron-right,
     html[dir="rtl"] .fa-arrow-right-from-bracket,
@@ -404,3 +427,11 @@ h1, h2 { text-wrap: balance; }
       #backToTopBtn:hover,
       #backToTopBtn:active { transform: none; transition: opacity .2s ease, visibility .2s ease; }
     }
+
+/* Guarantee LTR visual order for WINON CAR in all language directions */
+.brand-logo-text {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}

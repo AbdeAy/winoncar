@@ -1,11 +1,11 @@
 import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
-import { hashPassword, verifyPassword } from '../WINON CAR/functions/api/auth/_crypto.js';
-import { onRequestPost as handleVisit } from '../WINON CAR/functions/api/analytics/visit.js';
-import { onRequestGet as handleGetAnalytics } from '../WINON CAR/functions/api/admin/analytics.js';
-import { onRequestPost as handleChangePassword } from '../WINON CAR/functions/api/admin/change-password.js';
-import { onRequestPost as handlePublicReservation } from '../WINON CAR/functions/api/reservations.js';
-import { onRequestGet as handleAdminUsers } from '../WINON CAR/functions/api/admin/users.js';
+import { hashPassword, verifyPassword } from '../functions/api/auth/_crypto.js';
+import { onRequestPost as handleVisit } from '../functions/api/analytics/visit.js';
+import { onRequestGet as handleGetAnalytics } from '../functions/api/admin/analytics.js';
+import { onRequestPost as handleChangePassword } from '../functions/api/admin/change-password.js';
+import { onRequestPost as handlePublicReservation } from '../functions/api/reservations.js';
+import { onRequestGet as handleAdminUsers } from '../functions/api/admin/users.js';
 
 console.log('='.repeat(80));
 console.log('   WINON CAR — SUITE COMPLÈTE DE TESTS LOCAUX AUTOMATISÉS (STAGE 3)');
@@ -13,11 +13,11 @@ console.log('='.repeat(80));
 
 // Initialisation de la base SQLite isolée
 const db = new DatabaseSync(':memory:');
-const mig1 = fs.readFileSync('WINON CAR/migrations/0001_initial_reservations.sql', 'utf8');
-const mig2 = fs.readFileSync('WINON CAR/migrations/0002_auth_and_management.sql', 'utf8');
-const mig3 = fs.readFileSync('WINON CAR/migrations/0003_locations_and_delivery.sql', 'utf8');
-const mig4 = fs.readFileSync('WINON CAR/migrations/0004_client_documents.sql', 'utf8');
-const mig5 = fs.readFileSync('WINON CAR/migrations/0005_visitor_analytics.sql', 'utf8');
+const mig1 = fs.readFileSync('migrations/0001_initial_reservations.sql', 'utf8');
+const mig2 = fs.readFileSync('migrations/0002_auth_and_management.sql', 'utf8');
+const mig3 = fs.readFileSync('migrations/0003_locations_and_delivery.sql', 'utf8');
+const mig4 = fs.readFileSync('migrations/0004_client_documents.sql', 'utf8');
+const mig5 = fs.readFileSync('migrations/0005_visitor_analytics.sql', 'utf8');
 
 db.exec(mig1);
 db.exec(mig2);
@@ -340,14 +340,14 @@ assert(historicSuper && historicSuper.username === 'superadmin' && historicSuper
 
 console.log('\n--- 6. Intégrité des Fichiers Frontend & Layout Mobile ---');
 // Point 12 : Existing dashboard pages and mobile layout still work
-const adminHtml = fs.readFileSync('WINON CAR/admin/index.html', 'utf8');
+const adminHtml = fs.readFileSync('admin/index.html', 'utf8');
 assert(adminHtml.includes('id="tab-analytics"'), "Section tab-analytics présente dans le dashboard");
 assert(adminHtml.includes('id="modal-change-password"'), "Modale modal-change-password présente dans le dashboard");
 assert(adminHtml.includes('id="notif-bell-btn"'), "Centre de notifications préservé");
 assert(adminHtml.includes('id="modal-veh-img-preview"'), "Gestionnaire photo WebP véhicules préservé");
 assert(adminHtml.includes('loadAnalytics'), "Fonction loadAnalytics intégrée");
 
-const publicHtml = fs.readFileSync('WINON CAR/index.html', 'utf8');
+const publicHtml = fs.readFileSync('index.html', 'utf8');
 assert(publicHtml.includes('assets/analytics.js'), "Balise analytics.js présente dans index.html");
 assert(publicHtml.includes('assets/translations.js'), "Dictionnaire multilingue préservé dans index.html");
 assert(publicHtml.includes('id="bookingForm"'), "Formulaire de réservation préservé dans index.html");

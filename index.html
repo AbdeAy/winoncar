@@ -91,10 +91,10 @@
             <img src="winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='../winon-logo.jpeg';">
           </div>
           <div class="flex flex-col">
-            <span class="text-xl sm:text-2xl font-black tracking-tight text-brand-dark flex items-center gap-1">
+            <span class="brand-logo-text text-xl sm:text-2xl font-black tracking-tight text-brand-dark inline-flex items-center gap-1.5" dir="ltr">
               WINON <span class="gold-text-gradient font-black">CAR</span>
             </span>
-            <span class="text-[10px] tracking-widest text-slate-500 font-bold uppercase -mt-1">
+            <span class="text-[10px] tracking-widest text-slate-500 font-bold uppercase -mt-1" data-i18n="brand_tagline">
               Agadir • Location de Voitures
             </span>
           </div>
@@ -170,10 +170,10 @@
           <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
              target="_blank" rel="noopener noreferrer"
              class="flex items-center justify-center gap-2 bg-brand-whatsapp text-white py-3 rounded-xl font-bold text-center shadow">
-            <i class="fa-brands fa-whatsapp text-xl"></i> Réserver sur WhatsApp (+212 604-707847)
+            <i class="fa-brands fa-whatsapp text-xl"></i> <span data-i18n="nav_whatsapp_btn">Réserver sur WhatsApp (+212 604-707847)</span>
           </a>
           <a href="tel:+212604707847" class="flex items-center justify-center gap-2 bg-brand-dark text-white py-3 rounded-xl font-bold text-center">
-            <i class="fa-solid fa-phone"></i> Appeler l'Agence Directement
+            <i class="fa-solid fa-phone"></i> <span data-i18n="nav_call_btn">Appeler l'Agence Directement</span>
           </a>
         </div>
       </nav>
@@ -574,7 +574,8 @@
                 <label for="clientPhone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                   <i class="fa-brands fa-whatsapp text-brand-whatsapp mr-1.5"></i> <span data-i18n="client_phone_label">Numéro Téléphone / WhatsApp</span> <span class="text-rose-400">*</span>
                 </label>
-                <input type="tel" id="clientPhone" required placeholder="Ex: +212 6XX-XXXXXX ou +33 6XX..." class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all">
+                <input type="tel" id="clientPhone" required maxlength="10" inputmode="numeric" placeholder="Ex: 0612345678" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-gold focus:border-transparent outline-none transition-all">
+                <p class="text-xs text-slate-400 mt-1" data-i18n="client_phone_help">Numéro à 10 chiffres (ex: 0612345678)</p>
                 <div id="clientPhoneError" class="hidden text-xs text-rose-400 mt-1.5 flex items-center gap-1.5 font-medium" role="alert" aria-live="polite">
                   <i class="fa-solid fa-circle-exclamation text-rose-500 shrink-0"></i>
                   <span class="error-msg"></span>
@@ -858,9 +859,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
         <div class="max-w-2xl">
-          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">Avis de nos clients</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-2">Ils nous font confiance</h2>
-          <p class="text-slate-600 text-base">Découvrez les expériences de voyageurs et de résidents qui ont loué leur véhicule avec WINON CAR à Agadir.</p>
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block" data-i18n="reviews_badge">Avis de nos clients</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight mb-2" data-i18n="reviews_title">Ils nous font confiance</h2>
+          <p class="text-slate-600 text-base" data-i18n="reviews_desc">Découvrez les expériences de voyageurs et de résidents qui ont loué leur véhicule avec WINON CAR à Agadir.</p>
         </div>
         <div class="hidden sm:flex items-center gap-2 shrink-0">
           <button type="button" id="reviewPrev" aria-label="Avis précédents" class="w-11 h-11 rounded-xl border border-slate-300 bg-white text-slate-700 hover:border-brand-gold hover:text-brand-gold transition-colors flex items-center justify-center">
@@ -1020,10 +1021,10 @@
               <img src="winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full" onerror="this.onerror=null; this.src='../winon-logo.jpeg';">
             </div>
             <div>
-              <span class="text-2xl font-black text-white">
+              <span class="brand-logo-text text-2xl font-black text-white inline-flex items-center gap-1.5" dir="ltr">
                 WINON <span class="gold-text-gradient font-black">CAR</span>
               </span>
-              <span class="block text-[10px] tracking-widest text-slate-400 font-bold uppercase">
+              <span class="block text-[10px] tracking-widest text-slate-400 font-bold uppercase" data-i18n="brand_tagline">
                 Agadir • Location de Voitures
               </span>
             </div>
@@ -1122,17 +1123,17 @@
   <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 flex items-center justify-between gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
     <a href="tel:+212604707847" class="flex-1 flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
       <i class="fa-solid fa-phone text-brand-gold"></i>
-      <span>Appeler</span>
+      <span data-i18n="mobile_call">Appeler</span>
     </a>
     <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20un%20véhicule%20à%20Agadir." 
        target="_blank" rel="noopener noreferrer" 
        class="flex-1 flex items-center justify-center gap-1.5 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-2.5 px-2 rounded-xl font-bold text-xs shadow transition-colors">
       <i class="fa-brands fa-whatsapp text-base"></i>
-      <span>WhatsApp</span>
+      <span data-i18n="mobile_whatsapp">WhatsApp</span>
     </a>
     <a href="#reservation" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-dark hover:bg-brand-navy text-white py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
       <i class="fa-solid fa-calendar-check text-brand-gold"></i>
-      <span>Réserver</span>
+      <span data-i18n="mobile_reserve">Réserver</span>
     </a>
   </div>
 

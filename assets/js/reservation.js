@@ -91,7 +91,13 @@
   // Phone: exactly 10 digits, no letters (matches server contract).
   function validatePhone(raw) {
     if (/[a-zA-Z\u0600-\u06FF]/.test(raw || '')) return false;
-    return (String(raw || '').replace(/\D/g, '')).length === 10;
+    let digits = String(raw || '').replace(/\D/g, '');
+    if (digits.startsWith('00212') && digits.length === 14) {
+      digits = '0' + digits.slice(5);
+    } else if ((String(raw || '').trim().startsWith('+212') || digits.startsWith('212')) && digits.length === 12) {
+      digits = '0' + digits.slice(3);
+    }
+    return digits.length === 10;
   }
 
   function validateEmail(raw) {

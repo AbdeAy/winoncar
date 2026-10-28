@@ -37,7 +37,7 @@ export async function onRequestPost(context) {
     // 1b. Validation stricte du numéro de téléphone : exactement 10 chiffres, aucune lettre autorisée
     const rawPhone = String(data.clientPhone).trim();
     // Rejeter immédiatement si le champ contient des lettres
-    if (/[a-zA-Z]/.test(rawPhone)) {
+    if (/[a-zA-Z\u0600-\u06FF]/.test(rawPhone)) {
       return new Response(JSON.stringify({
         success: false,
         error: "Le numéro de téléphone ne doit contenir que des chiffres, sans lettres ni espaces."
@@ -46,8 +46,13 @@ export async function onRequestPost(context) {
         headers: { 'Content-Type': 'application/json' }
       });
     }
-    // Compter uniquement les chiffres présents dans la saisie
-    const phoneDigits = rawPhone.replace(/\D/g, '');
+    // Compter uniquement les chiffres présents dans la saisie (normalise l'indicatif marocain +212 vers le format standard 10 chiffres)
+    let phoneDigits = rawPhone.replace(/\D/g, '');
+    if (phoneDigits.startsWith('00212') && phoneDigits.length === 14) {
+      phoneDigits = '0' + phoneDigits.slice(5);
+    } else if ((rawPhone.startsWith('+212') || phoneDigits.startsWith('212')) && phoneDigits.length === 12) {
+      phoneDigits = '0' + phoneDigits.slice(3);
+    }
     if (phoneDigits.length !== 10) {
       return new Response(JSON.stringify({
         success: false,

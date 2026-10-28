@@ -423,7 +423,7 @@
           nameInput.placeholder = (lang === 'ar') ? 'مثال: كريم العلمي' : (lang === 'en' ? 'E.g., John Smith' : 'Ex: Karim Alami');
         }
         if (phoneInput) {
-          phoneInput.placeholder = (lang === 'ar') ? 'مثال: 0612345678 أو +212 6...' : (lang === 'en' ? 'E.g., +212 6... or +44 7...' : 'Ex: +212 6XX-XXXXXX ou 06 12...');
+          phoneInput.placeholder = (lang === 'ar') ? 'مثال: 0612345678' : (lang === 'en' ? 'E.g. 0612345678' : 'Ex: 0612345678');
         }
         if (emailInput) {
           emailInput.placeholder = (lang === 'ar') ? 'مثال: contact@exemple.com' : (lang === 'en' ? 'E.g., contact@example.com' : 'votre.email@exemple.com');
@@ -1227,7 +1227,7 @@
         msg = 
 `السلام عليكم WINON CAR،
 
-بغيت نحجز هاد السيارة ف أكادير :
+بغيت نحجز هاد السيارة في أكادير :
 🚗 السيارة : ${car.name}
 💰 ثمن الكراء : ${car.priceMAD} درهم / يوم
 ⏱ المدة : ${days} أيام
@@ -1243,7 +1243,7 @@
 • المكان : ${returnLocation}
 • التاريخ : ${returnDate} مع ${returnTime}
 
-🚚 مصاريف التوصيل : يتم تأكيدها عبر WhatsApp حسب المدينة أو المطار.
+🚚 مصاريف التوصيل : يتم تأكيدها عبر واتساب حسب المدينة أو المطار.
 
 👤 الزبون : ${clientName}
 📞 الهاتف : ${clientPhone}`;
@@ -1253,9 +1253,9 @@
         if (babySeatChecked) msg += `\n👶 كرسي الأطفال : نعم (مجاني)`;
         if (wifiChecked) msg += `\n📶 موديم Wi-Fi 4G : نعم`;
         if (notes) msg += `\n📝 ملاحظة : ${notes}`;
-        if (hasDocs) msg += `\n📄 الوثائق (CIN / Permis) : تم إرفاق ${docCount}/4 وثائق عبر الموقع تسريعاً للاستلام`;
+        if (hasDocs) msg += `\n📄 الوثائق (CIN / Permis) : تم إرفاق ${docCount}/4 وثائق عبر الموقع تسريعًا للاستلام`;
 
-        msg += `\n\nشكراً وعافاكم أكدوا لي التوفر والمصاريف النهائية !`;
+        msg += `\n\nشكرًا وعافاكم أكدوا لي التوفر والمصاريف النهائية !`;
 
       } else if (currentLang === 'en') {
         msg = 
@@ -1393,8 +1393,16 @@ Je souhaite réserver le véhicule suivant :
         return false;
       }
 
-      // Rule 2 – strip everything that's not a digit, count exactly 10
-      const digits = raw.replace(/\D/g, '');
+      // Rule 2 – strip everything that's not a digit, normalize Moroccan prefixes, count exactly 10
+      let digits = raw.replace(/\D/g, '');
+      if (digits.startsWith('00212') && digits.length === 14) {
+        digits = '0' + digits.slice(5);
+        if (phoneInput && phoneInput.value !== digits) phoneInput.value = digits;
+      } else if ((raw.trim().startsWith('+212') || digits.startsWith('212')) && digits.length === 12) {
+        digits = '0' + digits.slice(3);
+        if (phoneInput && phoneInput.value !== digits) phoneInput.value = digits;
+      }
+
       if (digits.length !== 10) {
         showFieldError('clientPhoneError', t('error_phone_invalid'));
         return false;
@@ -1527,7 +1535,8 @@ Je souhaite réserver le véhicule suivant :
         phoneInput.addEventListener('paste', (e) => {
           e.preventDefault();
           const pasted = (e.clipboardData || window.clipboardData).getData('text');
-          const digitsOnly = pasted.replace(/\D/g, '');
+          let digitsOnly = pasted.replace(/\D/g, '');
+          if (digitsOnly.startsWith('212') && digitsOnly.length === 12) digitsOnly = '0' + digitsOnly.slice(3);
           const cur = phoneInput.value;
           const start = phoneInput.selectionStart;
           const end   = phoneInput.selectionEnd;
@@ -1537,7 +1546,8 @@ Je souhaite réserver le véhicule suivant :
         // Live validation as user types
         phoneInput.addEventListener('input', () => {
           // Strip any non-digit characters automatically
-          const cleaned = phoneInput.value.replace(/\D/g, '');
+          let cleaned = phoneInput.value.replace(/\D/g, '');
+          if (cleaned.startsWith('212') && cleaned.length === 12) cleaned = '0' + cleaned.slice(3);
           if (phoneInput.value !== cleaned) phoneInput.value = cleaned;
           if (phoneInput.value.length > 0) validatePhoneField();
           else clearFieldError('clientPhoneError');
@@ -1618,39 +1628,39 @@ Je souhaite réserver le véhicule suivant :
       const docCount = Object.values(uploadedDocs).filter(Boolean).length;
       const docsRowHtml = docCount > 0 
         ? `<div class="flex justify-between border-b border-slate-200 pb-1 text-xs text-emerald-700 font-semibold">
-             <span>${currentLang === 'ar' ? 'الوثائق المرفقة :' : (currentLang === 'en' ? 'Attached Docs:' : 'Documents :')}</span>
+             <span>${currentLang === 'ar' ? 'الوثائق المرفقة:' : (currentLang === 'en' ? 'Attached Docs:' : 'Documents :')}</span>
              <span>${docCount}/4 ${currentLang === 'ar' ? 'وثائق مرفقة (تسريع الاستلام)' : (currentLang === 'en' ? 'attached (fast-track)' : 'pièces fournies (coupe-file)')}</span>
            </div>`
         : '';
 
       const detailsHtml = `
         <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'السيارة :' : (currentLang === 'en' ? 'Vehicle:' : 'Véhicule :')}</span>
+          <span class="text-slate-500">${currentLang === 'ar' ? 'السيارة:' : (currentLang === 'en' ? 'Vehicle:' : 'Véhicule :')}</span>
           <strong class="text-slate-900">${car.name}</strong>
         </div>
         <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'التواريخ :' : (currentLang === 'en' ? 'Dates:' : 'Dates :')}</span>
+          <span class="text-slate-500">${currentLang === 'ar' ? 'التواريخ:' : (currentLang === 'en' ? 'Dates:' : 'Dates :')}</span>
           <span class="text-slate-800">${pickupDate} &rarr; ${returnDate} (${days} j)</span>
         </div>
         <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'الاستلام :' : (currentLang === 'en' ? 'Pickup:' : 'Prise en charge :')}</span>
+          <span class="text-slate-500">${currentLang === 'ar' ? 'الاستلام:' : (currentLang === 'en' ? 'Pickup:' : 'Prise en charge :')}</span>
           <span class="text-slate-800">${pickupCityLabel} — ${pickupLocation}</span>
         </div>
         <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'الإرجاع :' : (currentLang === 'en' ? 'Return:' : 'Restitution :')}</span>
+          <span class="text-slate-500">${currentLang === 'ar' ? 'الإرجاع:' : (currentLang === 'en' ? 'Return:' : 'Restitution :')}</span>
           <span class="text-slate-800">${returnCityLabel} — ${returnLocation}</span>
         </div>
         <div class="flex justify-between border-b border-slate-200 pb-1 text-xs text-amber-700 font-semibold">
-          <span>${currentLang === 'ar' ? 'مصاريف التوصيل :' : (currentLang === 'en' ? 'Delivery fees:' : 'Frais de livraison :')}</span>
-          <span>${currentLang === 'ar' ? 'يتم التأكيد عبر WhatsApp' : (currentLang === 'en' ? 'To confirm via WhatsApp' : 'À confirmer via WhatsApp')}</span>
+          <span>${currentLang === 'ar' ? 'مصاريف التوصيل:' : (currentLang === 'en' ? 'Delivery fees:' : 'Frais de livraison :')}</span>
+          <span>${currentLang === 'ar' ? 'يُؤكَّد عبر واتساب' : (currentLang === 'en' ? 'To confirm via WhatsApp' : 'À confirmer via WhatsApp')}</span>
         </div>
         ${docsRowHtml}
         <div class="flex justify-between border-b border-slate-200 pb-1">
-          <span class="text-slate-500">${currentLang === 'ar' ? 'الزبون :' : (currentLang === 'en' ? 'Client:' : 'Client :')}</span>
+          <span class="text-slate-500">${currentLang === 'ar' ? 'العميل:' : (currentLang === 'en' ? 'Client:' : 'Client :')}</span>
           <span class="text-slate-800">${clientName} (${clientPhone})</span>
         </div>
         <div class="flex justify-between pt-1">
-          <span class="font-bold text-slate-700">${currentLang === 'ar' ? 'المجموع التقديري :' : (currentLang === 'en' ? 'Estimated Total:' : 'Total location estimé :')}</span>
+          <span class="font-bold text-slate-700">${currentLang === 'ar' ? 'المجموع التقديري:' : (currentLang === 'en' ? 'Estimated Total:' : 'Total location estimé :')}</span>
           <strong class="text-brand-gold text-sm">${totalMAD} MAD (~${totalEUR} €)</strong>
         </div>
       `;
@@ -1938,7 +1948,7 @@ Je souhaite réserver le véhicule suivant :
       const heading = document.getElementById('rStepHeading');
       if (heading) heading.textContent = RESERVATION_STEP_HEADINGS[reservationStep][currentLang] || RESERVATION_STEP_HEADINGS[reservationStep].fr;
       const count = document.getElementById('rStepCount');
-      if (count) count.textContent = (currentLang === 'ar') ? ('خطوة ' + reservationStep + ' / 5')
+      if (count) count.textContent = (currentLang === 'ar') ? ('الخطوة ' + reservationStep + ' من 5')
         : (currentLang === 'en' ? ('Step ' + reservationStep + ' / 5') : ('Étape ' + reservationStep + ' / 5'));
 
       const back = document.getElementById('rBackBtn');
