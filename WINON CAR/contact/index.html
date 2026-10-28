@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="c_meta_title">Contact | WINON CAR — Location de voitures à Agadir</title>
+  <meta name="description" content="Contactez WINON CAR pour la location de voitures à Agadir : formulaire de demande, WhatsApp et téléphone. Livraison à l'aéroport Al-Massira, en ville et aux hôtels, selon les modalités disponibles.">
+
+  <link rel="icon" type="image/jpeg" href="../winon-logo.jpeg">
+  <link rel="apple-touch-icon" href="../winon-logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+        colors: { brand: {
+          gold: '#D4AF37', goldHover: '#C5A059', goldLight: '#FDF8EC',
+          dark: '#0B132B', navy: '#1C2541', slate: '#3A506B',
+          whatsapp: '#25D366', whatsappHover: '#1EBE5D' } },
+        fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], arabic: ['"Tajawal"', 'sans-serif'] }
+      } }
+    }
+  </script>
+
+  <script src="../assets/translations.js"></script>
+  <link rel="stylesheet" href="../assets/css/landing.css">
+  <style>
+    .cf-input, .cf-select, .cf-textarea {
+      width: 100%; border: 1px solid #CBD5E1; border-radius: 0.625rem;
+      padding: 0 0.85rem; height: 2.75rem; font-size: 0.9rem; background: #fff; color: #0f172a;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .cf-textarea { height: auto; padding: 0.6rem 0.85rem; resize: vertical; min-height: 6rem; }
+    .cf-input:focus, .cf-select:focus, .cf-textarea:focus {
+      outline: none; border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,.22);
+    }
+    .cf-input.invalid, .cf-select.invalid, .cf-textarea.invalid {
+      border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220,38,38,.15);
+    }
+    .cf-error { color: #dc2626; font-size: .75rem; line-height: 1.1; display: block; }
+    .cf-error:not(:empty) { margin-top: .3rem; }
+    .cf-field { min-width: 0; }
+    html[dir="rtl"] .cf-input, html[dir="rtl"] .cf-select, html[dir="rtl"] .cf-textarea { text-align: right; }
+    @media (prefers-reduced-motion: reduce) { .cf-input, .cf-select, .cf-textarea { transition: none; } }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-white bg-slate-50 pb-20 lg:pb-0">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-brand-dark text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+        <span class="flex items-center gap-1.5 text-brand-gold font-semibold">
+          <i class="fa-solid fa-map-pin"></i> <span data-i18n="top_location">Agadir, Maroc</span>
+        </span>
+        <span class="hidden md:inline text-slate-600">•</span>
+        <span class="flex items-center gap-1.5 text-slate-300">
+          <i class="fa-solid fa-plane-arrival text-brand-gold"></i> <span data-i18n="top_delivery">Livraison gratuite Aéroport Al-Massira (AGA) &amp; Hôtels</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+212604707847" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 font-medium">
+          <i class="fa-solid fa-phone text-brand-gold"></i> +212 604-707847
+        </a>
+        <span class="text-slate-600">|</span>
+        <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20des%20informations%20pour%20une%20location%20à%20Agadir." target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-bold">
+          <i class="fa-brands fa-whatsapp text-sm"></i> <span data-i18n="top_whatsapp">WhatsApp 24/7</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-sm border border-slate-200 overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center p-0.5">
+            <img src="../winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-brand-dark flex items-center gap-1">
+              WINON <span class="gold-text-gradient font-black">CAR</span>
+            </span>
+            <span class="text-[10px] tracking-widest text-slate-500 font-bold uppercase -mt-1">
+              Agadir • Location de Voitures
+            </span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-bold text-slate-700 whitespace-nowrap">
+          <a href="../#accueil" class="hover:text-brand-gold transition-colors" data-i18n="nav_home">Accueil</a>
+          <a href="../vehicles/" class="hover:text-brand-gold transition-colors" data-i18n="nav_cars">Nos véhicules</a>
+          <a href="../about/" class="hover:text-brand-gold transition-colors" data-i18n="nav_about">À propos</a>
+          <a href="./" class="text-brand-gold" aria-current="page" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-3">
+          <div class="inline-flex items-center bg-slate-100 rounded-xl p-1 border border-slate-200 text-xs font-black shadow-inner">
+            <button type="button" onclick="setLanguage('fr')" data-lang-btn="fr" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold">FR</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-bold">EN</button>
+            <button type="button" onclick="setLanguage('ar')" data-lang-btn="ar" class="lang-switch-btn px-2.5 py-1 rounded-lg transition-all font-arabic font-bold text-sm">عربي</button>
+          </div>
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Contacter WINON CAR sur WhatsApp" title="WhatsApp"
+             class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-whatsapp hover:bg-brand-whatsappHover text-white shadow-sm transition-all hover:scale-105 shrink-0">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+          </a>
+          <a href="../reservation/" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-5 h-11 rounded-xl font-bold text-sm transition-all shadow-md whitespace-nowrap">
+            <i class="fa-solid fa-calendar-check text-brand-gold"></i>
+            <span data-i18n="nav_reserve">Réserver</span>
+          </a>
+        </div>
+
+        <div class="flex lg:hidden items-center gap-2">
+          <div class="inline-flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200 text-[11px] font-bold">
+            <button type="button" onclick="setLanguage('fr')" data-lang-btn="fr" class="lang-switch-btn px-2 py-0.5 rounded transition-all">FR</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" class="lang-switch-btn px-2 py-0.5 rounded transition-all">EN</button>
+            <button type="button" onclick="setLanguage('ar')" data-lang-btn="ar" class="lang-switch-btn px-2 py-0.5 rounded transition-all font-arabic">عربي</button>
+          </div>
+          <button id="mobileMenuBtn" aria-label="Ouvrir le menu" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+            <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 shadow-xl transition-all">
+      <nav class="flex flex-col gap-2 text-base font-semibold text-slate-800">
+        <a href="../#accueil" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_home">Accueil</span><i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="../vehicles/" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_cars">Nos véhicules</span><i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="../about/" class="mobile-link py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_about">À propos</span><i class="fa-solid fa-chevron-right text-xs text-slate-300"></i>
+        </a>
+        <a href="./" class="mobile-link py-2.5 px-3 rounded-lg bg-brand-goldLight text-brand-gold flex items-center justify-between">
+          <span data-i18n="nav_contact">Contact</span><i class="fa-solid fa-chevron-right text-xs text-brand-gold"></i>
+        </a>
+        <div class="pt-4 border-t border-slate-100 flex flex-col gap-2.5 mt-2">
+          <a href="../reservation/" class="flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-white py-3 rounded-xl font-bold text-center shadow">
+            <span data-i18n="nav_reserve">Réserver</span><i class="fa-solid fa-arrow-right text-xs text-brand-gold"></i>
+          </a>
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20réserver%20un%20véhicule%20à%20Agadir."
+             target="_blank" rel="noopener noreferrer"
+             class="flex items-center justify-center gap-2 bg-brand-whatsapp text-white py-3 rounded-xl font-bold text-center shadow">
+            <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp (+212 604-707847)
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="relative bg-brand-dark text-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 relative z-10">
+      <nav class="text-xs text-slate-400 font-semibold mb-5" aria-label="Fil d'Ariane">
+        <a href="../" class="hover:text-brand-gold" data-i18n="nav_home">Accueil</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-slate-200" data-i18n="nav_contact">Contact</span>
+      </nav>
+      <span class="inline-flex items-center gap-2 text-brand-gold text-xs sm:text-sm font-bold uppercase tracking-wide mb-4">
+        <i class="fa-regular fa-comments"></i> <span data-i18n="c_eyebrow">Contact</span>
+      </span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4" data-i18n="c_title">Comment pouvons-nous vous aider ?</h1>
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl" data-i18n="c_desc">Une question sur la location d'une voiture à Agadir ? Dites-nous ce dont vous avez besoin et notre équipe vous aidera à préparer votre séjour.</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+      <!-- FORM COLUMN -->
+      <div class="lg:col-span-3 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-7">
+        <h2 class="text-xl font-extrabold text-brand-dark mb-1" data-i18n="c_form_title">Votre demande</h2>
+        <p class="text-xs text-slate-500 mb-5" data-i18n="c_required_note">Les champs marqués * sont obligatoires.</p>
+
+        <form id="contactForm" novalidate class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="cf-field">
+              <label for="cfName" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_name_label">Nom complet</span> <span class="text-red-500">*</span></label>
+              <input id="cfName" name="name" type="text" autocomplete="name" class="cf-input" data-i18n-ph="c_name_ph" aria-required="true" aria-describedby="err-cfName">
+              <span class="cf-error" id="err-cfName" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="cf-field">
+              <label for="cfPhone" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_phone_label">Téléphone</span> <span class="text-red-500">*</span></label>
+              <input id="cfPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="cf-input" data-i18n-ph="c_phone_ph" aria-required="true" aria-describedby="help-cfPhone err-cfPhone">
+              <span class="block text-[11px] text-slate-400 mt-1" id="help-cfPhone" data-i18n="c_phone_help">Format international ou marocain (06/07…).</span>
+              <span class="cf-error" id="err-cfPhone" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div>
+            <label for="cfEmail" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_email_label">E-mail</span> <span class="text-[11px] font-semibold text-slate-400 normal-case" data-i18n="c_optional">Optionnel</span></label>
+            <input id="cfEmail" name="email" type="email" autocomplete="email" class="cf-input" data-i18n-ph="c_email_ph" aria-describedby="err-cfEmail">
+            <span class="cf-error" id="err-cfEmail" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="cf-field">
+              <label for="cfType" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_type_label">Type de demande</span> <span class="text-red-500">*</span></label>
+              <select id="cfType" name="type" class="cf-select" aria-required="true" aria-describedby="err-cfType">
+                <option value="" data-i18n="c_type_ph">Sélectionnez…</option>
+                <option value="general" data-i18n="c_type_general">Question générale</option>
+                <option value="availability" data-i18n="c_type_availability">Disponibilité d'un véhicule</option>
+                <option value="reservation" data-i18n="c_type_reservation">Aide à la réservation</option>
+                <option value="pricing" data-i18n="c_type_pricing">Tarifs et livraison</option>
+                <option value="conditions" data-i18n="c_type_conditions">Conditions et documents</option>
+                <option value="partnership" data-i18n="c_type_partnership">Partenariat / entreprise</option>
+                <option value="other" data-i18n="c_type_other">Autre</option>
+              </select>
+              <span class="cf-error" id="err-cfType" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="cf-field">
+              <label for="cfSubject" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_subject_label">Objet</span> <span class="text-red-500">*</span></label>
+              <input id="cfSubject" name="subject" type="text" class="cf-input" data-i18n-ph="c_subject_ph" aria-required="true" aria-describedby="err-cfSubject">
+              <span class="cf-error" id="err-cfSubject" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div>
+            <label for="cfMessage" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_message_label">Message</span> <span class="text-red-500">*</span></label>
+            <textarea id="cfMessage" name="message" class="cf-textarea" maxlength="1000" data-i18n-ph="c_message_ph" aria-required="true" aria-describedby="help-cfMessage err-cfMessage"></textarea>
+            <div class="flex items-center justify-between mt-1">
+              <span class="text-[11px] text-slate-400" id="help-cfMessage" data-i18n="c_message_help">Entre 10 et 1000 caractères.</span>
+              <span class="text-[11px] text-slate-400"><span id="cfCount">0</span>/1000</span>
+            </div>
+            <span class="cf-error" id="err-cfMessage" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="cf-field">
+              <label for="cfMethod" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_method_label">Moyen de contact préféré</span> <span class="text-[11px] font-semibold text-slate-400 normal-case" data-i18n="c_optional">Optionnel</span></label>
+              <select id="cfMethod" name="method" class="cf-select">
+                <option value="" data-i18n="c_method_none">Sans préférence</option>
+                <option value="whatsapp" data-i18n="c_method_whatsapp">WhatsApp</option>
+                <option value="phone" data-i18n="c_method_phone">Téléphone</option>
+              </select>
+            </div>
+            <div class="cf-field">
+              <label for="cfTime" class="block text-sm font-bold text-slate-800 mb-1.5"><span data-i18n="c_time_label">Moment préféré</span> <span class="text-[11px] font-semibold text-slate-400 normal-case" data-i18n="c_optional">Optionnel</span></label>
+              <select id="cfTime" name="time" class="cf-select">
+                <option value="" data-i18n="c_time_any">Peu importe</option>
+                <option value="morning" data-i18n="c_time_morning">Matin</option>
+                <option value="afternoon" data-i18n="c_time_afternoon">Après-midi</option>
+                <option value="evening" data-i18n="c_time_evening">Soir</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-1">
+            <button type="submit" id="cfSubmit" class="flex-1 gold-gradient hover:opacity-95 text-brand-dark px-6 h-12 rounded-xl font-extrabold shadow-md transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span data-i18n="c_submit">Envoyer le message</span>
+            </button>
+            <button type="button" id="cfReset" class="sm:w-auto bg-transparent hover:bg-slate-100 text-slate-500 hover:text-slate-700 border border-slate-200 px-5 h-12 rounded-xl font-semibold text-sm transition-colors flex items-center justify-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400">
+              <i class="fa-solid fa-rotate-left text-xs"></i>
+              <span data-i18n="c_reset">Réinitialiser</span>
+            </button>
+          </div>
+
+          <!-- Status + fallback -->
+          <div id="cfStatus" class="hidden rounded-xl p-3.5 text-sm" role="status" aria-live="polite"></div>
+          <a id="cfFallback" href="#" target="_blank" rel="noopener noreferrer" class="hidden items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-6 h-12 rounded-xl font-bold transition-colors">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="c_fallback">La discussion ne s'est pas ouverte ? Cliquez ici pour continuer.</span>
+          </a>
+        </form>
+      </div>
+
+      <!-- INFO COLUMN -->
+      <aside class="lg:col-span-2 space-y-5">
+        <div class="bg-brand-dark text-white rounded-2xl p-6 shadow-sm">
+          <h2 class="text-lg font-extrabold mb-1.5" data-i18n="c_info_title">Nos coordonnées</h2>
+          <p class="text-slate-300 text-sm mb-5" data-i18n="c_info_desc">Disponible 24h/24 et 7j/7 pour organiser votre location à Agadir.</p>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-phone text-brand-gold mt-1 w-4 text-center"></i>
+              <a href="tel:+212604707847" class="font-semibold hover:text-brand-gold">+212 604-707847</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-brands fa-whatsapp text-brand-whatsapp mt-1 w-4 text-center"></i>
+              <a href="https://wa.me/212604707847" target="_blank" rel="noopener noreferrer" class="font-semibold hover:text-brand-gold">WhatsApp : +212 604-707847</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-regular fa-clock text-brand-gold mt-1 w-4 text-center"></i>
+              <span><span class="text-slate-400" data-i18n="c_hours_label">Horaires</span> : <span data-i18n="c_hours_val">24h/24 • 7j/7</span></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-brand-gold mt-1 w-4 text-center"></i>
+              <span><span class="text-slate-400" data-i18n="c_loc_label">Zone</span> : <span data-i18n="c_loc_val">Agadir, Maroc • Aéroport Al-Massira</span></span>
+            </li>
+          </ul>
+          <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20des%20informations%20pour%20une%20location%20à%20Agadir."
+             target="_blank" rel="noopener noreferrer"
+             class="mt-6 w-full bg-brand-whatsapp hover:bg-brand-whatsappHover text-white h-12 rounded-xl font-bold shadow transition-colors flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span data-i18n="c_wa_direct">Discuter sur WhatsApp</span>
+          </a>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
+          <iframe title="WINON CAR — Agadir Al-Massira"
+            src="https://www.google.com/maps?q=A%C3%A9roport%20Agadir%20Al%20Massira&output=embed"
+            width="100%" height="220" style="border:0; display:block;" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-dark text-slate-300 pt-14 pb-12 border-t border-slate-800 mt-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-white p-0.5 shadow-md overflow-hidden shrink-0 flex items-center justify-center">
+              <img src="../winon-logo.jpeg" alt="WINON CAR Agadir Logo" class="w-full h-full object-contain rounded-full">
+            </div>
+            <div>
+              <span class="text-2xl font-black text-white">WINON <span class="gold-text-gradient font-black">CAR</span></span>
+              <span class="block text-[10px] tracking-widest text-slate-400 font-bold uppercase">Agadir • Location de Voitures</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="footer_about">
+            Votre partenaire pour la location de voitures à Agadir. Prise en charge à l'aéroport Al-Massira, en ville et aux hôtels, selon les modalités disponibles.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Navigation</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-400">
+            <li><a href="../#accueil" class="hover:text-brand-gold transition-colors" data-i18n="nav_home">Accueil</a></li>
+            <li><a href="../vehicles/" class="hover:text-brand-gold transition-colors" data-i18n="nav_cars">Nos véhicules</a></li>
+            <li><a href="../about/" class="hover:text-brand-gold transition-colors" data-i18n="nav_about">À propos</a></li>
+            <li><a href="../reservation/" class="hover:text-brand-gold transition-colors" data-i18n="nav_reserve">Réserver</a></li>
+          </ul>
+        </div>
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider" data-i18n="c_info_title">Nos coordonnées</h4>
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-phone text-brand-gold"></i>
+              <a href="tel:+212604707847" class="hover:text-white font-semibold">+212 604-707847</a>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-brands fa-whatsapp text-brand-whatsapp text-base"></i>
+              <a href="https://wa.me/212604707847" target="_blank" rel="noopener noreferrer" class="hover:text-white font-semibold">WhatsApp : +212 604-707847</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© <span id="currentYear"></span> WINON CAR Agadir. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+        <p>Location de voitures à Agadir, Maroc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BOTTOM ACTION BAR -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 flex items-center justify-between gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+    <a href="tel:+212604707847" class="flex-1 flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
+      <i class="fa-solid fa-phone text-brand-gold"></i> <span>Appeler</span>
+    </a>
+    <a href="https://wa.me/212604707847?text=Bonjour%20WINON%20CAR,%20je%20souhaite%20louer%20un%20véhicule%20à%20Agadir." target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white py-2.5 px-2 rounded-xl font-bold text-xs shadow transition-colors">
+      <i class="fa-brands fa-whatsapp text-base"></i> <span>WhatsApp</span>
+    </a>
+    <a href="../reservation/" class="flex-1 flex items-center justify-center gap-1.5 bg-brand-dark hover:bg-brand-navy text-white py-2.5 px-2 rounded-xl font-bold text-xs transition-colors">
+      <i class="fa-solid fa-calendar-check text-brand-gold"></i> <span data-i18n="nav_reserve">Réserver</span>
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      const WA_NUMBER = '212604707847';
+      let currentLang = localStorage.getItem('winon_lang') || 'fr';
+      const activeErrors = new Set();
+
+      function dict() {
+        return (typeof WINON_TRANSLATIONS !== 'undefined' && WINON_TRANSLATIONS[currentLang]) ? WINON_TRANSLATIONS[currentLang] : {};
+      }
+      function tr(key, fallback) { const d = dict(); return (d[key] !== undefined) ? d[key] : (fallback || key); }
+
+      window.setLanguage = function (lang) {
+        if (!['fr', 'en', 'ar'].includes(lang)) lang = 'fr';
+        currentLang = lang;
+        localStorage.setItem('winon_lang', lang);
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        document.querySelectorAll('.lang-switch-btn').forEach(btn => {
+          const b = btn.getAttribute('data-lang-btn'); const on = (b === lang);
+          btn.classList.toggle('bg-brand-gold', on);
+          btn.classList.toggle('text-brand-dark', on);
+          btn.classList.toggle('shadow-sm', on);
+          btn.classList.toggle('text-slate-600', !on);
+        });
+        const d = dict();
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const k = el.getAttribute('data-i18n'); if (d[k] !== undefined) el.textContent = d[k];
+        });
+        document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+          const k = el.getAttribute('data-i18n-ph'); if (d[k] !== undefined) el.placeholder = d[k];
+        });
+        if (d.c_meta_title) document.title = d.c_meta_title;
+        // re-render any visible validation errors in the new language
+        activeErrors.forEach(id => validateField(id, false));
+      };
+
+      // ---- Validation ----
+      function setError(fieldId, msgKey) {
+        const field = document.getElementById(fieldId);
+        const err = document.getElementById('err-' + fieldId);
+        if (msgKey) {
+          field.classList.add('invalid'); field.setAttribute('aria-invalid', 'true');
+          err.textContent = tr(msgKey); err.dataset.key = msgKey;
+          activeErrors.add(fieldId); return false;
+        } else {
+          field.classList.remove('invalid'); field.removeAttribute('aria-invalid');
+          err.textContent = ''; delete err.dataset.key; activeErrors.delete(fieldId); return true;
+        }
+      }
+      function val(id) { return (document.getElementById(id).value || '').trim(); }
+
+      function validateField(id, mutate) {
+        // mutate=false means re-translate existing error only
+        const err = document.getElementById('err-' + id);
+        if (mutate === false) { if (err.dataset.key) err.textContent = tr(err.dataset.key); return !err.dataset.key; }
+        switch (id) {
+          case 'cfName': return setError(id, val('cfName').length >= 2 ? null : 'e_name');
+          case 'cfPhone': {
+            const raw = val('cfPhone'); if (!raw) return setError(id, 'e_phone');
+            const digits = raw.replace(/[\s\-().]/g, '');
+            return setError(id, /^\+?\d{8,15}$/.test(digits) ? null : 'e_phone_invalid');
+          }
+          case 'cfEmail': {
+            const v = val('cfEmail'); if (!v) return setError(id, null);
+            return setError(id, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : 'e_email_invalid');
+          }
+          case 'cfType': return setError(id, val('cfType') ? null : 'e_type');
+          case 'cfSubject': return setError(id, val('cfSubject').length >= 2 ? null : 'e_subject');
+          case 'cfMessage': {
+            const v = val('cfMessage'); if (!v) return setError(id, 'e_message');
+            if (v.length < 10) return setError(id, 'e_message_min');
+            if (v.length > 1000) return setError(id, 'e_message_max');
+            return setError(id, null);
+          }
+        }
+        return true;
+      }
+
+      function buildMessage() {
+        const sel = id => { const s = document.getElementById(id); return s.value ? s.options[s.selectedIndex].textContent.trim() : ''; };
+        const L = [];
+        L.push(tr('m_header'));
+        L.push('');
+        L.push(tr('m_type') + ': ' + sel('cfType'));
+        L.push(tr('m_subject') + ': ' + val('cfSubject'));
+        L.push(tr('m_message') + ': ' + val('cfMessage'));
+        L.push('—');
+        L.push(tr('m_name') + ': ' + val('cfName'));
+        L.push(tr('m_phone') + ': ' + val('cfPhone'));
+        if (val('cfEmail')) L.push(tr('m_email') + ': ' + val('cfEmail'));
+        if (sel('cfMethod')) L.push(tr('m_method') + ': ' + sel('cfMethod'));
+        if (sel('cfTime')) L.push(tr('m_time') + ': ' + sel('cfTime'));
+        return L.join('\n');
+      }
+
+      function showStatus(kind, key) {
+        const box = document.getElementById('cfStatus');
+        box.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200', 'bg-amber-50', 'text-amber-800', 'border-amber-200');
+        if (kind === 'ready') { box.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200'); }
+        else { box.classList.add('bg-amber-50', 'text-amber-800', 'border', 'border-amber-200'); }
+        box.textContent = tr(key);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const y = document.getElementById('currentYear'); if (y) y.textContent = new Date().getFullYear();
+        setLanguage(currentLang);
+
+        // Prefill from a vehicle context passed via ?vehicle= (e.g. "Ask About This Car")
+        try {
+          const vehicle = new URLSearchParams(window.location.search).get('vehicle');
+          if (vehicle) {
+            const v = vehicle.trim().slice(0, 120);
+            const typeSel = document.getElementById('cfType');
+            if (typeSel) typeSel.value = 'availability';
+            const subj = document.getElementById('cfSubject');
+            if (subj && !subj.value) subj.value = tr('c_prefill_subject', 'Demande d\'informations') + ' \u2014 ' + v;
+            const msg = document.getElementById('cfMessage');
+            if (msg && !msg.value) {
+              msg.value = tr('c_prefill_msg', 'Bonjour, je souhaite plus d\'informations sur le v\u00e9hicule {vehicle}.').replace('{vehicle}', v);
+              msg.dispatchEvent(new Event('input'));
+            }
+          }
+        } catch (e) { /* no-op: prefill is best-effort */ }
+
+        // mobile menu
+        const btn = document.getElementById('mobileMenuBtn'), menu = document.getElementById('mobileMenu'), icon = document.getElementById('menuIcon');
+        if (btn && menu) {
+          btn.addEventListener('click', () => {
+            const hidden = menu.classList.toggle('hidden');
+            if (icon) { icon.classList.toggle('fa-bars', hidden); icon.classList.toggle('fa-xmark', !hidden); }
+          });
+          document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+            menu.classList.add('hidden'); if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+          }));
+        }
+
+        // char counter
+        const msg = document.getElementById('cfMessage'), count = document.getElementById('cfCount');
+        if (msg && count) { const upd = () => count.textContent = msg.value.length; msg.addEventListener('input', upd); upd(); }
+
+        // blur validation
+        ['cfName', 'cfPhone', 'cfEmail', 'cfType', 'cfSubject', 'cfMessage'].forEach(id => {
+          const el = document.getElementById(id);
+          el.addEventListener('blur', () => validateField(id, true));
+          el.addEventListener('input', () => { if (activeErrors.has(id)) validateField(id, true); });
+          el.addEventListener('change', () => { if (activeErrors.has(id)) validateField(id, true); });
+        });
+
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('cfSubmit');
+        const resetBtn = document.getElementById('cfReset');
+        const fallback = document.getElementById('cfFallback');
+
+        // Clears fields, options, counter, errors and status on native form reset
+        form.addEventListener('reset', () => {
+          activeErrors.forEach(id => setError(id, null)); activeErrors.clear();
+          document.getElementById('cfStatus').classList.add('hidden');
+          fallback.classList.add('hidden'); fallback.classList.remove('flex');
+          if (count) setTimeout(() => count.textContent = '0', 0);
+        });
+
+        // Reset button: confirm only when the user has entered data
+        function formHasData() {
+          return ['cfName', 'cfPhone', 'cfEmail', 'cfType', 'cfSubject', 'cfMessage', 'cfMethod', 'cfTime']
+            .some(id => (document.getElementById(id).value || '').trim() !== '');
+        }
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            if (formHasData() && !window.confirm(tr('c_reset_confirm'))) return;
+            form.reset();
+          });
+        }
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const order = ['cfName', 'cfPhone', 'cfEmail', 'cfType', 'cfSubject', 'cfMessage'];
+          let firstInvalid = null;
+          order.forEach(id => { const ok = validateField(id, true); if (!ok && !firstInvalid) firstInvalid = id; });
+          if (firstInvalid) { document.getElementById(firstInvalid).focus(); return; }
+
+          if (submitBtn.disabled) return;         // prevent duplicate clicks
+          submitBtn.disabled = true;
+
+          const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(buildMessage());
+          // open from the user gesture
+          const win = window.open(url, '_blank', 'noopener');
+          if (!win) {
+            // popup blocked -> show fallback link the user can click
+            fallback.setAttribute('href', url);
+            fallback.classList.remove('hidden'); fallback.classList.add('flex');
+            showStatus('ready', 'c_status_ready');
+          } else {
+            fallback.setAttribute('href', url);
+            fallback.classList.remove('hidden'); fallback.classList.add('flex');
+            showStatus('ready', 'c_status_ready');
+          }
+          // re-enable shortly so the user can retry / resend
+          setTimeout(() => { submitBtn.disabled = false; }, 1200);
+        });
+      });
+    })();
+  </script>
+
+  <!-- BACK TO TOP BUTTON (styling: assets/css/landing.css #backToTopBtn) -->
+  <button type="button" id="backToTopBtn" aria-label="Haut de page" title="Haut de page">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+  <script src="../assets/js/back-to-top.js" defer></script>
+</body>
+</html>

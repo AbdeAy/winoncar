@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toute la flotte | WINON CAR — Location de Voitures à Agadir</title>
+  <meta name="description" content="Parcourez toute la flotte WINON CAR à Agadir : citadines économiques, berlines, SUV et véhicules de prestige. Recherche, filtres et tarifs transparents en MAD.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/jpeg" href="../winon-logo.jpeg">
+  <link rel="apple-touch-icon" href="../winon-logo.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: {
+        gold: '#D4AF37', goldHover: '#C5A059', goldLight: '#FDF8EC',
+        dark: '#0B132B', navy: '#1C2541', slate: '#3A506B',
+        whatsapp: '#25D366', whatsappHover: '#1EBE5D'
+      } }, fontFamily: { sans: ['"Plus Jakarta Sans"','sans-serif'], arabic: ['"Tajawal"','sans-serif'] } } }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/landing.css">
+  <link rel="stylesheet" href="../assets/css/vehicles.css">
+</head>
+<body class="text-slate-800 bg-slate-50">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between min-h-[4.5rem] py-3">
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="relative w-11 h-11 rounded-full bg-white shadow-sm border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center p-0.5">
+            <img src="../winon-logo.jpeg" alt="WINON CAR Agadir" class="w-full h-full object-contain rounded-full">
+          </div>
+          <span class="text-xl font-black tracking-tight text-brand-dark">WINON <span class="gold-text-gradient">CAR</span></span>
+        </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="tel:+212604707847" class="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-brand-gold whitespace-nowrap">
+            <i class="fa-solid fa-phone text-brand-gold"></i> +212 604-707847
+          </a>
+          <a href="../reservation/" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-white px-4 h-11 rounded-xl font-bold text-sm whitespace-nowrap">
+            <i class="fa-solid fa-calendar-check text-brand-gold"></i> Réserver
+          </a>
+          <a href="../" class="inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-brand-dark px-3 py-2 rounded-xl hover:bg-slate-100 whitespace-nowrap">
+            <i class="fa-solid fa-arrow-left text-xs"></i> <span class="hidden sm:inline">Retour au site</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="res-hero border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-gold mb-2 block">Notre flotte</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-brand-dark">Toute la flotte WINON CAR</h1>
+      <p class="mt-2 text-slate-500 font-medium max-w-2xl">Citadines économiques, berlines, SUV et véhicules de prestige — trouvez la voiture idéale pour votre séjour à Agadir. Tarifs transparents en MAD, kilométrage illimité.</p>
+    </div>
+  </section>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Controls -->
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 mb-6">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-3">
+        <div class="relative flex-1">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input id="fleetSearch" type="search" placeholder="Rechercher une marque ou un modèle (ex. Clio, Duster…)" aria-label="Rechercher un véhicule" class="fleet-field w-full pl-11">
+        </div>
+        <div class="flex items-center gap-3">
+          <label class="text-xs font-bold text-slate-500 whitespace-nowrap" for="fleetSort">Trier :</label>
+          <select id="fleetSort" class="fleet-field" aria-label="Trier les véhicules">
+            <option value="default">Pertinence</option>
+            <option value="price_asc">Prix croissant</option>
+            <option value="price_desc">Prix décroissant</option>
+            <option value="name">Nom (A → Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Category chips -->
+      <div id="fleetCategories" class="flex flex-wrap gap-2 mt-4">
+        <button class="filter-btn active px-4 py-2 rounded-xl text-sm font-bold transition-all bg-brand-dark text-white shadow-sm" data-category="all">Toutes</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="eco">Économiques</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="berline">Berlines</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="suv">SUV &amp; 4x4</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="luxe">Luxe &amp; Prestige</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-sm font-bold transition-all bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="auto">Automatiques</button>
+      </div>
+
+      <!-- Advanced filters (collapsible) -->
+      <details class="mt-4 group">
+        <summary class="cursor-pointer select-none text-sm font-bold text-brand-dark inline-flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-brand-gold"></i> Filtres avancés
+          <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1.5" for="fleetTransmission">Transmission</label>
+            <select id="fleetTransmission" class="fleet-field w-full">
+              <option value="all">Toutes</option>
+              <option value="auto">Automatique</option>
+              <option value="manual">Manuelle</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1.5" for="fleetFuel">Carburant</label>
+            <select id="fleetFuel" class="fleet-field w-full"><option value="all">Tous</option></select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1.5" for="fleetSeats">Places</label>
+            <select id="fleetSeats" class="fleet-field w-full"><option value="all">Toutes</option></select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1.5" for="fleetPrice">Budget / jour</label>
+            <select id="fleetPrice" class="fleet-field w-full">
+              <option value="all">Tous les prix</option>
+              <option value="lt350">Moins de 350 MAD</option>
+              <option value="350_500">350 – 500 MAD</option>
+              <option value="gt500">Plus de 500 MAD</option>
+            </select>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- Result count + reset -->
+    <div class="flex items-center justify-between gap-3 mb-5">
+      <p id="fleetCount" class="text-sm font-bold text-slate-600" aria-live="polite">Chargement…</p>
+      <button id="fleetReset" type="button" class="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-brand-dark">
+        <i class="fa-solid fa-rotate-left text-xs"></i> Réinitialiser les filtres
+      </button>
+    </div>
+
+    <!-- States -->
+    <div id="fleetLoading" class="py-16 text-center text-slate-500">
+      <i class="fa-solid fa-spinner fa-spin text-2xl text-brand-gold"></i>
+      <p class="mt-3 font-semibold">Chargement des véhicules…</p>
+    </div>
+    <div id="fleetError" class="hidden py-16 text-center text-slate-500">
+      <i class="fa-solid fa-triangle-exclamation text-2xl text-amber-500"></i>
+      <p class="mt-3 font-semibold">Impossible de charger les véhicules.</p>
+      <button id="fleetRetry" type="button" class="inline-flex items-center gap-2 mt-4 bg-brand-dark text-white px-5 py-2.5 rounded-xl font-bold text-sm"><i class="fa-solid fa-rotate-right"></i> Réessayer</button>
+    </div>
+    <div id="fleetEmpty" class="hidden py-16 text-center text-slate-500">
+      <i class="fa-solid fa-car-side text-3xl text-slate-300"></i>
+      <p class="mt-3 font-semibold">Aucun véhicule ne correspond à vos critères.</p>
+      <button id="fleetEmptyReset" type="button" class="inline-flex items-center gap-2 mt-4 bg-brand-dark hover:bg-brand-navy text-white px-5 py-2.5 rounded-xl font-bold text-sm"><i class="fa-solid fa-rotate-left"></i> Réinitialiser</button>
+    </div>
+
+    <!-- Grid -->
+    <div id="fleetGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-500">
+      <p>© <span id="fleetYear"></span> WINON CAR Agadir — Location de voitures.</p>
+      <div class="flex items-center gap-4">
+        <a href="../" class="hover:text-brand-gold font-semibold">Accueil</a>
+        <a href="../reservation/" class="hover:text-brand-gold font-semibold">Réserver</a>
+        <a href="tel:+212604707847" class="hover:text-brand-gold font-semibold"><i class="fa-solid fa-phone"></i> +212 604-707847</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('fleetYear').textContent = new Date().getFullYear();</script>
+  <script src="../assets/js/vehicles.js"></script>
+
+  <!-- BACK TO TOP BUTTON (styling: assets/css/landing.css #backToTopBtn) -->
+  <button type="button" id="backToTopBtn" aria-label="Haut de page" title="Haut de page">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+  <script src="../assets/js/back-to-top.js" defer></script>
+</body>
+</html>
